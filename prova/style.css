@@ -1,0 +1,168 @@
+  
+  box-nav-header{
+    display: block;
+    background: url(./img/pexels-simon-migaj-747964.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    height: 700px;
+  }
+  
+  nav{
+    height:100px;
+    /*border:2px solid red;*/
+  }
+
+  #flexbox-b{
+    display:flex;
+    height: 80%;
+    /*border: 2px solid pink;*/
+    justify-content: space-around;
+  }
+
+  .flexitem-b{
+    /*background-color: purple;*/
+    margin:3px;
+    flex-grow: 1;
+  }
+
+  .d{
+    flex-grow: 5;
+    margin-left: 10px;
+  }
+
+  .d div{
+    margin-top: 15px;
+    font-size: 35px;
+  }
+
+  .d em{
+    font-size: 25px;
+  }
+
+  .e div{
+    font-size: 23px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .f div{
+    font-size: 23px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .g div{
+    font-size: 23px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .g span {
+    border-radius: 10px;
+    border: 2px solid red;
+    padding: 4px;
+  }
+  
+  header{
+    height:600px;
+  }
+
+  #flexbox-a{
+    display:flex;
+    flex-direction: column;
+    height: 20%;
+    width: 50%;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 25%;
+    /*border: 3px solid red;*/
+    justify-content: space-around;
+  }
+
+  .flexitem-a{
+    /*background-color: purple;*/
+    margin:3px;
+    flex-grow: 1;
+  }
+
+  .a{
+    font-size: 2em;
+    text-align: center;
+  }
+   
+  .b{
+    flex-grow: 2;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  .c div{
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 5px;
+  }
+
+  .c div span {
+    background-color: greenyellow;
+    border-radius: 5px;
+  }
+  
+  section{
+    height:800px;
+    background:coral;
+  }
+
+  #flexbox-c{
+    display: flex;
+    flex-direction: column;
+    height: 23%;
+    width: 50%;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 25%;
+    /*border: 3px solid red;*/
+    align-items: center;
+  }
+
+  .h {
+    text-align: center;
+    /*background-color: purple;*/
+    flex-grow: 1;
+    font-size: 30px;
+    width: 50%;
+    padding-top: 50px;
+  }
+
+  #flexbox-d{
+    display: flex;
+    height: 40%;
+    width: 50%;
+    position: absolute;
+    margin-top: 17%;
+    margin-left: 25%;
+    /*border: 3px solid green;*/
+    justify-content: space-around;
+  }
+
+  .flexitem-d{
+    /*background-color: purple;*/
+    /*border: 2px solid yellow;*/
+    margin:10px;
+    width: 50%;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .k div {
+    font-size: 30px;
+  }
+
+  .l div {
+    font-size: 30px;
+  }
+
+  footer{
+    height:200px;
+    background:black;
+  }
