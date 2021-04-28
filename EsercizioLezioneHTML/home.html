@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home_style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
@@ -17,11 +17,10 @@
         </div>
         <div class="utility">
             <ul class="menu">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">News</a></li>
-                <li><a href="">Read me</a></li>
-                <li class="brwh"><a href="">Take Action</a></li>
+                <li class="flip_menu"><a href="./home.html">Home</a></li>
+                <li class="flip_menu"><a href="">Artista</a></li>
+                <li class="flip_menu"><a href="./opera.html">Opera</a></li>
+                <li class="flip_menu"><a href="">Collezione</a></li>
             </ul>
             <div class="hamburger"><i class="fas fa-bars fa-2x wt"></i></div>
         </div>
@@ -87,10 +86,21 @@
         });
  
     });
+
+    // $(document).ready(function(){
+    //     $( ".menu a" ).hover(function() {
+    //     $( ".menu a" ).animate({ transform: rotate(20deg) }, 'slow');
+    //     });
+    // });
+
+
+    
     
     ScrollReveal().reveal('.reveal', { easing: 'cubic-bezier(.77,.34,.10,1.0)', distance: '150px' , duration: 2000, interval: 600 });
 
-    ScrollReveal().reveal('.flip', { rotate: {x: 90, y:0, z: 90}, duration: 2000});
+    ScrollReveal().reveal('.flip', { rotate: {x: 90, y:0, z: 90}, duration: 2000, mobile: true});
+
+    ScrollReveal().reveal('.flip_menu', { rotate: {x: 0, y:0, z: 90}, duration: 2000, interval: 600, mobile: false});
 
 </script>
 
