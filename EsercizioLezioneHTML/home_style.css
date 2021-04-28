@@ -270,3 +270,11 @@ FOOTER
     height: 30vh;
     width: 100%;
 }
+
+.link_social{
+    color: #fff;
+}
+
+.link_social:hover{
+    color: cornflowerblue;
+}
