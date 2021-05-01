@@ -133,73 +133,7 @@ SPESSORE NERO NAVBAR
     background: black;
 }
 
-
-/* ----------
-SECTION --- HALF_SCREEN
--------------- */
-
-
-.artist_details{
-    display: flex;
-    height: calc(100vh - 100px);
-    border: 2px solid red;
-}
-
-.artist_img{
-    border: 2px solid red; 
-    margin: 20px;
-    margin-top: 20px;
-    height: 95%;
-    width: 50%;
-    min-width: 300px;
-    background: url(./img/284-davinci.jpg) center center;
-    background-size: cover;
-    border-radius: 100%;
-}
-
-.artist_text{
-    border: 2px solid blue; 
-    height: 95%;
-    width: 50vw;
-    padding: 30px;
-    min-width: 300px;
-    margin: 25px 20px;
-    border-radius: 20px;
-    -webkit-box-shadow: 23px 16px 50px -4px #000000; 
-    box-shadow: 23px 16px 50px -4px #000000;
-}
-
-.list_details {
-    margin: -65px;
-}
-
-.list_details li{
-    list-style-type: none;
-    text-align: center;
-}
-
-.list_details div{
-    margin: -50px;
-}
-
-@media (max-width: 768px){
-
-    .artist_details{
-        height: calc(100% - 80px);
-        flex-wrap: wrap
-    }
-
-    .artist_img{
-        height: 500px;
-        width: 100%;
-    }
-
-    .artist_text{
-        width: 100%;
-    }
-}
-
-#artist_biography {
+#collection {
     border: 2px solid green;
     display: flex;
     flex-direction: column;
@@ -207,13 +141,34 @@ SECTION --- HALF_SCREEN
     margin: 10px;
 }
 
-.biography_elements {
+.collection_title {
     height:80px;
     border: 2px solid violet;
     font-size: 4em;
 }
 
-.biography_elements_2 {
+.collection_description {
+    font-size: 2em;
+    flex-grow: 1;
+    border: 2px solid yellow;
+    margin-top: 10px;
+}
+
+#curator {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    margin: 10px;
+}
+
+.curator_title {
+    height:80px;
+    border: 2px solid violet;
+    font-size: 4em;
+}
+
+.curator_description {
     font-size: 2em;
     flex-grow: 1;
     border: 2px solid yellow;
@@ -227,7 +182,7 @@ SECTION --- HALF_SCREEN
     font-size: 4em;
 }
 
-#artworks_artist{
+#artworks_collection{
     display: flex;
     height: 800px;
     border: 2px solid black;
@@ -237,8 +192,8 @@ SECTION --- HALF_SCREEN
 
 .artwork {
     margin: 10px;
-    border: 2px solid red;
     width: 600px;
+    border: 2px solid red;
 }
 
 .artwork_image1{
