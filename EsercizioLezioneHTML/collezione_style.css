@@ -227,6 +227,19 @@ SPESSORE NERO NAVBAR
     margin:auto;
 }
 
+@media (max-width: 768px){
+
+    #artworks_collection{
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .artwork_image1, .artwork_image2, .artwork_image3{
+        height: 70vh;
+    }
+
+}
+
 /* ----------
 FOOTER
 -------------- */
