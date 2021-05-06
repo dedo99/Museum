@@ -17,8 +17,6 @@ h6{font-size: 15px;}
 
 
 
-
-
 .wt{color: white;}
 .brwh{border: 1px solid white; border-radius: 30px; padding: 5px;}
 
@@ -136,7 +134,7 @@ TITOLO PRINCIPALE
 
 #titolo_principale{
     text-align: center;
-    color: cornflowerblue;
+    color: orange;
     text-shadow: 23px 6px 6px rgba(150, 150, 150, 1);
 }
 
@@ -159,7 +157,7 @@ SECTION -- CONTAINER BOX
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: cornflowerblue;
+    background-color: orange;
     -webkit-box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86); 
     box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86);
 }

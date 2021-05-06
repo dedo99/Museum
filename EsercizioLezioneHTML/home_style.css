@@ -148,7 +148,7 @@ SECTION -- FIRST_CONTAINER
 .first_container{
     /* border: 3px solid red; */
     width: 100%;
-    height: 90vh;
+    height: 180vh;
     align-items: center;
     padding: 40px;
 }
