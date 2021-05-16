@@ -3,41 +3,85 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="informazioni.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <title>Informazioni</title>
   </head>
   <body>
-    <table 
-        style="margin-left: auto;
-               margin-right: auto;
-               border: solid red"
-        cellspacing="40"
-      >
-      <caption style="font-size: 55px">
+    <body>
+      <nav class="navbar">
+          <div class="logo_text">
+            <h2>LOGO</h2>
+          </div>
+          <div class="utility">
+            <ul class="menu">
+              <li class="flip_menu"><a href="home.html">Home</a></li>
+              <li class="flip_menu"><a href="artista.html">Artista</a></li>
+              <li class="flip_menu"><a href="opera.html">Opera</a></li>
+              <li class="flip_menu"><a href="collezione.html">Collezione</a></li>
+            </ul>
+            <div class="hamburger"><i class="fas fa-bars fa-2x wt"></i></div>
+          </div>
+        </nav>
+        <div class="spessore_nero_navbar">  </div>
+
+    <table>
+      <caption>
         <p>Orari Di Apertura</p>
       </caption>
       <thead>
-        <tr style="font-size: 30px">
+        <tr>
           <th></th>
-          <th>Lunedì</th>
-          <th>Martedì</th>
-          <th>Mercoledì</th>
-          <th>Giovedì</th>
-          <th>Venerdì</th>
-          <th>Sabato</th>
-          <th>Domenica</th>
+          <th>Mattina</th>
+          <th>Pomeriggio</th>
+          <th>Sera</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-            <td style="font-size: 30px"><strong>Mattina</strong></td>
-            <td style="font-size: 20px">10:00 - 12:00</td>
+            <td class="riga">Lunedì</td>
+            <td>10:00 - 12:00</td>
+            <td>10:00 - 12:00</td>
+            <td>10:00 - 12:00</td>
         </tr>
         <tr>
-            <td style="font-size: 30px"><strong>Pomeriggio</strong></td>
-            <td style="font-size: 20px">10:00 - 12:00</td>
+          <td class="riga">Martedì</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+        </tr>
         <tr>
-            <td style="font-size: 30px"><strong>Sera</strong></td>
-            <td style="font-size: 20px">10:00 - 12:00</td>
+          <td class="riga">Mercoledì</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+        </tr>
+        <tr>
+          <td class="riga">Giovedì</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+        </tr>
+        <tr>
+          <td class="riga">Venerdì</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+        </tr>
+        <tr>
+          <td class="riga">Sabato</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+        </tr>
+        <tr>
+          <td class="riga">Domenica</td>
+          <td class="chiuso">chiuso</td>
+          <td>10:00 - 12:00</td>
+          <td>10:00 - 12:00</td>
+        </tr>
       </tbody>
       <!--<tfoot>
         <tr><td>Totale 1</td><td>Totale 2</td></tr>
@@ -45,17 +89,12 @@
 
 
     </table>
-    <table 
-        style="margin-left: auto;
-               margin-right: auto;
-               border: solid red"
-        cellspacing="40"
-      >
-      <caption style="font-size: 55px">
+    <table>
+      <caption>
         <p>Prezzo Dei Biglietti</p>
       </caption>
       <thead>
-        <tr style="font-size: 30px">
+        <tr>
           <th>Tipo Biglietto</th>
           <th>Feriali</th>
           <th>Festivi</th>
@@ -63,19 +102,58 @@
       </thead>
       <tbody>
         <tr>
-            <td style="font-size: 30px">Bambino</td>
-            <td style="font-size: 20px">5$</td>
+          <td>Intero</td>
+          <td>5$</td>
         </tr>
         <tr>
-            <td style="font-size: 30px">Adulto</td>
-            <td style="font-size: 20px">10$</td>
+          <td>Minori di 6 anni</td>
+          <td>7$</td>
+          <td>10$</td>
+        </tr>
         <tr>
-            <td style="font-size: 30px">Vecchio</td>
-            <td style="font-size: 20px">7$</td>
+          <td>Ridotto 6-18 anni</td>
+          <td>10$</td>
+        </tr>
+        <tr>
+            <td>Ridotto carta "Studente Roma3"</td>
+            <td>7$</td>
+        </tr>
+        <tr>
+          <td>Gruppi scolastici(6-15 anni)</td>
+          <td>7$</td>
+      </tr>
       </tbody>
       <!--<tfoot>
         <tr><td>Totale 1</td><td>Totale 2</td></tr>
       </tfoot>-->
     </table>
+
+    <footer class="footer">
+      <div class="social_footer">
+          <a href="" class="link_social"><i class="fab fa-facebook-square fa-3x flip"></i></a>
+          <a href="" class="link_social"><i class="fab fa-twitter fa-3x flip"></i></a>
+          <a href="" class="link_social"><i class="fab fa-instagram fa-3x flip"></i></a>
+          <a href="" class="link_social"><i class="fab fa-telegram-plane fa-3x flip"></i></a>
+      </div>
+      <div class="content_footer">
+          
+      </div>
+  </footer>
+
+
+  <script>
+    // JQUERY
+    $(document).ready(function () {
+      $(".hamburger").click(function () {
+        $(".menu").toggleClass("menu--open");
+      });
+    });
+
+    ScrollReveal().reveal('.reveal', { easing: 'cubic-bezier(.77,.34,.10,1.0)', distance: '150px' , duration: 2000, interval: 600 });
+
+
+    ScrollReveal().reveal('.flip', { rotate: {x: 90, y:0, z: 90}, duration: 2000, interval: 600, mobile: true});
+
+  </script>
    </body>
 </html>
