@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.home})"> 
+  </head>
+	
+  <body>
+  
+    <header th:replace="fragments/base.html :: navbar"></header>
+    <section class="main_section">
+      <div class="main_section__text reveal">
+        <h3 class="wt">Sono un testo più piccolo</h3>
+        <h1 class="wt">Sono il titolo principale</h1>
+        <p class="wt">Sono una descrizione sotto il titolo</p>
+      </div>
+    </section>
+
+    <section class="first_container">
+      <div class="first_container__content">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, esse ex quisquam dolores ad praesentium 
+           odit maxime saepe cupiditate, consequatur labore laudantium exercitationem pariatur adipisci incidunt similique repellendus 
+           mollitia vero.
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, esse ex quisquam dolores ad praesentium 
+           odit maxime saepe cupiditate, consequatur labore laudantium exercitationem pariatur adipisci incidunt similique repellendus 
+           mollitia vero.</p>
+        <div class="flex_two_box">
+          <div class="box reveal">
+             <div class="box_img1"></div>
+             <div class="box_test">
+                <h4>Seconda foto</h4>
+                <p>Descrizione della seconda foto</p>
+             </div>
+          </div>
+          <div class="box reveal">
+            <div class="box_img2"></div>
+            <div class="box_test">
+              <h4>Seconda foto</h4>
+              <p>Descrizione della seconda foto</p>
+            </div>
+          </div>
+        </div>
+          
+        <div class="flex_two_box">
+          <div class="box reveal">
+            <div class="box_img1"></div>
+            <div class="box_test">
+              <h4>Seconda foto</h4>
+              <p>Descrizione della seconda foto</p>
+            </div>
+          </div>
+          <div class="box reveal">
+            <div class="box_img2"></div>
+            <div class="box_test">
+              <h4>Seconda foto</h4>
+              <p>Descrizione della seconda foto</p>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+    </section>
+    
+    <footer th:replace="fragments/base.html :: footer"></footer>
+    <script th:replace="fragments/base.html :: script"></script>
+  </body>
+</html>
