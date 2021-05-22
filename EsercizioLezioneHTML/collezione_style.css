@@ -49,11 +49,18 @@ HEADER
     color: #fff;
     margin: 0 50px;
     z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.logo_text img{
+    height: 80px;
+    z-index: 10;
 }
 
 .menu{
     display: flex;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
     margin: 0 15px;
     text-decoration: none;
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.0);
@@ -75,6 +82,7 @@ HEADER
 .menu li a:hover{
     border-radius: 10px;
     background: gray;
+    transform: rotate(360deg);
 }
 
 .utility{
@@ -89,7 +97,11 @@ i.fas.fa-bars.fa-2x.wt {
     display: none;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1100px){
+
+    .logo_text{
+        margin: 0 10px;
+    }
 
     .menu{
         position: absolute;
@@ -133,8 +145,12 @@ SPESSORE NERO NAVBAR
     background: black;
 }
 
+/* ----------
+COLLEZIONE
+-------------- */
+
 #collection {
-    border: 2px solid green;
+    border: 4px solid #323EFF;
     display: flex;
     flex-direction: column;
     height: 500px;
@@ -143,19 +159,28 @@ SPESSORE NERO NAVBAR
 
 .collection_title {
     height:80px;
-    border: 2px solid violet;
     font-size: 4em;
+    background-color: #323EFF;
+    color: #fff;
+    text-align: center;
 }
 
 .collection_description {
     font-size: 2em;
     flex-grow: 1;
-    border: 2px solid yellow;
-    margin-top: 10px;
+    /* border: 2px solid yellow; */
+    padding: 10px;
+    background: url(img/schizzo_celeste1.jpg) center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+/* ----------
+CURATORE
+-------------- */
+
 #curator {
-    border: 2px solid green;
+    border: 4px solid #323EFF;
     display: flex;
     flex-direction: column;
     height: 150px;
@@ -164,63 +189,71 @@ SPESSORE NERO NAVBAR
 
 .curator_title {
     height:80px;
-    border: 2px solid violet;
     font-size: 4em;
+    background-color: #323EFF;
+    color: #fff;
+    text-align: center;
 }
 
 .curator_description {
     font-size: 2em;
     flex-grow: 1;
-    border: 2px solid yellow;
-    margin-top: 10px;
+    padding: 10px;
+}
+
+/* ----------
+ARTWORKS
+-------------- */
+
+.artworks{
+    border: 4px solid #323EFF;
+    margin: 10px;
 }
 
 .artworks_title {
     height:85px;
-    border: 2px solid red;
-    margin: 10px;
     font-size: 4em;
+    background-color: #323EFF;
+    color: white;
+    text-align: center;
 }
 
 #artworks_collection{
     display: flex;
-    height: 800px;
+    height: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.artwork{
+    margin: 10px;
+    width: 350px;
+    height: auto;
     border: 2px solid black;
-    margin: 10px;
-    justify-content: space-between;
+    border-radius: 10px;
+    background-color: cadetblue;
 }
 
-.artwork {
-    margin: 10px;
-    width: 600px;
-    border: 2px solid red;
+.artwork_image img{
+    background-size: cover;
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
 }
 
-.artwork_image1{
-    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
-    background-size: cover;
-    border: 2px solid green;
-    width: 100%;
-    height: 85%;
+.artwork a{
+    text-decoration: none;
+    color: black;
 }
-.artwork_image2{
-    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
-    background-size: cover;
-    border: 2px solid green;
-    width: 100%;
-    height: 85%;
-}
-.artwork_image3{
-    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
-    background-size: cover;
-    border: 2px solid green;
-    width: 100%;
-    height: 85%;
+
+.artwork:hover{
+    -webkit-box-shadow: 0px 0px 20px 0px #000000; 
+    box-shadow: 0px 0px 20px 0px #000000;
+    transition: 0.3s;
 }
 
 .artwork_text {
     text-align: center;
-    border:2px solid blue;
 }
 
 .artwork_text h3{

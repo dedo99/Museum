@@ -11,95 +11,73 @@
     <title>Collezioni</title>
 </head>
 <body>
-    <nav class="navbar navbar--opacity">
-        <div class="logo_text">
-          <h2>LOGO</h2>
-        </div>
-        <div class="utility">
-          <ul class="menu">
+  <nav class="navbar">
+    <div class="logo_text">
+        <img src="img/museum-icon.png" alt="">
+        <h3>Museo delle Arti</h3>
+    </div>
+    <div class="utility">
+        <ul class="menu">
             <li class="flip_menu"><a href="home.html">Home</a></li>
-                  <li class="flip_menu"><a href="artista.html">Artista</a></li>
-                  <li class="flip_menu"><a href="opera.html">Opera</a></li>
-                  <li class="flip_menu"><a href="collezione.html">Collezione</a></li>
-                  <li class="flip_menu"><a href="informazioni.html">Informazioni</a></li>
-          </ul>
-          <div class="hamburger"><i class="fas fa-bars fa-2x wt"></i></div>
-        </div>
-      </nav>
+            <li class="flip_menu"><a href="artisti.html">Autori</a></li>
+            <li class="flip_menu"><a href="collezioni.html">Collezioni</a></li>
+            <li class="flip_menu"><a href="informazioni.html">Informazioni</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars fa-2x wt"></i></div>
+    </div>
+  </nav>
   
-      <div class="spessore_nero_navbar"></div>
 
-      <h1 id="titolo_principale">Collezioni</h1>
+  <div class="spessore_nero_navbar"></div>
 
-      <section class="container_box">
-        <div class="box">
-          <div class="info_collection">
-            <h4>Collezione:</h4>
-            <h3>Nome collezione</h3>
-          </div>
-          <div class="info_curator">
-            <h4>Curatore:</h4>
-            <h3>Nome curatore</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="info_collection">
-            <h4>Collezione:</h4>
-            <h3>Nome collezione</h3>
-          </div>
-          <div class="info_curator">
-            <h4>Curatore:</h4>
-            <h3>Nome curatore</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="info_collection">
-            <h4>Collezione:</h4>
-            <h3>Nome collezione</h3>
-          </div>
-          <div class="info_curator">
-            <h4>Curatore:</h4>
-            <h3>Nome curatore</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="info_collection">
-            <h4>Collezione:</h4>
-            <h3>Nome collezione</h3>
-          </div>
-          <div class="info_curator">
-            <h4>Curatore:</h4>
-            <h3>Nome curatore</h3>
-          </div>
-        </div>
-      </section>
 
-      <footer class="footer">
-        <div class="social_footer">
-          <a href="" class="link_social"><i class="fab fa-facebook-square fa-3x flip"></i></a>
-          <a href="" class="link_social"><i class="fab fa-twitter fa-3x flip"></i></a>
-          <a href="" class="link_social"><i class="fab fa-instagram fa-3x flip"></i></a>
-          <a href="" class="link_social"><i class="fab fa-telegram-plane fa-3x flip"></i></a>
+  <h1 id="titolo_principale">Collezioni</h1>
+
+
+  <section class="container_box">
+
+    <div>
+      <a href="collezione.html" class="box">
+        <div class="info_collection">
+          <h4>Collezione:</h4>
+          <h3>Nome collezione</h3>
         </div>
-        <div class="content_footer"></div>
-      </footer>
+        <div class="info_curator">
+          <h4>Curatore:</h4>
+          <h3>Nome curatore</h3>
+        </div>
+      </a>
+    </div>
+
+  </section>
+
+
+  <footer class="footer">
+    <div class="social_footer">
+      <a href="" class="link_social"><i class="fab fa-facebook-square fa-3x flip"></i></a>
+      <a href="" class="link_social"><i class="fab fa-twitter fa-3x flip"></i></a>
+      <a href="" class="link_social"><i class="fab fa-instagram fa-3x flip"></i></a>
+      <a href="" class="link_social"><i class="fab fa-telegram-plane fa-3x flip"></i></a>
+    </div>
+    <div class="content_footer"></div>
+  </footer>
   
-<script>
-  // JQUERY
-  $(document).ready(function () {
-    $(".hamburger").click(function () {
-      $(".menu").toggleClass("menu--open");
+  <script>
+    // JQUERY
+    $(document).ready(function () {
+      $(".hamburger").click(function () {
+        $(".menu").toggleClass("menu--open");
+      });
     });
-  });
 
-  ScrollReveal().reveal('.reveal', { easing: 'cubic-bezier(.77,.34,.10,1.0)', distance: '150px' , duration: 2000, interval: 600 });
-
-
-  ScrollReveal().reveal('.flip', { rotate: {x: 90, y:0, z: 90}, duration: 2000, interval: 600, mobile: true});
+    ScrollReveal().reveal('.reveal', { easing: 'cubic-bezier(.77,.34,.10,1.0)', distance: '150px' , duration: 2000, interval: 600 });
 
 
+    ScrollReveal().reveal('.flip', { rotate: {x: 90, y:0, z: 90}, duration: 2000, interval: 600, mobile: true});
 
-</script>
+
+
+  </script>
     
 </body>
 </html>

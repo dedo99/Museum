@@ -46,6 +46,13 @@ HEADER
     color: #fff;
     margin: 0 50px;
     z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.logo_text img{
+    height: 80px;
+    z-index: 10;
 }
 
 .menu{
@@ -87,7 +94,11 @@ i.fas.fa-bars.fa-2x.wt {
     display: none;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1100px){
+
+    .logo_text{
+        margin: 0 10px;
+    }
 
     .menu{
         position: absolute;
@@ -129,7 +140,8 @@ SECTION --  MAIN_SECTION
 .main_section{
     /* border: 2px solid red; */
     background: linear-gradient(0deg, rgba(253,187,45,0) 0%, rgba(0,0,0,1) 100%), 
-                url(./img/pexels-simon-migaj-747964.jpg) center center;
+                url(./img/home_photo.jpg) center center;
+    background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -165,6 +177,7 @@ SECTION -- FIRST_CONTAINER
 .first_container__content > p{
     /* border: 3px solid red; */
     width: 90%;
+    color: black;
 }
 
 .flex_two_box{
@@ -180,6 +193,7 @@ SECTION -- FIRST_CONTAINER
     /* border: 3px solid purple; */
     width: 45%;
     height: 95%;
+    margin: 0px 20px;
 }
 
 .box_img1{
@@ -277,9 +291,21 @@ FOOTER
     background: black;
     height: 30vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.content_footer h6,p{
+    color: #fff;
+    margin: 10px;
 }
 
 .content_footer a:link, a:visited, a:active{
     color: #fff;
     text-decoration: none;
+}
+
+.content_footer a:hover{
+    color: cornflowerblue;
 }
