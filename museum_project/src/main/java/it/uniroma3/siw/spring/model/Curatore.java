@@ -7,11 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Data
 @NoArgsConstructor
+@SuperBuilder
 public class Curatore {
+	
+	@Id
+	@Column(nullable = false)
+	private String matricola;
 
 	@Column(nullable = false)
 	private String nome;
@@ -31,25 +37,6 @@ public class Curatore {
 	@NonNull
 	private String telefono;
 	
-	@Id
-	@Column(nullable = false)
-	private String matricola;
-	
 	@OneToMany(mappedBy="curatore")
 	private List<Collezione> listaCollezioni;
-	
-	public Curatore(String nome, String cognome, String luogoNascita, LocalDate dataNascita, String email,
-			        String telefono, String matricola) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.luogoNascita = luogoNascita;
-		this.dataNascita = dataNascita;
-		this.email = email;
-		this.telefono = telefono;
-		this.matricola = matricola;
-	}
-
-	public Curatore(List<Collezione> listaCollezioni) {
-		this.listaCollezioni = listaCollezioni;
-	}
 }
