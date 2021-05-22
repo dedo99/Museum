@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-  <head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.home})"> 
-  </head>
+<head>
+	<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.home})"></head>
+	<link th:href="@{/css/home_style.css}" rel="stylesheet">
+</head>
 	
   <body>
   
