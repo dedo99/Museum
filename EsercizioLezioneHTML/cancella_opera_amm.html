@@ -14,7 +14,8 @@
 
     <nav class="navbar">
         <div class="logo_text">
-            <h2>LOGO</h2>
+            <img src="img/museum-icon.png" alt="">
+            <h3>Museo delle Arti</h3>
         </div>
         <div class="utility">
             <ul class="menu">
@@ -53,6 +54,23 @@
             <!-- QUI SI DEVONO CREARE MOLTI box_item -->
         </div>
     </section>
+
+    <script>
+        // JQUERY
+        $(document).ready(function () {
+          $(".hamburger").click(function () {
+            $(".menu").toggleClass("menu--open");
+          });
+        });
+  
+        ScrollReveal().reveal('.reveal', { easing: 'cubic-bezier(.77,.34,.10,1.0)', distance: '150px' , duration: 2000, interval: 600 });
+  
+  
+        ScrollReveal().reveal('.flip', { rotate: {x: 90, y:0, z: 90}, duration: 2000, interval: 600, mobile: true});
+  
+  
+  
+    </script>
     
 </body>
 </html>

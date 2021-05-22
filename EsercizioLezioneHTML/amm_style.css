@@ -47,6 +47,13 @@ HEADER
     color: #fff;
     margin: 0 50px;
     z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.logo_text img{
+    height: 80px;
+    z-index: 10;
 }
 
 .menu{
@@ -89,6 +96,10 @@ i.fas.fa-bars.fa-2x.wt {
 }
 
 @media (max-width: 768px){
+
+    .logo_text{
+        margin: 0 10px;
+    }
 
     .menu{
         position: absolute;
@@ -197,7 +208,7 @@ CHOICE ACTION
     background-color: yellow;
     justify-content: space-around;
     align-items: center;
-    z-index: 10;
+    z-index: 5;
 }
 
 .choice_action a:link, a:visited{
@@ -271,6 +282,7 @@ CONTENT PAGE
     top: 120px;
     left: 0px;
     height: calc(100vh - 120px);
+    min-height: 700px;
     width: 100%;
     display: flex;
     justify-content: space-around;
