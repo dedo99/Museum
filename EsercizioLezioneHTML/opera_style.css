@@ -46,11 +46,18 @@ HEADER
     color: #fff;
     margin: 0 50px;
     z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.logo_text img{
+    height: 80px;
+    z-index: 10;
 }
 
 .menu{
     display: flex;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
     margin: 0 15px;
     text-decoration: none;
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.0);
@@ -72,6 +79,7 @@ HEADER
 .menu li a:hover{
     border-radius: 10px;
     background: gray;
+    transform: rotate(360deg);
 }
 
 .utility{
@@ -86,7 +94,11 @@ i.fas.fa-bars.fa-2x.wt {
     display: none;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1100px){
+
+    .logo_text{
+        margin: 0 10px;
+    }
 
     .menu{
         position: absolute;
@@ -130,6 +142,15 @@ SPESSORE NERO NAVBAR
     background: black;
 }
 
+/* ----------
+IMMAGINE SFONDO 
+-------------- */
+
+.background_img{
+    background: url(img/legno_background.jpg) center center;
+    background-size: cover;
+}
+
 
 /* ----------
 SECTION --- HALF_SCREEN
@@ -139,11 +160,9 @@ SECTION --- HALF_SCREEN
 .container_halfscreen{
     display: flex;
     height: calc(100vh - 80px);
-    border: 2px solid red;
 }
 
 .half_screen_img{
-     border: 2px solid red; 
     height: 100%;
     width: 50vw;
     min-width: 300px;
@@ -152,7 +171,6 @@ SECTION --- HALF_SCREEN
 }
 
 .half_screen_text{
-     border: 2px solid blue; 
     height: 95%;
     width: 50vw;
     padding: 30px;
@@ -161,6 +179,7 @@ SECTION --- HALF_SCREEN
     border-radius: 20px;
     -webkit-box-shadow: 23px 16px 50px -4px #000000; 
     box-shadow: 23px 16px 50px -4px #000000;
+    background: white;
 }
 
 .title_artwork{
@@ -207,12 +226,12 @@ SECTION --- AUTHOR_SECTION
 }
 
 .description_author{
-     border: 2px solid red; 
     margin: 0px 20px;
     width: 50vw;
     border-radius: 20px;
     -webkit-box-shadow: 23px 16px 50px -4px #000000; 
     box-shadow: 23px 16px 50px -4px #000000;
+    background: white;
 }
 
 .name_surname_author{
@@ -220,25 +239,21 @@ SECTION --- AUTHOR_SECTION
 }
 
 .text_author{
-     border: 2px solid blue; 
     padding: 20px;
 }
 
 .img_author{
-     border: 2px solid blue; 
     width: 50vw;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container_img_author{
-    border: 2px solid red; 
+.container_img_author img{
+    border: 2px solid black; 
     border-radius: 100%;
-    width: 400px;
     height: 400px;
-    background: url(./img/284-davinci.jpg) center center;
-    background-size: cover;
+    width: 400px;
 }
 
 

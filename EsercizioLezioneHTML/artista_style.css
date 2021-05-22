@@ -59,11 +59,18 @@ HEADER
     color: #fff;
     margin: 0 50px;
     z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.logo_text img{
+    height: 80px;
+    z-index: 10;
 }
 
 .menu{
     display: flex;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
     margin: 0 15px;
     text-decoration: none;
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.0);
@@ -85,6 +92,7 @@ HEADER
 .menu li a:hover{
     border-radius: 10px;
     background: gray;
+    transform: rotate(360deg);
 }
 
 .utility{
@@ -99,7 +107,11 @@ i.fas.fa-bars.fa-2x.wt {
     display: none;
 }
 
-@media (max-width: 850px){
+@media (max-width: 1100px){
+
+    .logo_text{
+        margin: 0 10px;
+    }
 
     .menu{
         position: absolute;
@@ -152,11 +164,10 @@ SECTION --- HALF_SCREEN
 .artist_details{
     display: flex;
     height: calc(100vh - 100px);
-    border: 2px solid red;
 }
 
 .artist_img{
-    border: 2px solid red; 
+    border: 2px solid orange; 
     margin: 20px;
     margin-top: 20px;
     height: 95%;
@@ -168,7 +179,7 @@ SECTION --- HALF_SCREEN
 }
 
 .artist_text{
-    border: 2px solid blue; 
+    border: 2px solid orange; 
     height: 95%;
     width: 50vw;
     padding: 5px;
@@ -221,7 +232,7 @@ SECTION --- HALF_SCREEN
 }
 
 #artist_biography {
-    border: 2px solid green;
+    border: 4px solid orange;
     display: flex;
     flex-direction: column;
     height: 500px;
@@ -230,63 +241,65 @@ SECTION --- HALF_SCREEN
 
 .biography_elements {
     height:80px;
-    border: 2px solid violet;
     font-size: 4em;
+    background-color: orange;
 }
 
 .biography_elements_2 {
     font-size: 2em;
     flex-grow: 1;
-    border: 2px solid yellow;
-    margin-top: 10px;
+    padding: 10px;
+}
+
+.artworks{
+    border: 4px solid orange;
+    margin: 10px;
 }
 
 .artworks_title {
     height:85px;
-    border: 2px solid red;
-    margin: 10px;
     font-size: 4em;
+    background-color: orange;
+    color: white;
+    text-align: center;
 }
 
 #artworks_artist{
     display: flex;
-    height: 800px;
+    height: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.artwork{
+    margin: 10px;
+    width: 350px;
+    height: auto;
     border: 2px solid black;
-    margin: 10px;
-    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgb(255, 187, 0);
 }
 
-.artwork {
-    margin: 10px;
-    border: 2px solid red;
-    width: 600px;
+.artwork_image img{
+    background-size: cover;
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
 }
 
-.artwork_image1{
-    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
-    background-size: cover;
-    border: 2px solid green;
-    width: 100%;
-    height: 85%;
+.artwork a{
+    text-decoration: none;
+    color: black;
 }
-.artwork_image2{
-    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
-    background-size: cover;
-    border: 2px solid green;
-    width: 100%;
-    height: 85%;
-}
-.artwork_image3{
-    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
-    background-size: cover;
-    border: 2px solid green;
-    width: 100%;
-    height: 85%;
+
+.artwork:hover{
+    -webkit-box-shadow: 0px 0px 20px 0px #000000; 
+    box-shadow: 0px 0px 20px 0px #000000;
+    transition: 0.3s;
 }
 
 .artwork_text {
     text-align: center;
-    border:2px solid blue;
 }
 
 .artwork_text h3{

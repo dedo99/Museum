@@ -46,11 +46,18 @@ HEADER
     color: #fff;
     margin: 0 50px;
     z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.logo_text img{
+    height: 80px;
+    z-index: 10;
 }
 
 .menu{
     display: flex;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
     margin: 0 15px;
     text-decoration: none;
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.0);
@@ -72,6 +79,7 @@ HEADER
 .menu li a:hover{
     border-radius: 10px;
     background: gray;
+    transform: rotate(360deg);
 }
 
 .utility{
@@ -86,7 +94,11 @@ i.fas.fa-bars.fa-2x.wt {
     display: none;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1100px){
+
+    .logo_text{
+        margin: 0 10px;
+    }
 
     .menu{
         position: absolute;
@@ -136,7 +148,7 @@ TITOLO PRINCIPALE
 
 #titolo_principale{
     text-align: center;
-    color: cornflowerblue;
+    color: #323EFF;
     text-shadow: 23px 6px 6px rgba(150, 150, 150, 1);
 }
 
@@ -159,9 +171,15 @@ SECTION -- CONTAINER BOX
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: cornflowerblue;
+    background-color: #323EFF;
+    text-decoration: none;
+    color: black;
+}
+
+.box:hover{
     -webkit-box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86); 
     box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86);
+    transition: 0.5s;
 }
 
 @media (max-width: 768px){
