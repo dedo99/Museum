@@ -359,7 +359,8 @@ CONTENT PAGE
 }
 
 .show_element{
-    height: 600px;
+    height: 90%;
+    min-height: 600px;
     width: 50%;
     border: 4px solid #323EFF;
     display: flex;
