@@ -7,10 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Data
 @NoArgsConstructor
+@SuperBuilder
 public class Collezione {
 
 	@Id
@@ -25,12 +27,4 @@ public class Collezione {
 	
 	@OneToMany(mappedBy="collezione")
 	private List<Opera> listaOpere;
-	
-	public Collezione(String nome, String descrizione) {
-		this.nome = nome;
-		this.descrizione = descrizione;
-	}
-	public Collezione(List<Opera> listaOpere) {
-		this.listaOpere = listaOpere;
-	}
 }

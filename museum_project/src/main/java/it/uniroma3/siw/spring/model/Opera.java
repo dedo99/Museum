@@ -5,10 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Data
 @NoArgsConstructor
+@SuperBuilder
 public class Opera {
 
 	@Id
@@ -26,10 +28,4 @@ public class Opera {
 	
 	@ManyToOne
 	private Artista artista;
-
-	public Opera(String titolo, Integer annoDiRealizzazione, String descrizione) {
-		this.titolo = titolo;
-		this.annoDiRealizzazione = annoDiRealizzazione;
-		this.descrizione = descrizione;
-	}
 }

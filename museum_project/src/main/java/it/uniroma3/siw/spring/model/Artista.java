@@ -11,10 +11,12 @@ import javax.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Data
 @NoArgsConstructor
+@SuperBuilder
 public class Artista {
 
 	@Column(nullable = false)
@@ -30,8 +32,10 @@ public class Artista {
 	@Column(nullable = false)
 	private String luogoDiNascita;
 
+	@NonNull
 	private LocalDate dataDiMorte;
 	
+	@NonNull
 	private String luogoDiMorte;
 	
 	@NonNull
@@ -39,17 +43,4 @@ public class Artista {
 	
 	@OneToMany(mappedBy="artista")
 	private List<Opera> listaOpere;
-	
-	
-	public Artista(String nome, String cognome, LocalDate dataDiNascita, String luogoDiNascita, String nazionalita) {
-		this.nome = nome;
-		this.cognome = cognome;
-		this.dataDiNascita = dataDiNascita;
-		this.luogoDiNascita = luogoDiNascita;
-		this.nazionalita = nazionalita;
-	}
-	
-	public Artista(List<Opera> listaOpere) {
-		this.listaOpere = listaOpere;
-	}
 }
