@@ -1,0 +1,172 @@
+/* ----------
+SECTION --- HALF_SCREEN
+-------------- */
+
+.artist_details{
+    display: flex;
+    height: calc(100vh - 100px);
+}
+
+.artist_img{
+    border: 2px solid orange; 
+    margin: 20px;
+    margin-top: 20px;
+    height: 95%;
+    width: 50%;
+    min-width: 300px;
+    background: url(./img/284-davinci.jpg) center center;
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.artist_text{
+    border: 2px solid orange; 
+    height: 95%;
+    width: 50vw;
+    padding: 5px;
+    min-width: 300px;
+    margin: 25px 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 23px 16px 50px -4px #000000; 
+    box-shadow: 23px 16px 50px -4px #000000;
+}
+
+
+.list_details li{
+    list-style-type: none;
+    text-align: center;
+}
+
+.list_details h2{
+    margin: 0px;
+    padding: 0px;
+    font-size: 40px;
+}
+
+.list_details h3{
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+}
+
+@media (max-width: 850px){
+
+    .artist_details{
+        height: calc(100% - 80px);
+        flex-wrap: wrap
+    }
+
+    .artist_img{
+        height: 500px;
+        width: 100%;
+        border-radius: 80px;
+    }
+
+    .artist_text{
+        width: 100%;
+        padding: 10px;
+    }
+
+    .list_details{
+        padding: 0px;
+    }
+}
+
+#artist_biography {
+    border: 4px solid orange;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin: 10px;
+}
+
+.biography_elements {
+    height:80px;
+    font-size: 4em;
+    background-color: orange;
+}
+
+.biography_elements_2 {
+    font-size: 2em;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.artworks{
+    border: 4px solid orange;
+    margin: 10px;
+}
+
+.artworks_title {
+    height:85px;
+    font-size: 4em;
+    background-color: orange;
+    color: white;
+    text-align: center;
+}
+
+#artworks_artist{
+    display: flex;
+    height: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* ----------
+ARTWORK
+-------------- */
+
+
+.artwork{
+    margin: 10px;
+    width: 350px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(255, 187, 0);
+}
+
+.artwork_image img{
+    background-size: cover;
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+}
+
+.artwork a{
+    text-decoration: none;
+    color: black;
+}
+
+.artwork:hover{
+    -webkit-box-shadow: 0px 0px 20px 0px #000000; 
+    box-shadow: 0px 0px 20px 0px #000000;
+    transition: 0.3s;
+}
+
+.artwork_text {
+    text-align: center;
+}
+
+.artwork_text h3{
+    margin:auto;
+}
+
+@media (max-width: 850px){
+
+    #artworks_artist{
+        flex-wrap: wrap;
+        height: auto;
+    }
+    
+
+    .artwork_image1, .artwork_image2, .artwork_image3{
+        height: 70vh;
+    }
+
+    .artwork{
+        height: max-content;
+        width: 100%;
+    }
+
+}

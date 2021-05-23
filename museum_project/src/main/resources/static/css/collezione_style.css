@@ -1,0 +1,127 @@
+/* ----------
+COLLEZIONE
+-------------- */
+
+#collection {
+    border: 4px solid #323EFF;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin: 10px;
+}
+
+.collection_title {
+    height:80px;
+    font-size: 4em;
+    background-color: #323EFF;
+    color: #fff;
+    text-align: center;
+}
+
+.collection_description {
+    font-size: 2em;
+    flex-grow: 1;
+    /* border: 2px solid yellow; */
+    padding: 10px;
+    background: url(img/schizzo_celeste1.jpg) center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ----------
+CURATORE
+-------------- */
+
+#curator {
+    border: 4px solid #323EFF;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    margin: 10px;
+}
+
+.curator_title {
+    height:80px;
+    font-size: 4em;
+    background-color: #323EFF;
+    color: #fff;
+    text-align: center;
+}
+
+.curator_description {
+    font-size: 2em;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+/* ----------
+ARTWORKS
+-------------- */
+
+.artworks{
+    border: 4px solid #323EFF;
+    margin: 10px;
+}
+
+.artworks_title {
+    height:85px;
+    font-size: 4em;
+    background-color: #323EFF;
+    color: white;
+    text-align: center;
+}
+
+#artworks_collection{
+    display: flex;
+    height: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.artwork{
+    margin: 10px;
+    width: 350px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: cadetblue;
+}
+
+.artwork_image img{
+    background-size: cover;
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+}
+
+.artwork a{
+    text-decoration: none;
+    color: black;
+}
+
+.artwork:hover{
+    -webkit-box-shadow: 0px 0px 20px 0px #000000; 
+    box-shadow: 0px 0px 20px 0px #000000;
+    transition: 0.3s;
+}
+
+.artwork_text {
+    text-align: center;
+}
+
+.artwork_text h3{
+    margin:auto;
+}
+
+@media (max-width: 768px){
+
+    #artworks_collection{
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .artwork_image1, .artwork_image2, .artwork_image3{
+        height: 70vh;
+    }
+
+}

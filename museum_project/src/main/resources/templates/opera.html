@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.opera})"></head>
+	<link th:href="@{/css/opera_style.css}" rel="stylesheet">
+  </head>
+  <body>
+
+	<header th:replace="fragments/base.html :: navbar"></header>
+
+    <div class="spessore_nero_navbar"></div>
+
+    <div class="background_img">
+
+      <section class="container_halfscreen reveal">
+        <div class="half_screen_img">
+          <!-- <img src="./img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt=""> -->
+        </div>
+        <div class="half_screen_text">
+            <div class="title_artwork">
+              <h1>Titolo dell'opera</h1>
+            </div>
+            <div class="description_artwork">
+              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Mollitia nulla tenetur dolor a, magni sunt est quod perspiciatis obcaecati,
+                  ex perferendis blanditiis qui delectus quia aliquam ad debitis repellendus? 
+                  Excepturi.</h6>
+            </div>
+        </div>
+      </section>
+
+
+      <section class="author_section reveal">
+        <div class="description_author">
+            <div class="name_surname_author">
+              <h3>Nome Cognome Autore</h3>
+            </div>
+            <div class="text_author">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Repudiandae distinctio optio odio similique quasi, ea ullam 
+                  blanditiis et sed itaque est earum impedit. Porro atque ut, 
+                  ex sapiente error quisquam.</p>
+            </div>
+        </div>
+        <div class="img_author">
+          <!-- Author Image -->
+          <div class="container_img_author">
+              <a href="artista.html"><img src="img/284-davinci.jpg" alt=""></a>
+          </div>
+        </div>
+      </section>
+
+		<footer th:replace="fragments/base.html :: footer"></footer>
+  
+	</div>
+
+	<script th:replace="fragments/base.html :: script"></script>
+	
+  </body>
+</html>
