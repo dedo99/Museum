@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:fragment="footer_css">
+		<link th:href="@{/css/footer_style.css}" rel="stylesheet">
+	</head>
+	
+	<body>
+		<footer class="footer" th:fragment="footer">
+        	<div class="social_footer">
+            	<a href="" class="link_social"><i class="fab fa-facebook-square fa-3x flip"></i></a>
+            	<a href="" class="link_social"><i class="fab fa-twitter fa-3x flip"></i></a>
+            	<a href="" class="link_social"><i class="fab fa-instagram fa-3x flip"></i></a>
+            	<a href="" class="link_social"><i class="fab fa-telegram-plane fa-3x flip"></i></a>
+        	</div>
+        	<div class="content_footer">
+            	<div>
+                	<h6>Numero di telefono</h6>
+                	<p>3515156161</p>
+            	</div>
+            	<div>
+                	<h6>Località</h6>
+                	<p>Via nazionale, 159</p>
+            	</div>
+            	<a href="/login_amm.html">Sei amministratore?<br>Accedi</a>
+        	</div>
+    	</footer>
+	</body>
+	
+</html>

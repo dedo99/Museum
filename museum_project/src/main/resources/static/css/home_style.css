@@ -5,7 +5,8 @@ SECTION --  MAIN_SECTION
 .main_section{
     /* border: 2px solid red; */
     background: linear-gradient(0deg, rgba(253,187,45,0) 0%, rgba(0,0,0,1) 100%), 
-                url(/images/home_images/foto_home.jpg) center center;
+                url(/images/home_images/home_photo.jpg) center center;
+    background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -41,6 +42,7 @@ SECTION -- FIRST_CONTAINER
 .first_container__content > p{
     /* border: 3px solid red; */
     width: 90%;
+    color: black;
 }
 
 .flex_two_box{
@@ -56,6 +58,7 @@ SECTION -- FIRST_CONTAINER
     /* border: 3px solid purple; */
     width: 45%;
     height: 95%;
+    margin: 0px 20px;
 }
 
 .box_img1{
