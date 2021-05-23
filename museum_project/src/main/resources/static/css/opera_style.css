@@ -1,0 +1,133 @@
+/* ----------
+IMMAGINE SFONDO 
+-------------- */
+
+.background_img{
+    background: url(img/legno_background.jpg) center center;
+    background-size: cover;
+}
+
+
+/* ----------
+SECTION --- HALF_SCREEN
+-------------- */
+
+
+.container_halfscreen{
+    display: flex;
+    height: calc(100vh - 80px);
+}
+
+.half_screen_img{
+    height: 100%;
+    width: 50vw;
+    min-width: 300px;
+    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
+    background-size: cover;
+}
+
+.half_screen_text{
+    height: 95%;
+    width: 50vw;
+    padding: 30px;
+    min-width: 300px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 23px 16px 50px -4px #000000; 
+    box-shadow: 23px 16px 50px -4px #000000;
+    background: white;
+}
+
+.title_artwork{
+    text-align: center;
+}
+
+.description_artwork{
+    text-align: center;
+}
+
+@media (max-width: 768px){
+
+    .container_halfscreen{
+        height: calc(100% - 80px);
+        flex-wrap: wrap
+    }
+
+    .half_screen_img{
+        height: 500px;
+        width: 100%;
+    }
+
+    .half_screen_text{
+        width: 100%;
+    }
+
+    .title_artwork h1{
+        font-size: 40px;
+    }
+}
+
+
+/* ----------
+SECTION --- AUTHOR_SECTION
+-------------- */
+
+
+.author_section{
+    /* border: 2px solid red; */
+    margin-top: 50px;
+    display: flex;
+    min-height: 50vh;
+    height: auto;
+}
+
+.description_author{
+    margin: 0px 20px;
+    width: 50vw;
+    border-radius: 20px;
+    -webkit-box-shadow: 23px 16px 50px -4px #000000; 
+    box-shadow: 23px 16px 50px -4px #000000;
+    background: white;
+}
+
+.name_surname_author{
+    text-align: center;
+}
+
+.text_author{
+    padding: 20px;
+}
+
+.img_author{
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_img_author img{
+    border: 2px solid black; 
+    border-radius: 100%;
+    height: 400px;
+    width: 400px;
+}
+
+
+
+@media (max-width: 768px){
+
+    .author_section{
+        flex-wrap: wrap;
+    }
+
+    .description_author{
+        width: 100%;
+    }
+
+    .img_author{
+        margin-top: 40px;
+        width: 100%;
+    }
+
+}
+

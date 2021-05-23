@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.collezioni})"></head>
+	<link th:href="@{/css/collezioni_style.css}" rel="stylesheet">
+</head>
+<body>
+
+  <header th:replace="fragments/base.html :: navbar"></header>
+  
+  <div class="spessore_nero_navbar"></div>
+
+  <h1 id="titolo_principale">Collezioni</h1>
+
+  <section class="container_box">
+
+    <div>
+      <a href="collezione.html" class="box">
+        <div class="info_collection">
+          <h4>Collezione:</h4>
+          <h3>Nome collezione</h3>
+        </div>
+        <div class="info_curator">
+          <h4>Curatore:</h4>
+          <h3>Nome curatore</h3>
+        </div>
+      </a>
+    </div>
+
+  </section>
+
+
+  <footer th:replace="fragments/base.html :: footer"></footer>
+  <script th:replace="fragments/base.html :: script"></script>
+    
+</body>
+</html>

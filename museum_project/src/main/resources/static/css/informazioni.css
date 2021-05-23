@@ -1,0 +1,41 @@
+/* ----------
+Background Page
+-------------- */
+
+.background_page{
+    background: url(img/legno_background.jpg) center center;
+    background-size: cover;
+}
+
+/*--------------
+TABELLA
+--------------*/
+
+
+table {
+    /*border-collapse: collapse;*/
+    margin: auto;
+    letter-spacing: 1px;
+    border-spacing: 30px;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+}
+
+caption {
+    font-size: 70px;
+    color: cornflowerblue;
+}
+
+td.riga , th {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+td {
+    font-size: 30px;
+}
+
+.chiuso {
+    color: red;
+}

@@ -1,0 +1,48 @@
+/* ----------
+TITOLO PRINCIPALE
+-------------- */
+
+#titolo_principale{
+    text-align: center;
+    color: #323EFF;
+    text-shadow: 23px 6px 6px rgba(150, 150, 150, 1);
+}
+
+/* ----------
+SECTION -- CONTAINER BOX
+-------------- */
+
+.container_box{
+    /* border: 2px solid red; */
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.box{
+    border: 2px solid black;
+    border-radius: 30px;
+    height: 150px;
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #323EFF;
+    text-decoration: none;
+    color: black;
+}
+
+.box:hover{
+    -webkit-box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86); 
+    box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86);
+    transition: 0.5s;
+}
+
+@media (max-width: 768px){
+
+    .box{
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+}

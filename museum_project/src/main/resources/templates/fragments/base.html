@@ -4,7 +4,6 @@
   <head th:fragment="headerfiles(title)">
 	<meta charset="UTF-8" />
 	<link th:href="@{/css/navbar_footer_style.css}" rel="stylesheet">
-	
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
@@ -15,30 +14,40 @@
   
 	<header th:fragment="navbar">
 		<nav class="navbar">
-          <div class="logo_text">
-            <h2>LOGO</h2>
-          </div>
-          <div class="utility">
-            <ul class="menu">
-                <li class="flip_menu"><a href="">Home</a></li>
-                <li class="flip_menu"><a href="">Artista</a></li>
-                <li class="flip_menu"><a href="">Opera</a></li>
-                <li class="flip_menu"><a href="">Collezione</a></li>
-                <li class="flip_menu"><a href="">Informazioni</a></li>
-            </ul>
-            <div class="hamburger"><i class="fas fa-bars fa-2x wt"></i></div>
-          </div>
-        </nav>
-	  </header>
-	
-	<footer class ="footer" th:fragment="footer">
+			<div class="logo_text">
+		        <img src="img/museum-icon.png" alt="">
+		        <h3>Museo delle Arti</h3>
+		    </div>
+		    <div class="utility">
+		        <ul class="menu">
+		            <li class="flip_menu"><a href="index.html">Home</a></li>
+		            <li class="flip_menu"><a href="artisti.html">Autori</a></li>
+		            <li class="flip_menu"><a href="collezioni.html">Collezioni</a></li>
+		            <li class="flip_menu"><a href="informazioni.html">Informazioni</a></li>
+		        </ul>
+		        <div class="hamburger"><i class="fas fa-bars fa-2x wt"></i></div>
+		    </div>
+		</nav>
+	</header>
+    
+    <footer class="footer" th:fragment="footer">
         <div class="social_footer">
             <a href="" class="link_social"><i class="fab fa-facebook-square fa-3x flip"></i></a>
             <a href="" class="link_social"><i class="fab fa-twitter fa-3x flip"></i></a>
             <a href="" class="link_social"><i class="fab fa-instagram fa-3x flip"></i></a>
             <a href="" class="link_social"><i class="fab fa-telegram-plane fa-3x flip"></i></a>
         </div>
-        <div class="content_footer"></div>
+        <div class="content_footer">
+            <div>
+                <h6>Numero di telefono</h6>
+                <p>3515156161</p>
+            </div>
+            <div>
+                <h6>Località</h6>
+                <p>Via nazionale, 159</p>
+            </div>
+            <a href="/login_amm.html">Sei amministratore?<br>Accedi</a>
+        </div>
     </footer>
     
     <script th:fragment="script">
