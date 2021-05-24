@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.*;
+import lombok.ToString.Exclude;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -37,6 +38,7 @@ public class Curatore {
 	@NonNull
 	private String telefono;
 	
+	@ToString.Exclude
 	@OneToMany(mappedBy="curatore")
 	private List<Collezione> listaCollezioni;
 }

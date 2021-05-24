@@ -11,6 +11,5 @@ public interface CollezioneRepository extends CrudRepository<Collezione,String> 
 	
 	public List<Collezione> findByCuratore(Curatore curatore);
 	
-	public List<Collezione> findAll();
 	
 }

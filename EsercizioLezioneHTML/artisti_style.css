@@ -145,10 +145,45 @@ SPESSORE NERO NAVBAR
 SECTION -- CONTAINER BOX
 -------------- */
 
+.titolo_e_ricerche{
+    display: flex;
+    align-items: center;
+
+}
+
 #titolo_principale{
     text-align: center;
+    align-items: center;
     color: orange;
     text-shadow: 23px 6px 6px rgba(150, 150, 150, 1);
+    flex-grow: 4;
+}
+
+.ricerca input[type=text]{
+    margin-right: 10px;
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    outline-style: none;
+    border: 1px solid #323EFF;
+}
+
+.ricerca input[type=text]:focus{
+    border: 3px solid #329cffbd;
+    transition: 0.5s;
+}
+
+.ricerca input[type=submit]{
+    width: 70px;
+    border-radius: 10px;
+    background-color: #323EFF;
+    text-align: center;
+    height: 35px;
+    color: #fff;
+}
+
+.ricerca input[type=submit]:hover{
+    border: 2px solid #323EFF;
 }
 
 .container_box{
@@ -184,6 +219,14 @@ SECTION -- CONTAINER BOX
 }
 
 @media (max-width: 768px){
+
+    .titolo_e_ricerche{
+        flex-direction: column;
+    }
+
+    .ricerca input[type=text]{
+        width: 200px;
+    }
 
     .box{
         flex-wrap: wrap;
