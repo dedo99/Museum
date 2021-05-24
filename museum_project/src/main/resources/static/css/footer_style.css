@@ -22,12 +22,14 @@ h6{font-size: 15px;}
 FOOTER
 -------------- */
 
+
+
 .social_footer{
     display: flex;
     justify-content: space-around;
     align-items: center;
     background: rgb(46, 46, 46);
-    height: 10vh;
+    height: 70px;
     width: 100%;
 }
 
@@ -41,7 +43,7 @@ FOOTER
 
 .content_footer{
     background: black;
-    height: 30vh;
+    height: 200px;
     width: 100%;
     display: flex;
     align-items: center;

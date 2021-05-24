@@ -142,8 +142,9 @@ SPESSORE NERO NAVBAR
     background: black;
 }
 
+
 /* ----------
-TITOLO PRINCIPALE
+SECTION -- CONTAINER BOX
 -------------- */
 
 #titolo_principale{
@@ -152,14 +153,11 @@ TITOLO PRINCIPALE
     text-shadow: 23px 6px 6px rgba(150, 150, 150, 1);
 }
 
-/* ----------
-SECTION -- CONTAINER BOX
--------------- */
-
 .container_box{
     /* border: 2px solid red; */
     width: 100%;
     padding: 0px 20px;
+    min-height: calc(100vh - 400px);
 }
 
 .box{
@@ -206,13 +204,13 @@ FOOTER
     justify-content: space-around;
     align-items: center;
     background: rgb(46, 46, 46);
-    height: 10vh;
+    height: 70px;
     width: 100%;
 }
 
 .content_footer{
     background: black;
-    height: 30vh;
+    height: 200px;
     width: 100%;
 }
 
