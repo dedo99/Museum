@@ -2,11 +2,13 @@
 <html>
 <head>
   	<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.informazioni})"></head>
+  	<head th:insert="fragments/navbar.html :: navbar_css"> </head>
+	<head th:insert="fragments/footer.html :: footer_css"> </head>
 	<link th:href="@{/css/informazioni.css}" rel="stylesheet">
 </head>
 <body>
 
-	<header th:replace="fragments/base.html :: navbar"></header>
+	<header th:replace="fragments/navbar.html :: navbar"></header>
 
   	<div class="spessore_nero_navbar"></div>
 
@@ -113,7 +115,7 @@
       </tfoot>-->
     </table>
 
-  <footer th:replace="fragments/base.html :: footer"></footer>
+  <footer th:replace="fragments/footer.html :: footer"></footer>
   <script th:replace="fragments/base.html :: script"></script>
 
 </body>
