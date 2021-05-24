@@ -16,7 +16,7 @@ public class ArtistaController {
 	
 	@RequestMapping(value = "/artisti", method = RequestMethod.GET)
 	public String getArtisti(Model model) {
-		model.addAttribute("artisti", this.artistaService.trovaTuttiArtisti());
+		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "artisti.html";
 	}
 

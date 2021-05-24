@@ -15,7 +15,7 @@ public class ArtistaService {
 	private ArtistaRepository artistaRepository;
 	
 	
-	public List<Artista> trovaTuttiArtisti(){
+	public List<Artista> tuttiArtisti(){
 		return this.artistaRepository.findAll();
 	}
 
