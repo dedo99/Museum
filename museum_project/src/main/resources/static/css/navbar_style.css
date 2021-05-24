@@ -108,3 +108,13 @@ i.fas.fa-bars.fa-2x.wt {
         z-index: 10;
     }
 }
+
+/* ----------
+SPESSORE NERO NAVBAR
+-------------- */
+
+.spessore_nero_navbar{
+    height: 80px;
+    width: 100%;
+    background: black;
+}
