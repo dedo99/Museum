@@ -6,7 +6,7 @@
 	<head th:insert="fragments/footer.html :: footer_css"> </head>
 	<link th:href="@{/css/collezione_style.css}" rel="stylesheet">
 </head>
-<body>
+<body th:object="${collezione}">
 
 
   <header th:replace="fragments/navbar.html :: navbar"></header>
@@ -17,10 +17,10 @@
 
   <section id="collection">
     <div class="collection_title">
-      <strong>Collezione: nome collezione</strong>
+      <strong th:text="*{nome}">nome collezione</strong>
     </div>
     <div class="collection_description">
-      <em>descrizione</em>
+      <em th:text="*{descrizione}">descrizione collezione</em>
     </div>
   </section>
 
@@ -30,7 +30,7 @@
         <strong>Curatore</strong>
       </div>
       <div class="curator_description">
-        <em>nome e cognome</em>
+        <em th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">nome e cognome del curatore</em>
     </div>
   </section>
 
@@ -41,79 +41,13 @@
     </div>
     <div id="artworks_collection">
 
-      <div class="artwork">
-        <a href="opera.html">
+      <div class="artwork" th:each="opera : ${collezione.listaOpere}">
+        <a href="opera.html" th:href="@{'/opera' + '/' + ${opera.titolo}}">
           <div class="artwork_image">
-            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
+            <img src="" alt="">
           </div>
           <div class="artwork_text">
-            <h3>GIOCONDA</h3>
-          </div>
-        </a>
-      </div>
-
-      <div class="artwork">
-        <a href="opera.html">
-          <div class="artwork_image">
-            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
-          </div>
-          <div class="artwork_text">
-            <h3>GIOCONDA</h3>
-          </div>
-        </a>
-      </div>
-
-      <div class="artwork">
-        <a href="opera.html">
-          <div class="artwork_image">
-            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
-          </div>
-          <div class="artwork_text">
-            <h3>GIOCONDA</h3>
-          </div>
-        </a>
-      </div>
-
-      <div class="artwork">
-        <a href="opera.html">
-          <div class="artwork_image">
-            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
-          </div>
-          <div class="artwork_text">
-            <h3>GIOCONDA</h3>
-          </div>
-        </a>
-      </div>
-      
-      <div class="artwork">
-        <a href="opera.html">
-          <div class="artwork_image">
-            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
-          </div>
-          <div class="artwork_text">
-            <h3>GIOCONDA</h3>
-          </div>
-        </a>
-      </div>
-
-      <div class="artwork">
-        <a href="opera.html">
-          <div class="artwork_image">
-            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
-          </div>
-          <div class="artwork_text">
-            <h3>GIOCONDA</h3>
-          </div>
-        </a>
-      </div>
-      
-      <div class="artwork">
-        <a href="opera.html">
-          <div class="artwork_image">
-            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
-          </div>
-          <div class="artwork_text">
-            <h3>GIOCONDA</h3>
+            <h3 th:text="${opera.titolo}">nome opera</h3>
           </div>
         </a>
       </div>

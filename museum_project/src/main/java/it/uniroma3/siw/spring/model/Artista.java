@@ -41,6 +41,9 @@ public class Artista {
 	@NonNull
 	private String nazionalita;
 	
+	@NonNull
+	private String biografia;
+	
 	@OneToMany(mappedBy="artista")
 	private List<Opera> listaOpere;
 }
