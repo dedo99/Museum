@@ -1,6 +1,7 @@
 package it.uniroma3.siw.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,13 @@ public class ArtistaService {
 	
 	public List<Artista> tuttiArtisti(){
 		return (List<Artista>)this.artistaRepository.findAll();
+	}
+	
+	public Artista artistaPerId(String nome) {
+		Optional<Artista> opt = this.artistaRepository.findById(nome);
+		if(opt.isPresent())
+			return opt.get();
+		else return null;
 	}
 
 }

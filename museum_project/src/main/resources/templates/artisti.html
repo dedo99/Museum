@@ -17,10 +17,10 @@
         <h1 id="titolo_principale">Artisti</h1>
 
         <div th:each="artista : ${artisti}">
-            <a href="artista.html" class="box">
-                <img src="img/284-davinci.jpg" alt="">
+            <a href="artista.html" th:href="@{'/artista' + '/' + ${artista.nome}}" class="box" >
+                <img src="images/artist_images/Leonardo_DaVinc.jpg" alt="">
                 <div class="info_nome_cognome">
-                    <h4>Nome:</h4>
+                    <h4>Nome e Cognome:</h4>
                     <h3 th:text="|${artista.nome} ${artista.cognome}|">Nome e Cognome artista</h3>
                 </div>
                 <div class="info_nazionalita">

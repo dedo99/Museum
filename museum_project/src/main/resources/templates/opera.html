@@ -6,7 +6,7 @@
 	<head th:insert="fragments/footer.html :: footer_css"> </head>
 	<link th:href="@{/css/opera_style.css}" rel="stylesheet">
   </head>
-  <body>
+  <body th:object="${opera}">
 
 	<header th:replace="fragments/navbar.html :: navbar"></header>
 
@@ -20,13 +20,10 @@
         </div>
         <div class="half_screen_text">
             <div class="title_artwork">
-              <h1>Titolo dell'opera</h1>
+              <h1 th:text="*{titolo}"> titolo dell'opera</h1>
             </div>
             <div class="description_artwork">
-              <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Mollitia nulla tenetur dolor a, magni sunt est quod perspiciatis obcaecati,
-                  ex perferendis blanditiis qui delectus quia aliquam ad debitis repellendus? 
-                  Excepturi.</h6>
+              <h6 th:text="*{descrizione}"> descrizione opera </h6>
             </div>
         </div>
       </section>
@@ -35,13 +32,10 @@
       <section class="author_section reveal">
         <div class="description_author">
             <div class="name_surname_author">
-              <h3>Nome Cognome Autore</h3>
+              <h3 th:text="|${opera.artista.nome} ${opera.artista.cognome}|">Nome Cognome Autore</h3>
             </div>
             <div class="text_author">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Repudiandae distinctio optio odio similique quasi, ea ullam 
-                  blanditiis et sed itaque est earum impedit. Porro atque ut, 
-                  ex sapiente error quisquam.</p>
+              <h6 th:text="${opera.artista.biografia}"> Biografia Autore </h6>
             </div>
         </div>
         <div class="img_author">

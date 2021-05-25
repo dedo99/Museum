@@ -1,122 +1,116 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  	<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.informazioni})"></head>
-  	<head th:insert="fragments/navbar.html :: navbar_css"> </head>
-	<head th:insert="fragments/footer.html :: footer_css"> </head>
-	<link th:href="@{/css/informazioni.css}" rel="stylesheet">
-</head>
-<body>
+	<head>
+  		<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.informazioni})"></head>
+  		<head th:insert="fragments/navbar.html :: navbar_css"> </head>
+		<head th:insert="fragments/footer.html :: footer_css"> </head>
+		<link th:href="@{/css/informazioni.css}" rel="stylesheet">
+	</head>
+	<body>
 
-	<header th:replace="fragments/navbar.html :: navbar"></header>
+		<header th:replace="fragments/navbar.html :: navbar"></header>
 
-  	<div class="spessore_nero_navbar"></div>
+  		<div class="spessore_nero_navbar"></div>
 
-  	<div class="background_page">
+  		<div class="background_page">
 
-    <table>
-      <caption>
-        <p>Orari Di Apertura</p>
-      </caption>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Mattina</th>
-          <th>Pomeriggio</th>
-          <th>Sera</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td class="riga">Lunedì</td>
-            <td>10:00 - 12:00</td>
-            <td>10:00 - 12:00</td>
-            <td>10:00 - 12:00</td>
-        </tr>
-        <tr>
-          <td class="riga">Martedì</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-        </tr>
-        <tr>
-          <td class="riga">Mercoledì</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-        </tr>
-        <tr>
-          <td class="riga">Giovedì</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-        </tr>
-        <tr>
-          <td class="riga">Venerdì</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-        </tr>
-        <tr>
-          <td class="riga">Sabato</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-        </tr>
-        <tr>
-          <td class="riga">Domenica</td>
-          <td class="chiuso">chiuso</td>
-          <td>10:00 - 12:00</td>
-          <td>10:00 - 12:00</td>
-        </tr>
-      </tbody>
-      <!--<tfoot>
-        <tr><td>Totale 1</td><td>Totale 2</td></tr>
-      </tfoot>-->
-    </table>
+    	<table>
+      		<caption>
+        		<p>Orari Di Apertura</p>
+      		</caption>
+      		<thead>
+        		<tr>
+          			<th></th>
+          			<th>Mattina</th>
+          			<th>Pomeriggio</th>
+          			<th>Sera</th>
+        		</tr>
+     		</thead>
+      		<tbody>
+        		<tr>
+            		<td class="riga">Lunedì</td>
+            		<td>10:00 - 12:00</td>
+            		<td>10:00 - 12:00</td>
+            		<td>10:00 - 12:00</td>
+        		</tr>
+        		<tr>
+          			<td class="riga">Martedì</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+        		</tr>
+        		<tr>
+          			<td class="riga">Mercoledì</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+        		</tr>
+        		<tr>
+          			<td class="riga">Giovedì</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+        		</tr>
+        		<tr>
+          			<td class="riga">Venerdì</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+        		</tr>
+        		<tr>
+          			<td class="riga">Sabato</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+        		</tr>
+        		<tr>
+          			<td class="riga">Domenica</td>
+          			<td class="chiuso">chiuso</td>
+          			<td>10:00 - 12:00</td>
+          			<td>10:00 - 12:00</td>
+        		</tr>
+      		</tbody>
+    	</table>
 
 
-    <table>
-      <caption>
-        <p>Prezzo Dei Biglietti</p>
-      </caption>
-      <thead>
-        <tr>
-          <th>Tipo Biglietto</th>
-          <th>Feriali</th>
-          <th>Festivi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Intero</td>
-          <td>5$</td>
-        </tr>
-        <tr>
-          <td>Minori di 6 anni</td>
-          <td>7$</td>
-          <td>10$</td>
-        </tr>
-        <tr>
-          <td>Ridotto 6-18 anni</td>
-          <td>10$</td>
-        </tr>
-        <tr>
-            <td>Ridotto carta "Studente Roma3"</td>
-            <td>7$</td>
-        </tr>
-        <tr>
-          <td>Gruppi scolastici(6-15 anni)</td>
-          <td>7$</td>
-      </tr>
-      </tbody>
-      <!--<tfoot>
-        <tr><td>Totale 1</td><td>Totale 2</td></tr>
-      </tfoot>-->
-    </table>
+    	<table>
+      		<caption>
+        		<p>Prezzo Dei Biglietti</p>
+      		</caption>
+      		<thead>
+        		<tr>
+          			<th>Tipo Biglietto</th>
+          			<th>Feriali</th>
+          			<th>Festivi</th>
+        		</tr>
+      		</thead>
+      			<tbody>
+        			<tr>
+          				<td>Intero</td>
+          				<td>5$</td>
+        			</tr>
+        			<tr>
+          				<td>Minori di 6 anni</td>
+          				<td>7$</td>
+          				<td>10$</td>
+        			</tr>
+        			<tr>
+          				<td>Ridotto 6-18 anni</td>
+          				<td>10$</td>
+        			</tr>
+        			<tr>
+            			<td>Ridotto carta "Studente Roma3"</td>
+            			<td>7$</td>
+        			</tr>
+        			<tr>
+          				<td>Gruppi scolastici(6-15 anni)</td>
+          				<td>7$</td>
+      				</tr>
+      			</tbody>
+    		</table>
 
-  <footer th:replace="fragments/footer.html :: footer"></footer>
-  <script th:replace="fragments/base.html :: script"></script>
+  		<footer th:replace="fragments/footer.html :: footer"></footer>
+  		<script th:replace="fragments/base.html :: script"></script>
 
-</body>
+	</body>
 </html>

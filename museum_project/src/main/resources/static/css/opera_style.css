@@ -3,7 +3,7 @@ IMMAGINE SFONDO
 -------------- */
 
 .background_img{
-    background: url(img/legno_background.jpg) center center;
+    background: url(images/information/legno_background.jpg) center center;
     background-size: cover;
 }
 
