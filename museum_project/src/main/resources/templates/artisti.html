@@ -17,7 +17,7 @@
         <h1 id="titolo_principale">Artisti</h1>
 
         <div th:each="artista : ${artisti}">
-            <a href="artista.html" class="box">
+            <a href="artista.html" th:href="@{'/artista' + '/' + ${artista.nome}}" class="box" >
                 <img src="images/artist_images/Leonardo_DaVinc.jpg" alt="">
                 <div class="info_nome_cognome">
                     <h4>Nome e Cognome:</h4>
