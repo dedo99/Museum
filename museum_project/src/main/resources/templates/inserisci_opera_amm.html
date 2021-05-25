@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="amm_style.css">
+    <link th:href="@{/css/amm_style.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
@@ -36,31 +36,33 @@
     <section class="content_page">
         <div class="form_operation">
             <h3>Inserisci Opera</h3>
-            <form action="" method="post">
+            <form th:action="@{/addOpera}" method="post" enctype="multipart/form-data">
                 <h6>Titolo:</h6>
-                <input type="text" placeholder="Titolo">
+                <input type="text" name="titolo" placeholder="Titolo">
                 <h6>Anno di realizzazione:</h6>
-                <input type="text" placeholder="2000">
+                <input type="text" name="anno" placeholder="2000">
                 <h6>Descrizione:</h6>
-                <textarea type="text" placeholder="Descrizione"></textarea>
+                <textarea type="text" name="descrizione" placeholder="Descrizione"></textarea>
                 <h6>Collezione:</h6>
-                <input type="text" placeholder="Collezione">
+                <input type="text" name="collezione" placeholder="Collezione">
                 <h6>Artista:</h6>
-                <input type="text" placeholder="Artista">
+                <input type="text" name="artista" placeholder="Artista">
                 <div>
                     <h6>Image:</h6>
-                    <input type="file" placeholder="Minecraft">
+                    <input type="file" name="file" placeholder="Minecraft">
                 </div>
                 <input type="submit" value="Inserisci">
             </form>
         </div>
         <div class="show_element">
-            <a href="#" class="box_item">
-                <img class="img_item" src="img/284-davinci.jpg" alt="">
-                <p>Titolo: <br>nome titolo</p>
-                <p>Anno: <br>2000</p>
-                <p>Artista: <br>nome artista</p>
-            </a>
+        	<div th:each="opera : ${opere}">
+	            <a href="#" class="box_item">
+	            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+*{opera.image}}">
+	                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
+	                <p>Anno: <h6 th:text="${opera.annoDiRealizzazione}">2000</h6></p>
+	                <p>Artista: <h6 th:text="${opera.artista}">nome artista</h6></p>
+	            </a>
+        	</div>
             <!-- QUI SI DEVONO CREARE MOLTI box_item -->
         </div>
     </section>

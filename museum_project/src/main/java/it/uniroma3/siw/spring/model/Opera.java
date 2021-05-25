@@ -3,6 +3,7 @@ package it.uniroma3.siw.spring.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
@@ -31,4 +32,8 @@ public class Opera {
 	
 	@ManyToOne
 	private Artista artista;
+	
+	@Lob
+	@Column(columnDefinition = "BYTEA")
+	private String image;
 }
