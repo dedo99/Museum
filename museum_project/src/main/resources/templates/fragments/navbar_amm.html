@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:fragment="navbar_amm_css">
+		<link th:href="@{/css/navbar_amm_style.css}" rel="stylesheet">
+	</head>
+	
+	<body>
+    	<header th:fragment="navbar">
+			<nav class="navbar">
+	        	<div class="logo_text">
+	            	<img src="img/museum-icon.png" alt="">
+	            	<h3>Museo delle Arti</h3>
+	        	</div>
+	        	<div class="utility">
+	            	<ul class="menu">
+	                	<li class="flip_menu"><a href="home.html" th:href="@{/index}">Esci</a></li>
+	                	<li class="flip_menu"><a href="home_amm.html" th:href="@{/login}">Ciao, nome amministratore</a></li>
+	            	</ul>
+	            	<div class="hamburger"><i class="fas fa-bars fa-2x wt"></i></div>
+	        	</div>
+    		</nav>
+		</header>
+		
+		<header th:fragment="choice_action">
+			<nav class="choice_action">
+		        <span><a href="/inserisci_collezione_amm.html">Inserisci Collezione</a></span>
+		        <span><a href="/inserisci_opera_amm.html">Inserisci Opera</a></span>
+		        <span><a href="/cancella_collezione_amm.html">Cancella Collezione</a></span>
+		        <span><a href="/cancella_opera_amm.html">Cancella Opera</a></span>
+		    </nav>
+		</header>
+	</body>
+</html>

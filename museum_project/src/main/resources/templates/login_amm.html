@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.login_amm})"></head>
+    <head th:insert="fragments/navbar.html :: navbar_css"> </head>
 	<link th:href="@{/css/amm_style.css}" rel="stylesheet">
 </head>
 <body>
 
-    <header th:replace="fragments/base.html :: navbar"></header>
+    <header th:replace="fragments/navbar.html :: navbar"></header>
 
     <section class="form_input">
         <form action="" method="post" class="content_form">
