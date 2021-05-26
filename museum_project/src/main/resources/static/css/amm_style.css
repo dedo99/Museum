@@ -1,4 +1,29 @@
 /* ----------
+Configurazioni base
+-------------- */
+
+body, html{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1{font-size: 60px;}
+h2{font-size: 50px;}
+h3{font-size: 35px;}
+h4{font-size: 25px;}
+h5{font-size: 20px;}
+h6{font-size: 15px;}
+
+
+
+
+
+.wt{color: white;}
+.brwh{border: 1px solid white; border-radius: 30px; padding: 5px;}
+
+
+/* ----------
 FORM LOGIN
 -------------- */
 
@@ -9,7 +34,7 @@ FORM LOGIN
     padding-top: 100px;
     display: flex;
     justify-content: center;
-    background: url(img/login_photo.jpg) center center;
+    background: url(../images/home_images/login_photo.jpg) center center;
     background-size: cover;
 }
 
@@ -74,7 +99,7 @@ MESSAGE WELCOME
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: url(img/login_photo.jpg) center center;
+    background: url(../images/home_images/login_photo.jpg) center center;
     background-size: cover;
 }
 
@@ -125,7 +150,7 @@ CONTENT PAGE
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: url(img/login_photo.jpg) center center;
+    background: url(../images/home_images/login_photo.jpg) center center;
     background-size: cover;
 }
 

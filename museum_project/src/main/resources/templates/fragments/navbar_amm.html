@@ -24,10 +24,10 @@
 		
 		<header th:fragment="choice_action">
 			<nav class="choice_action">
-		        <span><a href="/inserisci_collezione_amm.html">Inserisci Collezione</a></span>
-		        <span><a href="/inserisci_opera_amm.html">Inserisci Opera</a></span>
-		        <span><a href="/cancella_collezione_amm.html">Cancella Collezione</a></span>
-		        <span><a href="/cancella_opera_amm.html">Cancella Opera</a></span>
+		        <span><a href="/inserisci_collezione_amm.html" th:href="@{/insertCollezione}">Inserisci Collezione</a></span>
+		        <span><a href="/inserisci_opera_amm.html" th:href="@{/insertOpera}">Inserisci Opera</a></span>
+		        <span><a href="/cancella_collezione_amm.html" th:href="@{/deleteCollezione}">Cancella Collezione</a></span>
+		        <span><a href="/cancella_opera_amm.html" th:href="@{/deleteOpera}">Cancella Opera</a></span>
 		    </nav>
 		</header>
 	</body>

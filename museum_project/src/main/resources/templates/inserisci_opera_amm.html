@@ -33,7 +33,7 @@
             </form>
         </div>
         <div class="show_element">
-        	<div th:each="opera : ${opere}">
+        	<div th:each="opera : ${opere}" class="box_item">
 	            <a href="#" class="box_item">
 	            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
 	                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>

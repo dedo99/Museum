@@ -24,6 +24,21 @@ public class AmministratoreController {
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "inserisci_opera_amm.html";
 	}
+	
+	@RequestMapping(value = "/insertCollezione", method = RequestMethod.GET)
+	public String visualizzaInserisciCollezione(Model model) {
+		return "inserisci_collezione_amm.html";
+	}
+	
+	@RequestMapping(value = "/deleteOpera", method = RequestMethod.GET)
+	public String visualizzaCancellaOpera(Model model) {
+		return "cancella_opera_amm.html";
+	}
+	
+	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.GET)
+	public String visualizzaCancellaCollezione(Model model) {
+		return "cancella_collezione_amm.html";
+	}
 
 
 
