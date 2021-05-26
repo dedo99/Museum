@@ -18,11 +18,10 @@ SECTION --- HALF_SCREEN
     height: calc(100vh - 80px);
 }
 
-.half_screen_img{
+.half_screen_img img{
     height: 100%;
     width: 50vw;
     min-width: 300px;
-    background: url(./img/1200px-Mona_Lisa\,_by_Leonardo_da_Vinci\,_from_C2RMF_retouched.jpg);
     background-size: cover;
 }
 

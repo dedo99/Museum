@@ -22,10 +22,12 @@ public class CollezioneService {
 		return this.collezionerepository.save(c);
 	}
 	
+	@Transactional
 	public List<Collezione> tutteCollezioni() {
 		return (List<Collezione>) this.collezionerepository.findAll();
 	}
 	
+	@Transactional
 	public Collezione collezionePerId(String nome) {
 		Optional<Collezione> opt = this.collezionerepository.findById(nome);
 		if(opt.isPresent())
@@ -33,6 +35,7 @@ public class CollezioneService {
 		else return null;
 	}
 	
+	@Transactional
 	public boolean esisteCollezione(Collezione c) {
 		Collezione collezione = this.collezionePerId(c.getNome());
 		return collezione != null;

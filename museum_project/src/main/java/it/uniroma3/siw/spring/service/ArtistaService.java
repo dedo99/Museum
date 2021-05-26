@@ -3,6 +3,8 @@ package it.uniroma3.siw.spring.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ public class ArtistaService {
 		return (List<Artista>)this.artistaRepository.findAll();
 	}
 	
+	@Transactional
 	public Artista artistaPerId(String nome) {
 		Optional<Artista> opt = this.artistaRepository.findById(nome);
 		if(opt.isPresent())
