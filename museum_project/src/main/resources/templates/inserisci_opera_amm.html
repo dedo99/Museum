@@ -57,7 +57,7 @@
         <div class="show_element">
         	<div th:each="opera : ${opere}">
 	            <a href="#" class="box_item">
-	            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+*{opera.image}}">
+	            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
 	                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
 	                <p>Anno: <h6 th:text="${opera.annoDiRealizzazione}">2000</h6></p>
 	                <p>Artista: <h6 th:text="${opera.artista}">nome artista</h6></p>

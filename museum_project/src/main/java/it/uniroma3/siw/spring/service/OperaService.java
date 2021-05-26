@@ -54,7 +54,7 @@ public class OperaService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		o.setTitolo(fileName);
+		o.setTitolo(titolo);
 		o.setAnnoDiRealizzazione(anno);
 		o.setDescrizione(descrizione);
 		o.setArtista(art);

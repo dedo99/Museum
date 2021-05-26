@@ -36,7 +36,7 @@ public class OperaController {
     {
 		operaService.saveOperaToDB(file, titolo, descrizione, anno, collezione, artista);
 		model.addAttribute("opere", this.operaService.findAllOpera());
-    	return "inserisci_opera_amm.hmtl";
+    	return "inserisci_opera_amm.html";
     }
 	
 	
