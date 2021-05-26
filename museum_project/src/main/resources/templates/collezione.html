@@ -6,7 +6,7 @@
 	<head th:insert="fragments/footer.html :: footer_css"> </head>
 	<link th:href="@{/css/collezione_style.css}" rel="stylesheet">
 </head>
-<body th:object="${collezione}">
+<body>
 
 
   <header th:replace="fragments/navbar.html :: navbar"></header>
@@ -15,7 +15,7 @@
   <div class="spessore_nero_navbar">  </div>
 
 
-  <section id="collection">
+  <section id="collection" th:object="${collezione}">
     <div class="collection_title">
       <strong th:text="*{nome}">nome collezione</strong>
     </div>
@@ -44,7 +44,7 @@
       <div class="artwork" th:each="opera : ${collezione.listaOpere}">
         <a href="opera.html" th:href="@{'/opera' + '/' + ${opera.titolo}}">
           <div class="artwork_image">
-            <img src="" alt="">
+            <img alt="" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
           </div>
           <div class="artwork_text">
             <h3 th:text="${opera.titolo}">nome opera</h3>

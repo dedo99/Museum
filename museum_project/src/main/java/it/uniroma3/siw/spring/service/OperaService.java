@@ -23,16 +23,29 @@ public class OperaService {
 	@Autowired
 	private OperaRepository operarepository;
 	
-	
+	@Transactional
 	public Opera inserisciOpera(Opera opera) {
 		return this.operarepository.save(opera);
 	}
 	
+	@Transactional
+	public List<Opera> findOpereByArtista(Artista artista) {
+		return this.operarepository.findByArtista(artista);
+	}
+	
+	@Transactional
+	public List<Opera> findOpereByCollezione(Collezione collezione) {
+		return this.operarepository.findByCollezione(collezione);
+	}
+	
+	@Transactional
 	public List<Opera> findAllOpera(){
 		return (List<Opera>) this.operarepository.findAll();
 	}
 	
 	
+	
+	@Transactional
 	public Opera operaPerId(String titolo) {
 		Optional<Opera> opt = this.operarepository.findById(titolo);
 		if(opt.isPresent())
@@ -60,6 +73,6 @@ public class OperaService {
 		o.setArtista(art);
 		o.setCollezione(col);
         
-        operarepository.save(o);
+        this.inserisciOpera(o);
 	}
 }

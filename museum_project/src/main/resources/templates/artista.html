@@ -6,13 +6,13 @@
 		<head th:insert="fragments/footer.html :: footer_css"> </head>
 		<link th:href="@{/css/artista_style.css}" rel="stylesheet">
 	</head>
-	<body th:object="${artista}">
+	<body>
 	
 	  <header th:replace="fragments/navbar.html :: navbar"></header>
 	
 	  <div class="spessore_nero_navbar">  </div>
 	
-	  <section class="artist_details">
+	  <section class="artist_details" th:object="${artista}">
 	    <div class="artist_img">  </div>
 	    <div class="artist_text">
 	        <ul class="list_details">
@@ -53,7 +53,7 @@
 	      <strong> Biografia </strong>
 	    </div>
 	    <div class="biography_elements_2">
-	      <em th:text="*{biografia}"> Descrizione Biografia </em>
+	      <em th:text="${artista.biografia}"> Descrizione Biografia </em>
 	    </div>
 	  </section>
 	
@@ -64,10 +64,11 @@
 	    </div>
 	    <div id="artworks_artist">
 	
-	      <div class="artwork" th:each="opera : ${artista.listaOpere}">
+	
+	      <div class="artwork" th:each="opera : ${opere}">
 	        <a href="opera.html" th:href="@{'/opera' + '/' + ${opera.titolo}}">
 	          <div class="artwork_image">
-	            <img src="img/1200px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="">
+	            <img alt="" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
 	          </div>
 	          <div class="artwork_text">
 	            <h3 th:text="${opera.titolo}"> Nome Opera </h3>
@@ -76,8 +77,7 @@
 	      </div>
 	      
 		</div>
-	</section>
-	      
+	</section>  
 	  <footer th:replace="fragments/footer.html :: footer"></footer>
 	  <script th:replace="fragments/base.html :: script"></script>
 	    
