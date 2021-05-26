@@ -156,8 +156,10 @@ SECTION -- CONTAINER BOX
 .container_box{
     /* border: 2px solid red; */
     width: 100%;
-    padding: 0px 20px;
+    padding: 50px 20px;
     min-height: calc(100vh - 400px);
+    background: url(img/legno_background.jpg) center center;
+    background-size: cover;
 }
 
 .box{
@@ -196,7 +198,6 @@ FOOTER
 -------------- */
 
 .footer{
-    margin-top: 50px;
 }
 
 .social_footer{
