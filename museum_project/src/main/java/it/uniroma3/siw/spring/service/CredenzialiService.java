@@ -31,7 +31,14 @@ public class CredenzialiService {
 	public Credenziali getCredentials(String username) {
 		Optional<Credenziali> result = this.credenzialiRepository.findByUsername(username);
 		return result.orElse(null);
-	}
+	} 
+	
+	@Transactional
+    public Credenziali saveCredentials(Credenziali credentials) {
+        credentials.setRole(Credenziali.DEFAULT_ROLE);
+        credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
+        return this.credenzialiRepository.save(credentials);
+    }
 	
 	
 	@Transactional
