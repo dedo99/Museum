@@ -37,6 +37,19 @@ public class CollezioneController {
     	return "collezione.html";
     }
 	
+	
+	@RequestMapping(value = "/insertCollezione", method = RequestMethod.GET)
+	public String visualizzaInserisciCollezione(Model model) {
+		return "inserisci_collezione_amm.html";
+	}
+	
+	
+	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.GET)
+	public String visualizzaCancellaCollezione(Model model) {
+		return "cancella_collezione_amm.html";
+	}
+	
+	
 	@RequestMapping(value = "/addCollezione", method = RequestMethod.POST)
     public String saveCollezione(@RequestParam("file") MultipartFile file,
     		@RequestParam("nome") String nome,
