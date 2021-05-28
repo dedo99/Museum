@@ -29,14 +29,13 @@
 	            </form>
 	        </div>
 	        <div class="show_element">
-	        	<div th:each="collezione : ${collezioni}" class="box_item">
-	            	<a href="#" class="box_item">
-	            		<img alt="" class="img_item" src="" th:src="*{'data:image/jpeg;base64,'+{collezione.image}}">
-	                	<p>Nome: <h6 th:text="${collezione.nome}">nome collezione</h6></p>
-		            	<p>Curatore: <h6 th:text="${collezione.curatore.nome}">nome curatore</h6></p>
-	            	</a>
+	        <div th:each="collezione : ${collezioni}" class="box_item">
+	            <a href="#" class="box_item">
+	            	<img alt="" class="img_item" src="" th:src="*{'data:image/jpeg;base64,'+{collezione.image}}">
+	                <p>Nome: <h6 th:text="${collezione.nome}">nome collezione</h6></p>
+		            <p>Curatore: <h6 th:text="${collezione.curatore.nome}">nome curatore</h6></p>
+	            </a>
 	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
-	        	</div>
 	        </div>
 	    </section>
 	

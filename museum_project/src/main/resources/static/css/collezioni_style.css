@@ -28,11 +28,7 @@ SECTION -- CONTAINER BOX
     align-items: center;
     background-color: #323EFF;
     text-decoration: none;
-    color: white;
-}
-
-.box:visited {
-	color:white;
+    color: black;
 }
 
 .box:hover{
