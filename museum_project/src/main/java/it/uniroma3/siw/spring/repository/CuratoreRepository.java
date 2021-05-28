@@ -7,4 +7,5 @@ import it.uniroma3.siw.spring.model.Curatore;
 public interface CuratoreRepository extends CrudRepository<Curatore,String>{
 
 	
+	
 }
