@@ -26,6 +26,7 @@ public class CollezioneController {
 		return "collezioni.html";
 	}
 	
+	
 	@RequestMapping(value = "/collezione/{nome}", method = RequestMethod.GET)
     public String getCollezione(@PathVariable("nome") String nome, Model model) {
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(nome));
@@ -33,5 +34,18 @@ public class CollezioneController {
     	model.addAttribute("opere",this.operaService.findOpereByCollezione(c));
     	return "collezione.html";
     }
+	
+	
+	@RequestMapping(value = "/insertCollezione", method = RequestMethod.GET)
+	public String visualizzaInserisciCollezione(Model model) {
+		return "inserisci_collezione_amm.html";
+	}
+	
+	
+	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.GET)
+	public String visualizzaCancellaCollezione(Model model) {
+		return "cancella_collezione_amm.html";
+	}
+
 
 }
