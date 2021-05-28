@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.inserisciOpera})"></head>
-   	<head th:insert="fragments/navbar_amm.html :: navbar_amm_css"> </head>
-   	<link th:href="@{/css/amm_style.css}" rel="stylesheet">
-</head>
-<body>
-
-    <header th:replace="fragments/navbar_amm.html :: navbar"></header>
-
-    <header th:replace="fragments/navbar_amm.html :: choice_action"></header>
-
-    <section class="content_page">
-        <div class="form_operation">
-            <h3>Inserisci Opera</h3>
-            <form th:action="@{/addOpera}" method="post" enctype="multipart/form-data">
-                <h6>Titolo:</h6>
-                <input type="text" name="titolo" placeholder="Titolo">
-                <h6>Anno di realizzazione:</h6>
-                <input type="text" name="anno" placeholder="2000">
-                <h6>Descrizione:</h6>
-                <textarea type="text" name="descrizione" placeholder="Descrizione"></textarea>
-                <h6>Collezione:</h6>
-                <input type="text" name="collezione" placeholder="Collezione">
-                <h6>Artista:</h6>
-                <input type="text" name="artista" placeholder="Artista">
-                <div>
-                    <h6>Image:</h6>
-                    <input type="file" name="file" placeholder="Minecraft">
-                </div>
-                <input type="submit" value="Inserisci">
-            </form>
-        </div>
-        <div class="show_element">
-        	<div th:each="opera : ${opere}" class="box_item">
-	            <a href="#" class="box_item">
-	            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
-	                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
-	                <p>Anno: <h6 th:text="${opera.annoDiRealizzazione}">2000</h6></p>
-	                <p>Artista: <h6 th:text="${opera.artista.nome}">nome artista</h6></p>
-	            </a>
-        	</div>
-            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
-        </div>
-    </section>
-
-    <script th:replace="fragments/base.html :: script"></script>
-    
-</body>
+	<head>
+		<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.inserisciOpera})"></head>
+	   	<head th:insert="fragments/navbar_amm.html :: navbar_amm_css"> </head>
+	   	<link th:href="@{/css/amm_style.css}" rel="stylesheet">
+	</head>
+	<body>
+	
+	    <header th:replace="fragments/navbar_amm.html :: navbar"></header>
+	
+	    <header th:replace="fragments/navbar_amm.html :: choice_action"></header>
+	
+	    <section class="content_page">
+	        <div class="form_operation">
+	            <h3>Inserisci Opera</h3>
+	            <form th:action="@{/addOpera}" method="post" enctype="multipart/form-data">
+	                <h6>Titolo:</h6>
+	                <input type="text" name="titolo" placeholder="Titolo">
+	                <h6>Anno di realizzazione:</h6>
+	                <input type="text" name="anno" placeholder="2000">
+	                <h6>Descrizione:</h6>
+	                <textarea type="text" name="descrizione" placeholder="Descrizione"></textarea>
+	                <h6>Collezione:</h6>
+	                <input type="text" name="collezione" placeholder="Collezione">
+	                <h6>Artista:</h6>
+	                <input type="text" name="artista" placeholder="Artista">
+	                <div>
+	                    <h6>Image:</h6>
+	                    <input type="file" name="file" placeholder="Minecraft">
+	                </div>
+	                <input type="submit" value="Inserisci">
+	            </form>
+	        </div>
+	        <div class="show_element">
+	        	<div th:each="opera : ${opere}" class="box_item">
+		            <a href="#" class="box_item">
+		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
+		                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
+		                <p>Anno: <h6 th:text="${opera.annoDiRealizzazione}">2000</h6></p>
+		                <p>Artista: <h6 th:text="${opera.artista.nome}">nome artista</h6></p>
+		            </a>
+	        	</div>
+	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
+	        </div>
+	    </section>
+	
+	    <script th:replace="fragments/base.html :: script"></script>
+	    
+	</body>
 </html>

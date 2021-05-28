@@ -6,8 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.spring.model.Collezione;
+import it.uniroma3.siw.spring.model.Curatore;
 import it.uniroma3.siw.spring.service.CollezioneService;
 import it.uniroma3.siw.spring.service.OperaService;
 
@@ -32,6 +35,18 @@ public class CollezioneController {
     	Collezione c = this.collezioneService.collezionePerId(nome);
     	model.addAttribute("opere",this.operaService.findOpereByCollezione(c));
     	return "collezione.html";
+    }
+	
+	@RequestMapping(value = "/addCollezione", method = RequestMethod.POST)
+    public String saveCollezione(@RequestParam("file") MultipartFile file,
+    		@RequestParam("nome") String nome,
+    		@RequestParam("descrizione") String descrizione,
+    		@RequestParam("curatore") Curatore curatore,
+    		Model model)
+    {
+		this.collezioneService.saveCollezioneToDB(file, nome, descrizione, curatore);
+		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
+    	return "inserisci_collezione_amm.html";
     }
 
 }
