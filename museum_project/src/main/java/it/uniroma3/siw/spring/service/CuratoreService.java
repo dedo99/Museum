@@ -8,4 +8,5 @@ public class CuratoreService {
 
 	@Autowired
 	private CuratoreRepository curatorepository;
+	
 }
