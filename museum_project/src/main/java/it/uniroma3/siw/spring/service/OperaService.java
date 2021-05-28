@@ -43,8 +43,6 @@ public class OperaService {
 		return (List<Opera>) this.operarepository.findAll();
 	}
 	
-	
-	
 	@Transactional
 	public Opera operaPerId(String titolo) {
 		Optional<Opera> opt = this.operarepository.findById(titolo);

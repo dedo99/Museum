@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.service;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,8 +9,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.spring.model.Collezione;
+import it.uniroma3.siw.spring.model.Curatore;
 import it.uniroma3.siw.spring.repository.CollezioneRepository;
 
 @Service
@@ -39,5 +44,25 @@ public class CollezioneService {
 	public boolean esisteCollezione(Collezione c) {
 		Collezione collezione = this.collezionePerId(c.getNome());
 		return collezione != null;
+	}
+	
+	@Transactional
+	public void  saveCollezioneToDB(MultipartFile file,String nome,
+			String descrizione, Curatore curatore){
+		Collezione c = new Collezione();
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		if(fileName.contains(".."))
+		{
+			System.out.println("not a a valid file");
+		}
+		try {
+			c.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		c.setNome(nome);
+		c.setDescrizione(descrizione);
+		c.setCuratore(curatore);
+        this.inserisciCollezione(c);
 	}
 }

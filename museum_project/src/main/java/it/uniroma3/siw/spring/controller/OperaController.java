@@ -40,7 +40,7 @@ public class OperaController {
     		@RequestParam("collezione") Collezione collezione,
     		Model model)
     {
-		operaService.saveOperaToDB(file, titolo, descrizione, anno, collezione, artista);
+		this.operaService.saveOperaToDB(file, titolo, descrizione, anno, collezione, artista);
 		model.addAttribute("opere", this.operaService.findAllOpera());
     	return "inserisci_opera_amm.html";
     }
