@@ -25,13 +25,15 @@ public class OperaController {
     	return "opera.html";
     }
 	
-	@RequestMapping(value = "/insertOpera", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/admin/insertOpera", method = RequestMethod.GET)
 	public String visualizzaInserisciOpera(Model model) {
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "inserisci_opera_amm.html";
 	}
 	
-	@RequestMapping(value = "/addOpera", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/admin/addOpera", method = RequestMethod.POST)
     public String saveOpera(@RequestParam("file") MultipartFile file,
     		@RequestParam("titolo") String titolo,
     		@RequestParam("descrizione") String descrizione,
@@ -46,7 +48,7 @@ public class OperaController {
     }
 	
 	
-	@RequestMapping(value = "/deleteOpera", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/deleteOpera", method = RequestMethod.GET)
 	public String visualizzaCancellaOpera(Model model) {
 		return "cancella_opera_amm.html";
 	}

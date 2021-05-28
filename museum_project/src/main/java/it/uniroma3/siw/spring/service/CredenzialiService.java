@@ -2,6 +2,7 @@ package it.uniroma3.siw.spring.service;
 
 import java.util.Optional;
 
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,13 @@ public class CredenzialiService {
 		Optional<Credenziali> result = this.credenzialiRepository.findByUsername(username);
 		return result.orElse(null);
 	}
+	
+	
+	@Transactional
+    public Credenziali saveCredentials(Credenziali credentials) {
+        credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
+        return this.credenzialiRepository.save(credentials);
+    }
 	
 
 }

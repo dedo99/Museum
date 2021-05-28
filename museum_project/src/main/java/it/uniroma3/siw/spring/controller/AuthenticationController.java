@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.uniroma3.siw.spring.model.Amministratore;
 import it.uniroma3.siw.spring.model.Credenziali;
 import it.uniroma3.siw.spring.service.CredenzialiService;
 
@@ -26,15 +27,24 @@ public class AuthenticationController {
 		return "index.html";
 	}
 	
-    @RequestMapping(value = "/default", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/home_amm", method = RequestMethod.GET)
     public String defaultAfterLogin(Model model) {
         
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
     	if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
-            return "admin/home_amm.html";
+            return "home_amm.html";
         }
-        return "home";
+    	return "index.html";
+    }
+    
+    @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
+    public void registerUser() {
+
+        Credenziali c = Credenziali.builder().username("pippo").password("pluto").role(Credenziali.ADMIN_ROLE).build();
+        Amministratore a = Amministratore.builder().nome("Mario").cognome("Rossi").build();
+        c.setAdmin(a);
+        credenzialiService.saveCredentials(c);
     }
 	
 
