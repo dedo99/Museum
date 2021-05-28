@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 public class Curatore {
 	
 	@Id
-	@Column(nullable = false)
+	@Column(nullable = false) 
 	private String matricola;
 
 	@Column(nullable = false)
