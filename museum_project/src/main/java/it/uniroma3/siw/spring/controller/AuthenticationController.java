@@ -3,6 +3,7 @@ package it.uniroma3.siw.spring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +12,7 @@ import it.uniroma3.siw.spring.model.Amministratore;
 import it.uniroma3.siw.spring.model.Credenziali;
 import it.uniroma3.siw.spring.service.CredenzialiService;
 
+@Controller
 public class AuthenticationController {
 	
 	@Autowired

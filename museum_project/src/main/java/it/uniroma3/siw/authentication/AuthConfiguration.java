@@ -1,5 +1,7 @@
 package it.uniroma3.siw.authentication;
 
+import static it.uniroma3.siw.spring.model.Credenziali.ADMIN_ROLE;
+//import static it.uniroma3.siw.spring.model.Credentials.DEFAULT_ROLE;
 
 import javax.sql.DataSource;
 
@@ -13,9 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-
-import static it.uniroma3.siw.spring.model.Credenziali.ADMIN_ROLE;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * The AuthConfiguration is a Spring Security Configuration.
@@ -31,6 +31,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     DataSource datasource;
+
 
     /**
      * This method provides the whole authentication and authorization configuration to use.
@@ -57,10 +58,11 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // NOTA: Spring gestisce il post di login automaticamente
                 .loginPage("/login")
                 // se il login ha successo, si viene rediretti al path /default
-                .defaultSuccessUrl("/admin/home_amm")
+                .defaultSuccessUrl("/home_amm")
 
                 // logout paragraph: qui definiamo il logout
                 .and().logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 // il logout è attivato con una richiesta GET a "/logout"
                 .logoutUrl("/logout")
                 // in caso di successo, si viene reindirizzati alla /index page
