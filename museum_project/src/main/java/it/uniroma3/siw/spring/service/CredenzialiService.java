@@ -39,13 +39,4 @@ public class CredenzialiService {
         credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
         return this.credenzialiRepository.save(credentials);
     }
-	
-	
-	@Transactional
-    public Credenziali saveCredentials(Credenziali credentials) {
-        credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
-        return this.credenzialiRepository.save(credentials);
-    }
-	
-
 }
