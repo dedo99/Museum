@@ -17,7 +17,7 @@ public class ArtistaService {
 	@Autowired
 	private ArtistaRepository artistaRepository;
 	
-	
+	@Transactional
 	public List<Artista> tuttiArtisti(){
 		return (List<Artista>)this.artistaRepository.findAll();
 	}
