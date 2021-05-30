@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.model.Collezione;
+import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.service.OperaService;
 
 @Controller
@@ -26,14 +27,14 @@ public class OperaController {
     }
 	
 	
-	@RequestMapping(value = "/admin/insertOpera", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertOpera", method = RequestMethod.GET)
 	public String visualizzaInserisciOpera(Model model) {
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "inserisci_opera_amm.html";
 	}
 	
 	
-	@RequestMapping(value = "/admin/addOpera", method = RequestMethod.POST)
+	@RequestMapping(value = "/addOpera", method = RequestMethod.POST)
     public String saveOpera(@RequestParam("file") MultipartFile file,
     		@RequestParam("titolo") String titolo,
     		@RequestParam("descrizione") String descrizione,
@@ -48,8 +49,11 @@ public class OperaController {
     }
 	
 	
-	@RequestMapping(value = "/admin/deleteOpera", method = RequestMethod.GET)
-	public String visualizzaCancellaOpera(Model model) {
+	@RequestMapping(value = "/deleteOpera", method = RequestMethod.GET)
+	public String visualizzaCancellaOpera(Model model, @RequestParam("titolo") String titolo) {
+		Opera o = this.operaService.operaPerId(titolo);
+		this.operaService.cancellaOpera(o);
+		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "cancella_opera_amm.html";
 	}
 	

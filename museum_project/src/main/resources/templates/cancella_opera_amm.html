@@ -15,22 +15,24 @@
         <div class="form_operation">
             <h3>Cancella Opera</h3>
             <h5>Inserisci il titolo dell'opera per eliminarla</h5>
-            <form action="" method="post">
+            <form action="@{/deleteOpera}" method="post">
                 <h6>Titolo:</h6>
-                <input type="text" placeholder="Titolo">
+                <input type="text" name="titolo" placeholder="Titolo">
                 <br>
                 <input type="submit" value="Cancella">
             </form>
         </div>
         <div class="show_element">
-            <a href="#" class="box_item">
-                <img class="img_item" src="img/284-davinci.jpg" alt="">
-                <p>Titolo: <br>nome titolo</p>
-                <p>Anno: <br>2000</p>
-                <p>Artista: <br>nome artista</p>
-            </a>
-            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
-        </div>
+	    	<div th:each="opera : ${opere}" class="box_item">
+		    	<a href="#" class="box_item">
+		        	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
+		            <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
+		            <p>Anno: <h6 th:text="${opera.annoDiRealizzazione}">2000</h6></p>
+		            <p>Artista: <h6 th:text="${opera.artista.nome}">nome artista</h6></p>
+		        </a>
+	        </div>
+	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
+	     </div>
     </section>
 
     <script th:replace="fragments/base.html :: script"></script>
