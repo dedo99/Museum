@@ -40,15 +40,9 @@ public class CollezioneController {
 	
 	@RequestMapping(value = "/insertCollezione", method = RequestMethod.GET)
 	public String visualizzaInserisciCollezione(Model model) {
+		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
 		return "inserisci_collezione_amm.html";
 	}
-	
-	
-	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.GET)
-	public String visualizzaCancellaCollezione(Model model) {
-		return "cancella_collezione_amm.html";
-	}
-	
 	
 	@RequestMapping(value = "/addCollezione", method = RequestMethod.POST)
     public String saveCollezione(@RequestParam("file") MultipartFile file,
@@ -61,5 +55,23 @@ public class CollezioneController {
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
     	return "inserisci_collezione_amm.html";
     }
+	
+	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.GET)
+	public String visualizzaCancellaCollezione(Model model) {
+		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
+		return "cancella_collezione_amm.html";
+	}
+	
+	
+	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.POST)
+	public String visualizzaCancellaCollezione(Model model, @RequestParam("nome") String nome) {
+		Collezione c = this.collezioneService.collezionePerId(nome);
+		this.collezioneService.deleteCollezione(c);
+		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
+		return "cancella_collezione_amm.html";
+	}
+	
+	
+	
 
 }

@@ -1,11 +1,11 @@
 package it.uniroma3.siw.spring.model;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
@@ -27,13 +27,13 @@ public class Artista {
 	private String cognome;
 	
 	@Column(nullable = false)
-	private LocalDate dataDiNascita;
+	private String dataDiNascita;
 	
 	@Column(nullable = false)
 	private String luogoDiNascita;
 
 	@NonNull
-	private LocalDate dataDiMorte;
+	private String dataDiMorte;
 	
 	@NonNull
 	private String luogoDiMorte;
@@ -46,4 +46,7 @@ public class Artista {
 	
 	@OneToMany(mappedBy="artista")
 	private List<Opera> listaOpere;
+	
+	@Lob
+	private String image;
 }

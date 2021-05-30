@@ -28,6 +28,11 @@ public class CollezioneService {
 	}
 	
 	@Transactional
+	public void deleteCollezione(Collezione c) {
+		this.collezionerepository.delete(c);
+	}
+	
+	@Transactional
 	public List<Collezione> tutteCollezioni() {
 		return (List<Collezione>) this.collezionerepository.findAll();
 	}

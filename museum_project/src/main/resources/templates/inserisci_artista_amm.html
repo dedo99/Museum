@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.inserisciOpera})"></head>
+	   	<head th:insert="fragments/navbar_amm.html :: navbar_amm_css"> </head>
+	   	<link th:href="@{/css/amm_style.css}" rel="stylesheet">
+	</head>
+	<body>
+	
+	    <header th:replace="fragments/navbar_amm.html :: navbar"></header>
+	
+	    <header th:replace="fragments/navbar_amm.html :: choice_action"></header>
+	
+	    <section class="content_page">
+	        <div class="form_operation">
+	            <h3>Inserisci Artista</h3>
+	            <form th:action="@{/addArtista}" method="post" enctype="multipart/form-data">
+	                <h6>Nome:</h6>
+	                <div><input type="text" name="nome" placeholder="nome"></div>
+	                <h6>Cognome:</h6>
+	                <input type="text" name="cognome" placeholder="cognome">
+	                <h6>DataDiNascita:</h6>
+	                <input type="date" name="dataDiNascita">
+	                <h6>DataDiMorte:</h6>
+	                <input type="date" name="dataDiMorte">
+	                <h6>LuogoDiNascita:</h6>
+	                <input type="text" name="luogoDiNascita" placeholder="luogodinascita">
+	                <h6>LuogoDiMorte:</h6>
+	                <input type="text" name="luogoDiMorte" placeholder="luogodimorte">
+	                <h6>Biografia:</h6>
+	                <textarea type="text" name="biografia" placeholder="biografia"></textarea>
+	                <div>
+	                    <h6>Image:</h6>
+	                    <input type="file" name="file" placeholder="Minecraft">
+	                </div>
+	                <input type="submit" value="Inserisci">
+	            </form>
+	        </div>
+	        <div class="show_element">
+	        	<div th:each="artista : ${artisti}" class="box_item">
+		            <a href="#" class="box_item">
+		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{artista.image}}">
+		                <p>Nome: <h6 th:text="${artista.nome}">nome artista</h6></p>
+		                <p>Cognome: <h6 th:text="${artista.cognome}">cognome artista</h6></p>
+		            </a>
+	        	</div>
+	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
+	        </div>
+	    </section>
+	
+	    <script th:replace="fragments/base.html :: script"></script>
+	    
+	</body>
+</html>

@@ -18,7 +18,9 @@
 
         <div th:each="artista : ${artisti}">
             <a href="artista.html" th:href="@{'/artista' + '/' + ${artista.nome}}" class="box" >
-                <img src="images/artist_images/Leonardo_DaVinc.jpg" alt="">
+            	<div>
+                	<img alt=""  src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{image}}">
+            	</div>
                 <div class="info_nome_cognome">
                     <h4>Nome e Cognome:</h4>
                     <h3 th:text="|${artista.nome} ${artista.cognome}|">Nome e Cognome artista</h3>

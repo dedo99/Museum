@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.cancellaCollezione})"></head>
-   	<head th:insert="fragments/navbar_amm.html :: navbar_amm_css"> </head>
-   	<link th:href="@{/css/amm_style.css}" rel="stylesheet">
-</head>
-<body>
-
-    <header th:replace="fragments/navbar_amm.html :: navbar"></header>
-
-    <header th:replace="fragments/navbar_amm.html :: choice_action"></header>
-
-    <section class="content_page">
-        <div class="form_operation">
-            <h3>Cancella Collezione</h3>
-            <h5>Inserisci il nome della collezione per eliminarla</h5>
-            <form action="" method="post">
-                <h6>Nome:</h6>
-                <input type="text" placeholder="Nome">
-                <br>
-                <input type="submit" value="Cancella">
-            </form>
-        </div>
-        <div class="show_element">
-            <a href="#" class="box_item">
-                <img class="img_item" src="img/la_tribuna_degli_Uffizi.jpg" alt="">
-                <p>Nome: <br>nome collezione</p>
-                <p>Curatore: <br>nome curatore</p>
-            </a>
-            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
-        </div>
-    </section>
-
-    <script th:replace="fragments/base.html :: script"></script>
-
-
-    
-</body>
+	<head>
+		<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.cancellaCollezione})"></head>
+	   	<head th:insert="fragments/navbar_amm.html :: navbar_amm_css"> </head>
+	   	<link th:href="@{/css/amm_style.css}" rel="stylesheet">
+	</head>
+	<body>
+	
+	    <header th:replace="fragments/navbar_amm.html :: navbar"></header>
+	
+	    <header th:replace="fragments/navbar_amm.html :: choice_action"></header>
+	
+	    <section class="content_page">
+	    	<div class="form_operation">
+	        	<h3>Cancella Collezione</h3>
+	            <h5>Inserisci il nome della collezione per eliminarla</h5>
+	            <form th:action="@{/deleteCollezione}" method="post">
+	                <h6>Nome:</h6>
+	                <input type="text" name="nome" placeholder="Nome">
+	                <br>
+	                <input type="submit" value="Cancella">
+	            </form>
+	        </div>
+	        <div class="show_element">
+	        	<div th:each="collezione : ${collezioni}" class="box_item">
+	            	<a href="#" class="box_item">
+	                	<img alt="" class="img_item" src="" th:src="*{'data:image/jpeg;base64,'+{collezione.image}}">
+		            	<p>Nome: <h6 th:text="${collezione.nome}">nome collezione</h6></p>
+			        	<p>Curatore: <h6 th:text="${collezione.curatore.nome}">nome curatore</h6></p>
+	            	</a>
+	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
+	        	</div>
+	        </div>
+	    </section>
+	
+	    	<script th:replace="fragments/base.html :: script"></script>
+		   
+	</body>
 </html>
