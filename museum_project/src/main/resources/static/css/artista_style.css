@@ -4,7 +4,7 @@ SECTION --- HALF_SCREEN
 
 .artist_details{
     display: flex;
-    height: calc(100vh - 100px);
+    height: 120vh;
 }
 
 .artist_img{

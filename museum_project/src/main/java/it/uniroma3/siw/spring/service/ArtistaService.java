@@ -27,6 +27,11 @@ public class ArtistaService {
 	}
 	
 	@Transactional
+	public void cancellaArtista(Artista artista) {
+		this.artistaRepository.delete(artista);
+	}
+	
+	@Transactional
 	public List<Artista> tuttiArtisti(){
 		return (List<Artista>)this.artistaRepository.findAll();
 	}

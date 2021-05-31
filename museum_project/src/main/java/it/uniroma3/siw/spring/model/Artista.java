@@ -2,6 +2,7 @@ package it.uniroma3.siw.spring.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -44,7 +45,7 @@ public class Artista {
 	@NonNull
 	private String biografia;
 	
-	@OneToMany(mappedBy="artista")
+	@OneToMany(mappedBy="artista",cascade= {CascadeType.ALL})
 	private List<Opera> listaOpere;
 	
 	@Lob
