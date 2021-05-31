@@ -19,7 +19,7 @@
 	
 	    <div th:each="collezione : ${collezioni}">
 	      <a href="collezione.html" th:href="@{'/collezione' + '/' + ${collezione.nome}}" class="box">
-	      	<div>
+	      	<div class="info_collection">
 	          <h4>Collezione:</h4>
 	          <h3 th:text="${collezione.nome}">Nome collezione</h3>
 	        </div>
