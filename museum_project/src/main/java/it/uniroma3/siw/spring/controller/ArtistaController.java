@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.OperaService;
@@ -28,10 +27,10 @@ public class ArtistaController {
 		return "artisti.html";
 	}
 	
-	@RequestMapping(value = "/artista/{nome}", method = RequestMethod.GET) 
-	public String getArtista(@PathVariable("nome") String nome, Model model) {
-		model.addAttribute("artista",this.artistaService.artistaPerId(nome));
-		Artista a = this.artistaService.artistaPerId(nome);
+	@RequestMapping(value = "/artista/{id}", method = RequestMethod.GET) 
+	public String getArtista(@PathVariable("id") Long id, Model model) {
+		Artista a = this.artistaService.artistaPerId(id);
+		model.addAttribute("artista",a);
 		model.addAttribute("opere",this.operaService.findOpereByArtista(a));
 		return "artista.html";
 	}
@@ -41,7 +40,6 @@ public class ArtistaController {
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "inserisci_artista_amm.html";
 	}
-	
 	
 	@RequestMapping(value = "/addArtista", method = RequestMethod.POST)
     public String saveArtista(@RequestParam("file") MultipartFile file,
@@ -54,10 +52,22 @@ public class ArtistaController {
     		@RequestParam("biografia") String biografia,
     		Model model)
     {
-		this.artistaService.saveArtistaToDB(file, nome, cognome, dataDiNascita, dataDiMorte, luogoDiNascita,luogoDiMorte,biografia);
+		this.artistaService.saveArtistaToDB(file, nome, cognome, dataDiNascita, dataDiMorte, luogoDiNascita, luogoDiMorte, biografia);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
     	return "inserisci_artista_amm.html";
     }
 	
-
+	@RequestMapping(value = "/deleteArtista", method = RequestMethod.GET)
+	public String visualizzaCancellaArtista(Model model) {
+		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
+		return "cancella_artista_amm.html";
+	}
+	
+	@RequestMapping(value = "/deleteArtista", method = RequestMethod.POST)
+	public String visualizzaCancellaArtista(Model model, @RequestParam("id") Long id) {
+		Artista a = this.artistaService.artistaPerId(id);
+		this.artistaService.cancellaArtista(a);
+		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
+		return "cancella_artista_amm.html";
+	}
 }

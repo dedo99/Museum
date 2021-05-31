@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.collezione})"></head>
-    <head th:insert="fragments/navbar.html :: navbar_css"> </head>
-	<head th:insert="fragments/footer.html :: footer_css"> </head>
-	<link th:href="@{/css/collezione_style.css}" rel="stylesheet">
-</head>
-<body>
-
-
-  <header th:replace="fragments/navbar.html :: navbar"></header>
-
-
-  <div class="spessore_nero_navbar">  </div>
-
-
-  <section id="collection" th:object="${collezione}">
-    <div class="collection_title">
-      <strong th:text="*{nome}">nome collezione</strong>
-    </div>
-    <div class="collection_description">
-      <em th:text="*{descrizione}">descrizione collezione</em>
-    </div>
-  </section>
-
-
-  <section id="curator">
-    <div class="curator_title">
-        <strong>Curatore</strong>
-      </div>
-      <div class="curator_description">
-        <em th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">nome e cognome del curatore</em>
-    </div>
-  </section>
-
-
-  <section class="artworks">
-    <div class="artworks_title">
-      <strong>Opere</strong>
-    </div>
-    <div id="artworks_collection">
-
-      <div class="artwork" th:each="opera : ${collezione.listaOpere}">
-        <a href="opera.html" th:href="@{'/opera' + '/' + ${opera.titolo}}">
-          <div class="artwork_image">
-            <img alt="" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
-          </div>
-          <div class="artwork_text">
-            <h3 th:text="${opera.titolo}">nome opera</h3>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <footer th:replace="fragments/footer.html :: footer"></footer>
-  <script th:replace="fragments/base.html :: script"></script>
-
-
-</body>
+	<head>
+	    <head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.collezione})"></head>
+	    <head th:insert="fragments/navbar.html :: navbar_css"> </head>
+		<head th:insert="fragments/footer.html :: footer_css"> </head>
+		<link th:href="@{/css/collezione_style.css}" rel="stylesheet">
+	</head>
+	<body>
+	  <header th:replace="fragments/navbar.html :: navbar"></header>
+	
+	  <div class="spessore_nero_navbar">  </div>
+	
+	  <section id="collection" th:object="${collezione}">
+	    <div class="collection_title">
+	      <strong th:text="*{nome}">nome collezione</strong>
+	    </div>
+	    <div class="collection_description">
+	      <em th:text="*{descrizione}">descrizione collezione</em>
+	    </div>
+	  </section>
+	  
+	  <section id="curator">
+	    <div class="curator_title">
+	        <strong>Curatore</strong>
+	      </div>
+	      <div class="curator_description">
+	        <em th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">nome e cognome del curatore</em>
+	    </div>
+	  </section>
+	
+	  <section class="artworks">
+	    <div class="artworks_title">
+	      <strong>Opere</strong>
+	    </div>
+	    <div id="artworks_collection">
+	
+	      <div class="artwork" th:each="opera : ${collezione.listaOpere}">
+	        <a href="opera.html" th:href="@{'/opera' + '/' + ${opera.titolo}}">
+	          <div class="artwork_image">
+	            <img alt="" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
+	          </div>
+	          <div class="artwork_text">
+	            <h3 th:text="${opera.titolo}">nome opera</h3>
+	          </div>
+	        </a>
+	      </div>
+	    </div>
+	  </section>
+	
+	  <footer th:replace="fragments/footer.html :: footer"></footer>
+	  <script th:replace="fragments/base.html :: script"></script>
+	</body>
 </html>

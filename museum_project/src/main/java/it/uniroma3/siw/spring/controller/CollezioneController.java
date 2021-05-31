@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.model.Curatore;
 import it.uniroma3.siw.spring.service.CollezioneService;
@@ -31,12 +30,11 @@ public class CollezioneController {
 	
 	@RequestMapping(value = "/collezione/{nome}", method = RequestMethod.GET)
     public String getCollezione(@PathVariable("nome") String nome, Model model) {
-    	model.addAttribute("collezione", this.collezioneService.collezionePerId(nome));
-    	Collezione c = this.collezioneService.collezionePerId(nome);
+		Collezione c = this.collezioneService.collezionePerId(nome);
+    	model.addAttribute("collezione", c);
     	model.addAttribute("opere",this.operaService.findOpereByCollezione(c));
     	return "collezione.html";
     }
-	
 	
 	@RequestMapping(value = "/insertCollezione", method = RequestMethod.GET)
 	public String visualizzaInserisciCollezione(Model model) {
@@ -62,7 +60,6 @@ public class CollezioneController {
 		return "cancella_collezione_amm.html";
 	}
 	
-	
 	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.POST)
 	public String visualizzaCancellaCollezione(Model model, @RequestParam("nome") String nome) {
 		Collezione c = this.collezioneService.collezionePerId(nome);
@@ -70,8 +67,4 @@ public class CollezioneController {
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
 		return "cancella_collezione_amm.html";
 	}
-	
-	
-	
-
 }

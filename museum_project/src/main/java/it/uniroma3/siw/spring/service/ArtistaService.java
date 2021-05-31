@@ -4,14 +4,11 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.repository.ArtistaRepository;
 
@@ -37,8 +34,8 @@ public class ArtistaService {
 	}
 	
 	@Transactional
-	public Artista artistaPerId(String nome) {
-		Optional<Artista> opt = this.artistaRepository.findById(nome);
+	public Artista artistaPerId(Long id) {
+		Optional<Artista> opt = this.artistaRepository.findById(id);
 		if(opt.isPresent())
 			return opt.get();
 		else return null;
@@ -69,5 +66,4 @@ public class ArtistaService {
         
         this.inserisciArtista(a);
 	}
-
 }

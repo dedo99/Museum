@@ -14,7 +14,7 @@ SECTION --- HALF_SCREEN
     height: 95%;
     width: 50%;
     min-width: 300px;
-    background: url(./img/284-davinci.jpg) center center;
+    background: center center;
     background-size: cover;
     border-radius: 100%;
 }

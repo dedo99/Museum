@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
@@ -19,9 +21,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 public class Artista {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	@Column(nullable = false)
-	@Id
 	private String nome;
 	
 	@NonNull
@@ -45,7 +50,7 @@ public class Artista {
 	@NonNull
 	private String biografia;
 	
-	@OneToMany(mappedBy="artista",cascade= {CascadeType.ALL})
+	@OneToMany(mappedBy="artista",cascade= {CascadeType.REMOVE})
 	private List<Opera> listaOpere;
 	
 	@Lob

@@ -40,6 +40,7 @@
 	        	<div th:each="artista : ${artisti}" class="box_item">
 		            <a href="#" class="box_item">
 		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{artista.image}}">
+		            	<p>Id: <h6 th:text="${artista.id}">id artista</h6></p>
 		                <p>Nome: <h6 th:text="${artista.nome}">nome artista</h6></p>
 		                <p>Cognome: <h6 th:text="${artista.cognome}">cognome artista</h6></p>
 		            </a>

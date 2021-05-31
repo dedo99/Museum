@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.artisti})"></head>
-    <head th:insert="fragments/navbar.html :: navbar_css"> </head>
-	<head th:insert="fragments/footer.html :: footer_css"> </head>
-	<link th:href="@{/css/artisti_style.css}" rel="stylesheet">
-</head>
-<body>
 
-    <header th:replace="fragments/navbar.html :: navbar"></header>
-  
-    <div class="spessore_nero_navbar"></div>
-
-	<section class="container_box">
-
-        <h1 id="titolo_principale">Artisti</h1>
-
-        <div th:each="artista : ${artisti}">
-            <a href="artista.html" th:href="@{'/artista' + '/' + ${artista.nome}}" class="box" >
-            	<div>
-                	<img alt=""  src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{image}}">
-            	</div>
-                <div class="info_nome_cognome">
-                    <h4>Nome e Cognome:</h4>
-                    <h3 th:text="|${artista.nome} ${artista.cognome}|">Nome e Cognome artista</h3>
-                </div>
-                <div class="info_nazionalita">
-                    <h4>Nazionalità:</h4>
-                    <h3 th:text="${artista.nazionalita}">Nazionalità artista</h3>
-                </div>
-            </a>
-        </div>
-
-    </section>
-
-    <footer th:replace="fragments/footer.html :: footer"></footer>
-    <script th:replace="fragments/base.html :: script"></script>
-    
-</body>
+	<head>
+	    <head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.artisti})"></head>
+	    <head th:insert="fragments/navbar.html :: navbar_css"> </head>
+		<head th:insert="fragments/footer.html :: footer_css"> </head>
+		<link th:href="@{/css/artisti_style.css}" rel="stylesheet">
+	</head>
+	
+	<body>
+	    <header th:replace="fragments/navbar.html :: navbar"></header>
+	  
+	    <div class="spessore_nero_navbar"></div>
+	
+		<section class="container_box">
+	        <h1 id="titolo_principale">Artisti</h1>
+	        <div th:each="artista : ${artisti}">
+	            <a href="artista.html" th:href="@{'/artista' + '/' + ${artista.id}}" class="box" >
+	            	<div>
+	                	<img alt="immagine artista non trovata" th:src="*{'data:image/jpeg;base64,'+{image}}">
+	            	</div>
+	            	<div>
+	                    <h4>Id:</h4>
+	                    <h3 th:text="${artista.id}"> Id artista </h3>
+	                </div>
+	                <div>
+	                    <h4>Nome e Cognome:</h4>
+	                    <h3 th:text="|${artista.nome} ${artista.cognome}|"> Nome e Cognome artista </h3>
+	                </div>
+	                <div>
+	                    <h4>Nazionalità:</h4>
+	                    <h3 th:text="${artista.nazionalita}"> Nazionalità artista </h3>
+	                </div>
+	            </a>
+	        </div>
+	    </section>
+	
+	    <footer th:replace="fragments/footer.html :: footer"></footer>
+	    <script th:replace="fragments/base.html :: script"></script>
+	</body>
 </html>

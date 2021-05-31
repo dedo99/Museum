@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.model.Opera;
@@ -26,13 +25,11 @@ public class OperaController {
     	return "opera.html";
     }
 	
-	
 	@RequestMapping(value = "/insertOpera", method = RequestMethod.GET)
 	public String visualizzaInserisciOpera(Model model) {
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "inserisci_opera_amm.html";
 	}
-	
 	
 	@RequestMapping(value = "/addOpera", method = RequestMethod.POST)
     public String saveOpera(@RequestParam("file") MultipartFile file,
@@ -54,7 +51,6 @@ public class OperaController {
 		return "cancella_opera_amm.html";
 	}
 	
-	
 	@RequestMapping(value = "/deleteOpera", method = RequestMethod.POST)
 	public String visualizzaCancellaOpera(Model model, @RequestParam("titolo") String titolo) {
 		Opera o = this.operaService.operaPerId(titolo);
@@ -62,7 +58,4 @@ public class OperaController {
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "cancella_opera_amm.html";
 	}
-	
-	
-
 }

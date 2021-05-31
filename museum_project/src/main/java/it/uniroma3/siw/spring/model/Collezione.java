@@ -29,6 +29,7 @@ public class Collezione {
 	private String descrizione;
 	
 	@ManyToOne
+	@NonNull
 	private Curatore curatore;
 	
 	@OneToMany(mappedBy="collezione",cascade= {CascadeType.ALL})

@@ -14,10 +14,10 @@
 	    <section class="content_page">
 	        <div class="form_operation">
 	            <h3>Cancella Artista</h3>
-	            <h5>Inserisci il Nome dell'artista per eliminarlo</h5>
+	            <h5>Inserisci l'Id dell'artista per eliminarlo</h5>
 	            <form th:action="@{/deleteArtista}" method="post">
-	                <h6>Nome:</h6>
-	                <input type="text" name="nome" placeholder="Titolo">
+	                <h6>Id:</h6>
+	                <input type="text" name="id" placeholder="Titolo">
 	                <br>
 	                <input type="submit" value="Cancella">
 	            </form>
@@ -26,6 +26,7 @@
 		    	<div th:each="artista : ${artisti}" class="box_item">
 			    	<a href="#" class="box_item">
 			        	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{artista.image}}">
+			        	<p>Id: <h6 th:text="${artista.id}">id artista</h6></p>
 			            <p>Nome: <h6 th:text="${artista.nome}">nome titolo</h6></p>
 			            <p>Cognome: <h6 th:text="${artista.cognome}">2000</h6></p>
 			        </a>
