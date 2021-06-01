@@ -39,7 +39,7 @@ public class CollezioneController {
 	@RequestMapping(value = "/insertCollezione", method = RequestMethod.GET)
 	public String visualizzaInserisciCollezione(Model model) {
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
-		return "inserisci_collezione_amm.html";
+		return "admin/inserisci_collezione_amm.html";
 	}
 	
 	@RequestMapping(value = "/addCollezione", method = RequestMethod.POST)
@@ -51,13 +51,13 @@ public class CollezioneController {
     {
 		this.collezioneService.saveCollezioneToDB(file, nome, descrizione, curatore);
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
-    	return "inserisci_collezione_amm.html";
+    	return "admin/inserisci_collezione_amm.html";
     }
 	
 	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.GET)
 	public String visualizzaCancellaCollezione(Model model) {
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
-		return "cancella_collezione_amm.html";
+		return "admin/cancella_collezione_amm.html";
 	}
 	
 	@RequestMapping(value = "/deleteCollezione", method = RequestMethod.POST)
@@ -65,6 +65,6 @@ public class CollezioneController {
 		Collezione c = this.collezioneService.collezionePerId(nome);
 		this.collezioneService.deleteCollezione(c);
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
-		return "cancella_collezione_amm.html";
+		return "admin/cancella_collezione_amm.html";
 	}
 }

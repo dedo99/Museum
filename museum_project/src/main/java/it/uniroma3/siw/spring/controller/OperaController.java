@@ -28,7 +28,7 @@ public class OperaController {
 	@RequestMapping(value = "/insertOpera", method = RequestMethod.GET)
 	public String visualizzaInserisciOpera(Model model) {
 		model.addAttribute("opere", this.operaService.findAllOpera());
-		return "inserisci_opera_amm.html";
+		return "admin/inserisci_opera_amm.html";
 	}
 	
 	@RequestMapping(value = "/addOpera", method = RequestMethod.POST)
@@ -42,13 +42,13 @@ public class OperaController {
     {
 		this.operaService.saveOperaToDB(file, titolo, descrizione, anno, collezione, artista);
 		model.addAttribute("opere", this.operaService.findAllOpera());
-    	return "inserisci_opera_amm.html";
+    	return "admin/inserisci_opera_amm.html";
     }
 	
 	@RequestMapping(value = "/deleteOpera", method = RequestMethod.GET)
 	public String visualizzaCancellaOpera(Model model) {
 		model.addAttribute("opere", this.operaService.findAllOpera());
-		return "cancella_opera_amm.html";
+		return "admin/cancella_opera_amm.html";
 	}
 	
 	@RequestMapping(value = "/deleteOpera", method = RequestMethod.POST)
@@ -56,6 +56,6 @@ public class OperaController {
 		Opera o = this.operaService.operaPerId(titolo);
 		this.operaService.cancellaOpera(o);
 		model.addAttribute("opere", this.operaService.findAllOpera());
-		return "cancella_opera_amm.html";
+		return "admin/cancella_opera_amm.html";
 	}
 }

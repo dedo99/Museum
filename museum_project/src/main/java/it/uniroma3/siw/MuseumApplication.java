@@ -1,9 +1,9 @@
-package it.uniroma3.siw.spring;
+package it.uniroma3.siw;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"it.uniroma3.siw"})
 public class MuseumApplication {
 
 	public static void main(String[] args) {

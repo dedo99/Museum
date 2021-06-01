@@ -38,7 +38,7 @@ public class ArtistaController {
 	@RequestMapping(value = "/insertArtista", method = RequestMethod.GET)
 	public String visualizzaInserisciArtista(Model model) {
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
-		return "inserisci_artista_amm.html";
+		return "admin/inserisci_artista_amm.html";
 	}
 	
 	@RequestMapping(value = "/addArtista", method = RequestMethod.POST)
@@ -54,13 +54,13 @@ public class ArtistaController {
     {
 		this.artistaService.saveArtistaToDB(file, nome, cognome, dataDiNascita, dataDiMorte, luogoDiNascita, luogoDiMorte, biografia);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
-    	return "inserisci_artista_amm.html";
+    	return "admin/inserisci_artista_amm.html";
     }
 	
 	@RequestMapping(value = "/deleteArtista", method = RequestMethod.GET)
 	public String visualizzaCancellaArtista(Model model) {
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
-		return "cancella_artista_amm.html";
+		return "admin/cancella_artista_amm.html";
 	}
 	
 	@RequestMapping(value = "/deleteArtista", method = RequestMethod.POST)
@@ -68,6 +68,6 @@ public class ArtistaController {
 		Artista a = this.artistaService.artistaPerId(id);
 		this.artistaService.cancellaArtista(a);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
-		return "cancella_artista_amm.html";
+		return "admin/cancella_artista_amm.html";
 	}
 }

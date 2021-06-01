@@ -17,9 +17,4 @@ public class GeneralController {
 	public String visualizzaInfomazioni() {
 		return "informazioni.html";
 	}
-	
-	@RequestMapping(value = "/amm", method = RequestMethod.GET)
-	public String visualizzaFormLogin() {
-		return "home_amm.html";
-	}
 }
