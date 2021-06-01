@@ -47,6 +47,7 @@ HEADER
 }
 
 .menu li a{
+	font-size: 22px;
     color: #fff;
     text-decoration: none;
     padding: 10px;

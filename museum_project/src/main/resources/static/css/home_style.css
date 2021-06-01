@@ -15,7 +15,8 @@ SECTION --  MAIN_SECTION
 .main_section__text{
     width: 100%;
     text-align: center;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
+    color: white;
 }
 
 /* ----------
@@ -43,49 +44,64 @@ SECTION -- FIRST_CONTAINER
     /* border: 3px solid red; */
     width: 90%;
     color: black;
+    font-size: 20px;
 }
 
 .flex_two_box{
-    /* border: 3px solid blue; */
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    height: 100%;
+    width: 95%;
+    height: 500px;
     align-items: center;
 }
 
 .box{
-    /* border: 3px solid purple; */
     width: 45%;
-    height: 95%;
+    height: 99%;
     margin: 0px 20px;
 }
 
-.box_img1{
-    background: url(/images/home_images/foto_1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-y: bottom;
+.box_img{
+	background-size: cover;
     width: 100%;
-    height: 60%;
+    height: 65%;
     border-radius: 20px;
 }
 
-.box_img2{
-    background: url(/images/home_images/foto_2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-y: bottom;
-    width: 100%;
-    height: 60%;
-    border-radius: 20px;
+.img1{
+	background: url(/images/artwork_images/CreazioneDiAdamo.jpg);
+	background-size: cover;
+}
+
+.img2{
+	background: url(/images/artwork_images/UltimaCena.jpg);
+	background-size: cover;
+}
+
+.img3{
+	background: url(/images/artwork_images/CampoDiGrano.jpg);
+	background-size: cover;
+}
+
+.img4{
+	background: url(/images/artwork_images/NotteStellata.jpg);
+	background-size: cover;
 }
 
 .box_test{
-    /* border: 5px solid pink; */
     width: 100%;
-    height: 40%;
+    height: 30%;
     text-align: center;
+}
+
+.flex_two_box h4 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.flex_two_box h6 {
+	margin-top: 5px;
+	color:black;
 }
 
 @media (max-width: 1450px){
