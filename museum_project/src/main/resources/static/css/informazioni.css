@@ -24,12 +24,13 @@ table {
 
 caption {
     font-size: 70px;
-    color: cornflowerblue;
+    color: gold;
 }
 
 td.riga , th {
     font-size: 40px;
     font-weight: bold;
+    font-style: italic;
 }
 
 td {

@@ -10,6 +10,9 @@
 	  <header th:replace="fragments/navbar.html :: navbar"></header>
 	
 	  <div class="spessore_nero_navbar">  </div>
+	  
+	  <div class="background_img">
+	  <br>
 	
 	  <section id="collection" th:object="${collezione}">
 	    <div class="collection_title">
@@ -19,6 +22,7 @@
 	      <em th:text="*{descrizione}">descrizione collezione</em>
 	    </div>
 	  </section>
+	  <br>
 	  
 	  <section id="curator">
 	    <div class="curator_title">
@@ -28,6 +32,7 @@
 	        <em th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">nome e cognome del curatore</em>
 	    </div>
 	  </section>
+	  <br>
 	
 	  <section class="artworks">
 	    <div class="artworks_title">
@@ -47,6 +52,8 @@
 	      </div>
 	    </div>
 	  </section>
+	  <br>
+	  </div>
 	
 	  <footer th:replace="fragments/footer.html :: footer"></footer>
 	  <script th:replace="fragments/base.html :: script"></script>

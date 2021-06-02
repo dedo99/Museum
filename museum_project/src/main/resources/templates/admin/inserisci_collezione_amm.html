@@ -15,7 +15,7 @@
 	    <section class="content_page">
 	        <div class="form_operation">
 	            <h3>Inserisci Collezione</h3>
-	            <form th:action="@{/addCollezione}" method="post" enctype="multipart/form-data">
+	            <form th:action="@{/admin/addCollezione}" method="post" enctype="multipart/form-data">
 	                <h6>Nome:</h6>
 	                <input type="text" name ="nome" placeholder="Nome">
 	                <h6>Descrizione:</h6>
@@ -24,17 +24,17 @@
 	                <input type="text" name="curatore" placeholder="Curatore">
 	                <div>
 	                    <h6>Image:</h6>
-	                    <input type="file" name="file" placeholder="Minecraft">
+	                    <input type="file" name="file">
 	                </div>
 	                <input type="submit" value="Inserisci">
 	            </form>
 	        </div>
 	        <div class="show_element">
 	        <div th:each="collezione : ${collezioni}" class="box_item">
-	            <a href="#" class="box_item">
+	            <a href="#" class="link_item">
 	            	<img alt="" class="img_item" src="" th:src="*{'data:image/jpeg;base64,'+{collezione.image}}">
 	                <p>Nome: <h6 th:text="${collezione.nome}">nome collezione</h6></p>
-		            <p>Curatore: <h6 th:text="${collezione.curatore.nome}">nome curatore</h6></p>
+		            <p>Curatore: <h6 th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">nome curatore</h6></p>
 	            </a>
 	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
 	        </div>

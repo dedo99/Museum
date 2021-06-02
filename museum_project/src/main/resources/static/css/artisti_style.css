@@ -6,6 +6,7 @@ SECTION -- CONTAINER BOX
     text-align: center;
     color: orange;
     text-shadow: 23px 6px 6px rgba(150, 150, 150, 1);
+    margin-top:0px;
 }
 
 .container_box{
@@ -29,6 +30,7 @@ SECTION -- CONTAINER BOX
     background-color: orange;
     text-decoration: none;
     color: black;
+    margin-bottom:0px;
 }
 
 .box:hover{
@@ -38,7 +40,8 @@ SECTION -- CONTAINER BOX
 }
 
 .box img{
-    height: 146px;
+	margin-top: 10px;
+    height: 140px;
     border-radius: 10px;
 }
 

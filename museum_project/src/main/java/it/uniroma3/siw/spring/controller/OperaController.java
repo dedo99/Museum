@@ -25,13 +25,13 @@ public class OperaController {
     	return "opera.html";
     }
 	
-	@RequestMapping(value = "/insertOpera", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/insertOpera", method = RequestMethod.GET)
 	public String visualizzaInserisciOpera(Model model) {
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "admin/inserisci_opera_amm.html";
 	}
 	
-	@RequestMapping(value = "/addOpera", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/addOpera", method = RequestMethod.POST)
     public String saveOpera(@RequestParam("file") MultipartFile file,
     		@RequestParam("titolo") String titolo,
     		@RequestParam("descrizione") String descrizione,
@@ -45,13 +45,13 @@ public class OperaController {
     	return "admin/inserisci_opera_amm.html";
     }
 	
-	@RequestMapping(value = "/deleteOpera", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/deleteOpera", method = RequestMethod.GET)
 	public String visualizzaCancellaOpera(Model model) {
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "admin/cancella_opera_amm.html";
 	}
 	
-	@RequestMapping(value = "/deleteOpera", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/deleteOpera", method = RequestMethod.POST)
 	public String visualizzaCancellaOpera(Model model, @RequestParam("titolo") String titolo) {
 		Opera o = this.operaService.operaPerId(titolo);
 		this.operaService.cancellaOpera(o);

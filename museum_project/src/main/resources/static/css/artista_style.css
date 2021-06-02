@@ -7,6 +7,11 @@ SECTION --- HALF_SCREEN
     height: 120vh;
 }
 
+.background_img{
+    background: url(../images/information_images/legno_background.jpg) center center;
+    background-size: cover;
+}
+
 .artist_img{
     border: 2px solid orange; 
     margin: 20px;
@@ -19,7 +24,8 @@ SECTION --- HALF_SCREEN
     border-radius: 100%;
 }
 
-.artist_text{
+.artist_text {
+	background-color: white;
     border: 2px solid orange; 
     height: 95%;
     width: 50vw;
@@ -87,6 +93,7 @@ SECTION --- HALF_SCREEN
 }
 
 .biography_elements_2 {
+	background-color: white;
     font-size: 2em;
     flex-grow: 1;
     padding: 10px;
@@ -118,12 +125,13 @@ ARTWORK
 
 
 .artwork{
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
     width: 350px;
     height: auto;
     border: 2px solid black;
     border-radius: 10px;
     background-color: rgb(255, 187, 0);
+    
 }
 
 .artwork_image img{

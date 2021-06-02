@@ -48,6 +48,7 @@ public class Artista {
 	private String nazionalita;
 	
 	@NonNull
+	@Column(length = 3000)
 	private String biografia;
 	
 	@OneToMany(mappedBy="artista",cascade= {CascadeType.REMOVE})

@@ -6,6 +6,7 @@ SECTION -- CONTAINER BOX
     text-align: center;
     color: #323EFF;
     text-shadow: 23px 6px 6px rgba(150, 150, 150, 1);
+    margin-top: 0px;
     
 }
 
@@ -30,6 +31,7 @@ SECTION -- CONTAINER BOX
     background-color: #323EFF;
     text-decoration: none;
     color: black;
+    margin-bottom: 0px;
 }
 
 .box:hover{

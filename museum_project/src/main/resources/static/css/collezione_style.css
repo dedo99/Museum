@@ -7,7 +7,7 @@ COLLEZIONE
     display: flex;
     flex-direction: column;
     height: 500px;
-    margin: 10px;
+    margin: 0px 10px 10px 10px;
 }
 
 .collection_title {
@@ -25,6 +25,12 @@ COLLEZIONE
     padding: 10px;
     background: url(img/schizzo_celeste1.jpg) center center;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+}
+
+.background_img{
+    background: url(../images/information_images/legno_background.jpg) center center;
     background-size: cover;
 }
 
@@ -51,7 +57,7 @@ CURATORE
 .curator_description {
     font-size: 2em;
     flex-grow: 1;
-    padding: 10px;
+    background-color: white;
 }
 
 /* ----------
@@ -60,7 +66,7 @@ ARTWORKS
 
 .artworks{
     border: 4px solid #323EFF;
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
 }
 
 .artworks_title {

@@ -24,6 +24,7 @@ public class Opera {
 	private Integer annoDiRealizzazione;
 	
 	@NonNull
+	@Column(length = 3000)
 	private String descrizione;
 	
 	@ManyToOne

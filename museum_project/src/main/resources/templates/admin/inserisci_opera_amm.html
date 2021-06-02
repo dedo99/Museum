@@ -14,7 +14,7 @@
 	    <section class="content_page">
 	        <div class="form_operation">
 	            <h3>Inserisci Opera</h3>
-	            <form th:action="@{/addOpera}" method="post" enctype="multipart/form-data">
+	            <form th:action="@{/admin/addOpera}" method="post" enctype="multipart/form-data">
 	                <h6>Titolo:</h6>
 	                <input type="text" name="titolo" placeholder="Titolo">
 	                <h6>Anno di realizzazione:</h6>
@@ -27,18 +27,17 @@
 	                <input type="text" name="artista" placeholder="Artista">
 	                <div>
 	                    <h6>Image:</h6>
-	                    <input type="file" name="file" placeholder="Minecraft">
+	                    <input type="file" name="file">
 	                </div>
 	                <input type="submit" value="Inserisci">
 	            </form>
 	        </div>
 	        <div class="show_element">
 	        	<div th:each="opera : ${opere}" class="box_item">
-		            <a href="#" class="box_item">
+		            <a href="#" class="link_item">
 		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
 		                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
-		                <p>Anno: <h6 th:text="${opera.annoDiRealizzazione}">2000</h6></p>
-		                <p>Artista: <h6 th:text="${opera.artista.nome}">nome artista</h6></p>
+		                <p>Artista: <h6 th:text="|${opera.artista.nome} ${opera.artista.cognome}|">nome artista</h6></p>
 		            </a>
 	        	</div>
 	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->

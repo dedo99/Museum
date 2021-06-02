@@ -35,13 +35,13 @@ public class ArtistaController {
 		return "artista.html";
 	}
 	
-	@RequestMapping(value = "/insertArtista", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/insertArtista", method = RequestMethod.GET)
 	public String visualizzaInserisciArtista(Model model) {
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "admin/inserisci_artista_amm.html";
 	}
 	
-	@RequestMapping(value = "/addArtista", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/addArtista", method = RequestMethod.POST)
     public String saveArtista(@RequestParam("file") MultipartFile file,
     		@RequestParam("nome") String nome,
     		@RequestParam("cognome") String cognome,
@@ -57,13 +57,13 @@ public class ArtistaController {
     	return "admin/inserisci_artista_amm.html";
     }
 	
-	@RequestMapping(value = "/deleteArtista", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/deleteArtista", method = RequestMethod.GET)
 	public String visualizzaCancellaArtista(Model model) {
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "admin/cancella_artista_amm.html";
 	}
 	
-	@RequestMapping(value = "/deleteArtista", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/deleteArtista", method = RequestMethod.POST)
 	public String visualizzaCancellaArtista(Model model, @RequestParam("id") Long id) {
 		Artista a = this.artistaService.artistaPerId(id);
 		this.artistaService.cancellaArtista(a);

@@ -15,7 +15,7 @@
 	    	<div class="form_operation">
 	        	<h3>Cancella Collezione</h3>
 	            <h5>Inserisci il nome della collezione per eliminarla</h5>
-	            <form th:action="@{/deleteCollezione}" method="post">
+	            <form th:action="@{/admin/deleteCollezione}" method="post">
 	                <h6>Nome:</h6>
 	                <input type="text" name="nome" placeholder="Nome">
 	                <br>
@@ -24,7 +24,7 @@
 	        </div>
 	        <div class="show_element">
 	        	<div th:each="collezione : ${collezioni}" class="box_item">
-	            	<a href="#" class="box_item">
+	            	<a href="#" class="link_item">
 	                	<img alt="" class="img_item" src="" th:src="*{'data:image/jpeg;base64,'+{collezione.image}}">
 		            	<p>Nome: <h6 th:text="${collezione.nome}">nome collezione</h6></p>
 			        	<p>Curatore: <h6 th:text="${collezione.curatore.nome}">nome curatore</h6></p>

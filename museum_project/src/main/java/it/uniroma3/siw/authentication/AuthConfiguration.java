@@ -42,12 +42,14 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // authorization paragraph: qui definiamo chi può accedere a cosa
                 .authorizeRequests()
                 // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-                .antMatchers(HttpMethod.GET, "/", "/index","/artisti", "/login","/register", "/css/**", "/images/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/index", "/informazioni", "/artisti", "/login",
+                		"/register", "/artista/**", "/opera/**", "/collezioni", 
+                		"/collezione/**", "/css/**", "/images/**", "/admin/**").permitAll()
                 // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register 
-                .antMatchers(HttpMethod.POST, "/login","/register").permitAll()
+                .antMatchers(HttpMethod.POST, "/login","/register", "/admin/**").permitAll()
                 // solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
-                .antMatchers(HttpMethod.GET, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
-                .antMatchers(HttpMethod.POST, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET /*"/admin/**"*/).hasAnyAuthority(ADMIN_ROLE)
+                .antMatchers(HttpMethod.POST /*"/admin/**"*/).hasAnyAuthority(ADMIN_ROLE)
                 // tutti gli utenti autenticati possono accere alle pagine rimanenti 
                 .anyRequest().authenticated()
 

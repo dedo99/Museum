@@ -51,12 +51,11 @@ HEADER
     text-decoration: none;
     padding: 10px;
     transition: all 0.1s ease-in-out;
-}
+    font-size: 20px}
 
 .menu li a:hover{
     border-radius: 10px;
     background: gray;
-    transform: rotate(360deg);
 }
 
 .utility{

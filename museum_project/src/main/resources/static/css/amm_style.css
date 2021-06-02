@@ -176,6 +176,11 @@ CONTENT PAGE
     margin: 5px;
 }
 
+.flex {
+	display:flex;
+	justify-content: space-around;
+}
+
 .form_operation input[type=text], textarea{
     margin-bottom: 20px;
     height: 30px;
@@ -221,6 +226,7 @@ CONTENT PAGE
     transition: 0.5s;
 }
 
+
 .show_element{
     height: 90%;
     min-height: 600px;
@@ -235,9 +241,6 @@ CONTENT PAGE
 }
 
 .box_item{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     border: 2px solid #323EFF;
     height: 80px;
     width: 90%;
@@ -246,6 +249,16 @@ CONTENT PAGE
     color: black;
     text-decoration: none;
     background-color: #fff;
+}
+
+.link_item {
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
 }
 
 .box_item:hover{
@@ -274,5 +287,9 @@ CONTENT PAGE
         width: 100%;
         height: calc(100vh - 120px);
     }
+    
+    .luogo {
+	width:100px;
+}
 
 }

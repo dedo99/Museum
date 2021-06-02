@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.cancellaOpera})"></head>
+		<head th:insert="fragments/base.html :: headerfiles(title=#{pageTitle.cancellaArtista})"></head>
 	   	<head th:insert="fragments/navbar_amm.html :: navbar_amm_css"> </head>
 	   	<link th:href="@{/css/amm_style.css}" rel="stylesheet">
 	</head>
@@ -15,16 +15,16 @@
 	        <div class="form_operation">
 	            <h3>Cancella Artista</h3>
 	            <h5>Inserisci l'Id dell'artista per eliminarlo</h5>
-	            <form th:action="@{/deleteArtista}" method="post">
+	            <form th:action="@{/admin/deleteArtista}" method="post">
 	                <h6>Id:</h6>
-	                <input type="text" name="id" placeholder="Titolo">
+	                <input type="text" name="id" placeholder="id">
 	                <br>
 	                <input type="submit" value="Cancella">
 	            </form>
 	        </div>
 	        <div class="show_element">
 		    	<div th:each="artista : ${artisti}" class="box_item">
-			    	<a href="#" class="box_item">
+			    	<a href="#" class="link_item">
 			        	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{artista.image}}">
 			        	<p>Id: <h6 th:text="${artista.id}">id artista</h6></p>
 			            <p>Nome: <h6 th:text="${artista.nome}">nome titolo</h6></p>

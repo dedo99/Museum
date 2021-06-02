@@ -18,7 +18,7 @@ public class AuthenticationController {
 	@Autowired
 	private CredenzialiService credenzialiService;
 	
-	@RequestMapping(value = "/homeAmm", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/homeAmm", method = RequestMethod.GET)
 	public String visualizzaHomeAmm() {
 		return "admin/home_amm";
 	}

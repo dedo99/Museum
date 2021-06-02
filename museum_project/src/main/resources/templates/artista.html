@@ -11,6 +11,8 @@
 	  <header th:replace="fragments/navbar.html :: navbar"></header>
 	
 	  <div class="spessore_nero_navbar">  </div>
+	  
+	  <div class="background_img">
 	
 	  <section class="artist_details" th:object="${artista}">
 	    <img alt="" class="artist_img" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{image}}">
@@ -63,8 +65,6 @@
 	      <strong> Opere </strong>
 	    </div>
 	    <div id="artworks_artist">
-	
-	
 	      <div class="artwork" th:each="opera : ${opere}">
 	        <a href="opera.html" th:href="@{'/opera' + '/' + ${opera.titolo}}">
 	          <div class="artwork_image">
@@ -78,6 +78,9 @@
 	      
 		</div>
 	  </section>  
+	  <br>
+	  </div>
+	  
 	  <footer th:replace="fragments/footer.html :: footer"></footer>
 	  <script th:replace="fragments/base.html :: script"></script>
 	    
