@@ -181,6 +181,10 @@ CONTENT PAGE
 	justify-content: space-around;
 }
 
+.margin_luogo h6 {
+	margin-top: 15px;
+}
+
 .form_operation input[type=text], textarea{
     margin-bottom: 20px;
     height: 30px;

@@ -15,10 +15,16 @@
 	        <div class="form_operation">
 	            <h3>Inserisci Artista</h3>
 	            <form th:action="@{/admin/addArtista}" method="post" enctype="multipart/form-data">
-	                <h6>Nome:</h6>
-	                <div><input type="text" name="nome" placeholder="nome"></div>
-	                <h6>Cognome:</h6>
-	                <input type="text" name="cognome" placeholder="cognome">
+	                <div class="flex">
+	                	<div>
+	                		<h6>Nome:</h6>
+	                		<input type="text" name="nome" placeholder="nome">
+	                	</div>
+	                	<div>
+	                		<h6>Nome:</h6>
+	                		<input type="text" name="cognome" placeholder="cognome">
+	                	</div>
+	                </div>
 	                <div class="flex">
 	                	<div>
 	                		<h6>DataDiNascita:</h6>
@@ -29,7 +35,7 @@
 	                		<input type="date" name="dataDiMorte">
 	                	</div>
 	                </div>
-	                <div class="flex">
+	                <div class="flex margin_luogo">
 	                	<div>
 	                		<h6>LuogoDiNascita:</h6>
 	                		<input class="luogo" type="text" name="luogoDiNascita" placeholder="luogodinascita">
@@ -39,6 +45,8 @@
 	                		<input class="luogo" type="text" name="luogoDiMorte" placeholder="luogodimorte">
 	                	</div>
 	                </div>
+	                <h6>Nazionalità:</h6>
+	                <input type="text" name="nazionalita" placeholder="nazionalita">
 	                <h6>Biografia:</h6>
 	                <textarea type="text" name="biografia" placeholder="biografia"></textarea>
 	                <div>
