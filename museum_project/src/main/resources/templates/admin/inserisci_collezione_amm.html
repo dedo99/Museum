@@ -15,13 +15,18 @@
 	    <section class="content_page">
 	        <div class="form_operation">
 	            <h3>Inserisci Collezione</h3>
-	            <form th:action="@{/admin/addCollezione}" method="post" enctype="multipart/form-data">
+	            <form th:action="@{/admin/addCollezione}" method="post" th:object="${collezione}" enctype="multipart/form-data">
+	            	<div th:if="${#fields.hasGlobalErrors()}">
+                    	<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" th:style="'color:red'" >...</p>
+        			</div>
 	                <h6>Nome:</h6>
-	                <input type="text" name ="nome" placeholder="Nome">
+	                <input type="text" th:field="*{nome}" placeholder="Nome">
+	                <h6 th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" th:style="'color:red'"> </h6>
 	                <h6>Descrizione:</h6>
-	                <textarea type="text" name="descrizione" placeholder="Descrizione"></textarea>
+	                <textarea type="text" th:field="*{descrizione}" placeholder="Descrizione"></textarea>
 	                <h6>Curatore:</h6>
-	                <input type="text" name="curatore" placeholder="Curatore">
+	                <input type="text" th:field="*{curatore.matricola}" placeholder="Curatore">
+	                <h6 th:if="${#fields.hasErrors('curatore')}" th:errors="*{curatore}" th:style="'color:red'"> </h6>
 	                <div>
 	                    <h6>Image:</h6>
 	                    <input type="file" name="file">
@@ -31,7 +36,7 @@
 	        </div>
 	        <div class="show_element">
 	        <div th:each="collezione : ${collezioni}" class="box_item">
-	            <a href="#" class="link_item">
+	            <a href="#" class="link_item" th:href="@{'/collezione' + '/' + ${collezione.nome}}">
 	            	<img alt="" class="img_item" src="" th:src="*{'data:image/jpeg;base64,'+{collezione.image}}">
 	                <p>Nome: <h6 th:text="${collezione.nome}">nome collezione</h6></p>
 		            <p>Curatore: <h6 th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">nome curatore</h6></p>
@@ -41,6 +46,8 @@
 	    </section>
 	
 	    <script th:replace="fragments/base.html :: script"></script>
+	    
+	    
 	
 	
 	    

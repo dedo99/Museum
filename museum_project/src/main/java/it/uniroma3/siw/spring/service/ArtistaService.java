@@ -44,7 +44,7 @@ public class ArtistaService {
 	@Transactional
 	public void  saveArtistaToDB(MultipartFile file, String nome, String cognome,
 			String dataDiNascita, String dataDiMorte, String luogoDiNascita, String luogoDiMorte,
-			String biografia){
+			String nazionalita, String biografia){
 		Artista a = new Artista();
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		if(fileName.contains(".."))
@@ -59,9 +59,16 @@ public class ArtistaService {
 		a.setNome(nome);
 		a.setCognome(cognome);
 		a.setDataDiNascita(dataDiNascita);
-		a.setDataDiMorte(dataDiMorte);
+		if(dataDiMorte.equals(""))
+			a.setDataDiMorte("-/-/-");
+		else
+			a.setDataDiMorte(dataDiMorte);
 		a.setLuogoDiNascita(luogoDiNascita);
-		a.setLuogoDiMorte(luogoDiMorte);
+		if(luogoDiMorte.equals(""))
+			a.setLuogoDiMorte("---");
+		else
+			a.setLuogoDiMorte(luogoDiMorte);
+		a.setNazionalita(nazionalita);
 		a.setBiografia(biografia);
         
         this.inserisciArtista(a);

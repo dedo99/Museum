@@ -3,13 +3,16 @@ package it.uniroma3.siw.spring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import it.uniroma3.siw.spring.controller.validator.CollezioneValidator;
 import it.uniroma3.siw.spring.model.Collezione;
-import it.uniroma3.siw.spring.model.Curatore;
 import it.uniroma3.siw.spring.service.CollezioneService;
 import it.uniroma3.siw.spring.service.OperaService;
 
@@ -18,6 +21,9 @@ public class CollezioneController {
 	
 	@Autowired
 	private CollezioneService collezioneService;
+	
+	@Autowired
+	private CollezioneValidator collezioneValidator;
 	
 	@Autowired
 	private OperaService operaService;
@@ -38,18 +44,22 @@ public class CollezioneController {
 	
 	@RequestMapping(value = "/admin/insertCollezione", method = RequestMethod.GET)
 	public String visualizzaInserisciCollezione(Model model) {
+		model.addAttribute("collezione",new Collezione());
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
 		return "admin/inserisci_collezione_amm.html";
 	}
 	
 	@RequestMapping(value = "/admin/addCollezione", method = RequestMethod.POST)
-    public String saveCollezione(@RequestParam("file") MultipartFile file,
-    		@RequestParam("nome") String nome,
-    		@RequestParam("descrizione") String descrizione,
-    		@RequestParam("curatore") Curatore curatore,
-    		Model model)
+    public String saveCollezione(@ModelAttribute("collezione") Collezione collezione,
+    		@RequestParam("file") MultipartFile file,
+    		Model model,
+    		BindingResult bindingResult)
     {
-		this.collezioneService.saveCollezioneToDB(file, nome, descrizione, curatore);
+		this.collezioneValidator.validate(collezione, bindingResult);
+		if(!bindingResult.hasErrors()) {
+			this.collezioneService.saveCollezioneToDB(file,collezione);
+			model.addAttribute("collezione",new Collezione());
+		}
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
     	return "admin/inserisci_collezione_amm.html";
     }

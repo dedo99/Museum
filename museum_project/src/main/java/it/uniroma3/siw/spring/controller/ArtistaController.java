@@ -49,10 +49,11 @@ public class ArtistaController {
     		@RequestParam("dataDiMorte") String dataDiMorte,
     		@RequestParam("luogoDiNascita") String luogoDiNascita,
     		@RequestParam("luogoDiMorte") String luogoDiMorte,
+    		@RequestParam("nazionalita") String nazionalita,
     		@RequestParam("biografia") String biografia,
     		Model model)
     {
-		this.artistaService.saveArtistaToDB(file, nome, cognome, dataDiNascita, dataDiMorte, luogoDiNascita, luogoDiMorte, biografia);
+		this.artistaService.saveArtistaToDB(file, nome, cognome, dataDiNascita, dataDiMorte, luogoDiNascita, luogoDiMorte, nazionalita, biografia);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
     	return "admin/inserisci_artista_amm.html";
     }
