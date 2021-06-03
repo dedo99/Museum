@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.repository.ArtistaRepository;
 
@@ -42,35 +45,33 @@ public class ArtistaService {
 	}
 	
 	@Transactional
-	public void  saveArtistaToDB(MultipartFile file, String nome, String cognome,
-			String dataDiNascita, String dataDiMorte, String luogoDiNascita, String luogoDiMorte,
-			String nazionalita, String biografia){
-		Artista a = new Artista();
+	public boolean alreadyExists(Artista artista) {
+		Optional<Artista> opt = this.artistaRepository.findById(artista.getId());
+		return opt.isPresent();
+	}
+	
+	@Transactional
+	public boolean alreadyExistsByNomeAndCognome(Artista artista) {
+		List<Artista> artisti = this.artistaRepository.findByNomeAndCognome(artista.getNome(), artista.getCognome());
+		return artisti.size() > 0;
+	}
+	
+	@Transactional
+	public void  saveArtistaToDB(MultipartFile file, Artista artista){
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		if(fileName.contains(".."))
 		{
 			System.out.println("not a a valid file");
 		}
 		try {
-			a.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+			artista.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		a.setNome(nome);
-		a.setCognome(cognome);
-		a.setDataDiNascita(dataDiNascita);
-		if(dataDiMorte.equals(""))
-			a.setDataDiMorte("-/-/-");
-		else
-			a.setDataDiMorte(dataDiMorte);
-		a.setLuogoDiNascita(luogoDiNascita);
-		if(luogoDiMorte.equals(""))
-			a.setLuogoDiMorte("---");
-		else
-			a.setLuogoDiMorte(luogoDiMorte);
-		a.setNazionalita(nazionalita);
-		a.setBiografia(biografia);
-        
-        this.inserisciArtista(a);
+		if(artista.getDataDiMorte().equals(""))
+			artista.setDataDiMorte("-/-/-");
+		if(artista.getLuogoDiMorte().equals(""))
+			artista.setLuogoDiMorte("---");
+        this.inserisciArtista(artista);
 	}
 }

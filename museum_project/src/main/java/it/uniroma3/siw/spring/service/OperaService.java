@@ -54,25 +54,23 @@ public class OperaService {
 	}
 	
 	@Transactional
-	public void  saveOperaToDB(MultipartFile file,String titolo,
-			String descrizione, Integer anno, Collezione col, Artista art){
-		Opera o = new Opera();
+	public boolean alreadyExists(Opera opera) {
+		Optional<Opera> opt = this.operarepository.findById(opera.getTitolo());
+		return opt.isPresent();
+	}
+	
+	@Transactional
+	public void  saveOperaToDB(MultipartFile file, Opera opera){
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		if(fileName.contains(".."))
 		{
 			System.out.println("not a a valid file");
 		}
 		try {
-			o.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+			opera.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		o.setTitolo(titolo);
-		o.setAnnoDiRealizzazione(anno);
-		o.setDescrizione(descrizione);
-		o.setArtista(art);
-		o.setCollezione(col);
-        
-        this.inserisciOpera(o);
+        this.inserisciOpera(opera);
 	}
 }

@@ -3,11 +3,15 @@ package it.uniroma3.siw.spring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import it.uniroma3.siw.spring.controller.validator.ArtistaValidator;
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.OperaService;
@@ -20,6 +24,9 @@ public class ArtistaController {
 	
 	@Autowired
 	private OperaService operaService;
+	
+	@Autowired
+	private ArtistaValidator artistaValidator;
 	
 	@RequestMapping(value = "/artisti", method = RequestMethod.GET)
 	public String getArtisti(Model model) {
@@ -37,23 +44,22 @@ public class ArtistaController {
 	
 	@RequestMapping(value = "/admin/insertArtista", method = RequestMethod.GET)
 	public String visualizzaInserisciArtista(Model model) {
+		model.addAttribute("artista",new Artista());
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "admin/inserisci_artista_amm.html";
 	}
 	
 	@RequestMapping(value = "/admin/addArtista", method = RequestMethod.POST)
     public String saveArtista(@RequestParam("file") MultipartFile file,
-    		@RequestParam("nome") String nome,
-    		@RequestParam("cognome") String cognome,
-    		@RequestParam("dataDiNascita") String dataDiNascita,
-    		@RequestParam("dataDiMorte") String dataDiMorte,
-    		@RequestParam("luogoDiNascita") String luogoDiNascita,
-    		@RequestParam("luogoDiMorte") String luogoDiMorte,
-    		@RequestParam("nazionalita") String nazionalita,
-    		@RequestParam("biografia") String biografia,
-    		Model model)
+    		@ModelAttribute("artista") Artista artista,
+    		Model model,
+    		BindingResult bindingResult)
     {
-		this.artistaService.saveArtistaToDB(file, nome, cognome, dataDiNascita, dataDiMorte, luogoDiNascita, luogoDiMorte, nazionalita, biografia);
+		this.artistaValidator.validate(artista, bindingResult);
+		if(!bindingResult.hasErrors()) {
+			this.artistaService.saveArtistaToDB(file, artista);
+			model.addAttribute("artista",new Artista());
+		}
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
     	return "admin/inserisci_artista_amm.html";
     }

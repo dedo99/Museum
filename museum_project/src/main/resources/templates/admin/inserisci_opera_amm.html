@@ -14,17 +14,25 @@
 	    <section class="content_page">
 	        <div class="form_operation">
 	            <h3>Inserisci Opera</h3>
-	            <form th:action="@{/admin/addOpera}" method="post" enctype="multipart/form-data">
+	            <form th:action="@{/admin/addOpera}" method="post" th:object="${opera}" enctype="multipart/form-data">
+	            	<div th:if="${#fields.hasGlobalErrors()}">
+                    	<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" th:style="'color:red'" >...</p>
+        			</div>
 	                <h6>Titolo:</h6>
-	                <input type="text" name="titolo" placeholder="Titolo">
+	                <input type="text" th:field="*{titolo}" placeholder="Nome">
+	                <h6 th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}" th:style="'color:red'"> </h6>
 	                <h6>Anno di realizzazione:</h6>
-	                <input type="text" name="anno" placeholder="2000">
+	                <input type="text" th:field="*{annoDiRealizzazione}" placeholder="1234">
+	                <h6 th:if="${#fields.hasErrors('annoDiRealizzazione')}" th:errors="*{annoDiRealizzazione}" th:style="'color:red'"> </h6>
 	                <h6>Descrizione:</h6>
-	                <textarea type="text" name="descrizione" placeholder="Descrizione"></textarea>
+	                <textarea type="text" th:field="*{descrizione}" placeholder="Descrizione"></textarea>
+	                <h6 th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}" th:style="'color:red'"> </h6>
 	                <h6>Collezione:</h6>
-	                <input type="text" name="collezione" placeholder="Collezione">
+	                <input type="text" th:field="*{collezione.nome}" placeholder="collezione">
+	                <h6 th:if="${#fields.hasErrors('collezione')}" th:errors="*{collezione}" th:style="'color:red'"> </h6>
 	                <h6>Artista:</h6>
-	                <input type="text" name="artista" placeholder="Artista">
+	                <input type="text" th:field="*{artista.id}" placeholder="artista">
+	                <h6 th:if="${#fields.hasErrors('artista')}" th:errors="*{artista}" th:style="'color:red'"> </h6>
 	                <div>
 	                    <h6>Image:</h6>
 	                    <input type="file" name="file">
@@ -34,7 +42,7 @@
 	        </div>
 	        <div class="show_element">
 	        	<div th:each="opera : ${opere}" class="box_item">
-		            <a href="#" class="link_item">
+		            <a href="#" class="link_item" th:href="@{'/opera' + '/' + ${opera.titolo}}">
 		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
 		                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
 		                <p>Artista: <h6 th:text="|${opera.artista.nome} ${opera.artista.cognome}|">nome artista</h6></p>

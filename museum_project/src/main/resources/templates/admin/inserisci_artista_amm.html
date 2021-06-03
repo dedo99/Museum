@@ -14,21 +14,27 @@
 	    <section class="content_page">
 	        <div class="form_operation">
 	            <h3>Inserisci Artista</h3>
-	            <form th:action="@{/admin/addArtista}" method="post" enctype="multipart/form-data">
+	            <form th:action="@{/admin/addArtista}" method="post" th:object="${artista}" enctype="multipart/form-data">
+	            	<div th:if="${#fields.hasGlobalErrors()}">
+                    	<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" th:style="'color:red'" >...</p>
+        			</div>
 	                <div class="flex">
 	                	<div>
 	                		<h6>Nome:</h6>
-	                		<input type="text" name="nome" placeholder="nome">
+	                		<input type="text" th:field="*{nome}" placeholder="Nome">
+	                		<h6 th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" th:style="'color:red'"> </h6>
 	                	</div>
 	                	<div>
 	                		<h6>Cognome:</h6>
-	                		<input type="text" name="cognome" placeholder="cognome">
+	                		<input type="text" th:field="*{cognome}" placeholder="cognome">
+	                		<h6 th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}" th:style="'color:red'"> </h6>
 	                	</div>
 	                </div>
 	                <div class="flex">
 	                	<div>
 	                		<h6>DataDiNascita:</h6>
-	                		<input type="date" name="dataDiNascita">
+	                		<input type="date" th:field="*{dataDiNascita}" placeholder="dataDiNascita">
+	                		<h6 th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}" th:style="'color:red'"> </h6>
 	                	</div>
 	                	<div>
 	                		<h6>DataDiMorte:</h6>
@@ -38,7 +44,8 @@
 	                <div class="flex margin_luogo">
 	                	<div>
 	                		<h6>LuogoDiNascita:</h6>
-	                		<input class="luogo" type="text" name="luogoDiNascita" placeholder="luogodinascita">
+	                		<input type="text" th:field="*{luogoDiNascita}" placeholder="luogoDiNascita">
+	                		<h6 th:if="${#fields.hasErrors('luogoDiNascita')}" th:errors="*{luogoDiNascita}" th:style="'color:red'"> </h6>
 	                	</div>
 	                	<div>
 	                		<h6>LuogoDiMorte:</h6>
@@ -46,9 +53,11 @@
 	                	</div>
 	                </div>
 	                <h6>Nazionalità:</h6>
-	                <input type="text" name="nazionalita" placeholder="nazionalita">
+	                <input type="text" th:field="*{nazionalita}" placeholder="nazionalita">
+            		<h6 th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}" th:style="'color:red'"> </h6>
 	                <h6>Biografia:</h6>
-	                <textarea type="text" name="biografia" placeholder="biografia"></textarea>
+	                <textarea type="text" th:field="*{biografia}" placeholder="biografia"></textarea>
+	                <h6 th:if="${#fields.hasErrors('biografia')}" th:errors="*{biografia}" th:style="'color:red'"> </h6>
 	                <div>
 	                    <h6>Image:</h6>
 	                    <input type="file" name="file">
@@ -58,7 +67,7 @@
 	        </div>
 	        <div class="show_element">
 	        	<div th:each="artista : ${artisti}" class="box_item">
-		            <a href="#" class="link_item">
+		            <a href="#" class="link_item" th:href="@{'/artista' + '/' + ${artista.id}}">
 		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{artista.image}}">
 		            	<p>Id: <h6 th:text="${artista.id}">id artista</h6></p>
 		                <p>Nome: <h6 th:text="${artista.nome}">nome artista</h6></p>

@@ -24,6 +24,7 @@
 	                <h6 th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" th:style="'color:red'"> </h6>
 	                <h6>Descrizione:</h6>
 	                <textarea type="text" th:field="*{descrizione}" placeholder="Descrizione"></textarea>
+	                <h6 th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}" th:style="'color:red'"> </h6>
 	                <h6>Curatore:</h6>
 	                <input type="text" th:field="*{curatore.matricola}" placeholder="Curatore">
 	                <h6 th:if="${#fields.hasErrors('curatore')}" th:errors="*{curatore}" th:style="'color:red'"> </h6>

@@ -28,14 +28,15 @@ public class CollezioneValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		Collezione collezione = (Collezione) target;
 		ValidationUtils.rejectIfEmpty(errors, "nome","required");
+		ValidationUtils.rejectIfEmpty(errors, "descrizione","required");
 		ValidationUtils.rejectIfEmpty(errors, "curatore","required");
 		
 		if(!errors.hasErrors()) {
 			if(this.collezioneService.alreadyExists(collezione)) {
 				errors.reject("collezioneDuplicato");
 			}
-			if(!this.curatoreService.alreadyExists(collezione.getCuratore())) {
-				errors.reject("curatoreNonEsiste");
+			if(this.curatoreService.alreadyExists(collezione.getCuratore())) {
+				errors.rejectValue("curatore","curatoreNonEsiste");
 			}
 		}
 		

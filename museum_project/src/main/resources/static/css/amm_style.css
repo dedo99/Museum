@@ -168,8 +168,12 @@ CONTENT PAGE
     background-color: #323EFF;
     color: #fff;
     margin: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 20px;
+}
+
+.form_operation p{
+    margin: 5px;
 }
 
 .form_operation h6{
@@ -186,7 +190,7 @@ CONTENT PAGE
 }
 
 .form_operation input[type=text], textarea{
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     height: 30px;
     border-radius: 5px;
     outline: none;
