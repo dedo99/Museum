@@ -29,7 +29,7 @@ public class AuthenticationController {
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logoutAdmin() {
+	public String logout(Model model) {
 		return "index";
 	}
 	
@@ -53,6 +53,23 @@ public class AuthenticationController {
         credenzialiService.saveCredentials(c);
         return "login_amm";
     }
+    
+//    @RequestMapping(value = "/default", method = RequestMethod.GET)
+//    public String defaultAfterLogin(Model model,
+//    		@ModelAttribute("credenziali") Credenziali credenziali,
+//    		BindingResult bindingResult) {
+//        
+//    	this.credenzialiValidator.validate(credenziali, bindingResult);
+//    	if(!bindingResult.hasErrors()) {
+//    		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+//        	if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
+//                return "admin/home_amm";
+//            }
+//        	return "index";
+//    	}
+//    	return "login_amm";
+//    }
 	
 
 }

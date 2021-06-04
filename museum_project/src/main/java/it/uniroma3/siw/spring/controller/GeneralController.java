@@ -10,11 +10,11 @@ public class GeneralController {
 	
 	@RequestMapping(value = {"/", "index"}, method = RequestMethod.GET)
 	public String index(Model model) {
-			return "index.html";
+			return "index";
 	}
 	
 	@RequestMapping(value = "/informazioni", method = RequestMethod.GET)
 	public String visualizzaInfomazioni() {
-		return "informazioni.html";
+		return "informazioni";
 	}
 }

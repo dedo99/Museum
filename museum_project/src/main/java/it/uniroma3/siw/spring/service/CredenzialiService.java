@@ -33,6 +33,12 @@ public class CredenzialiService {
 	} 
 	
 	@Transactional
+	public boolean alreadyExistsByUsername(Credenziali credenziali) {
+		Optional<Credenziali> opt = this.credenzialiRepository.findByUsername(credenziali.getUsername());
+		return opt.isPresent();
+	}
+	
+	@Transactional
     public Credenziali saveCredentials(Credenziali credentials) {
         credentials.setRole(Credenziali.ADMIN_ROLE);
         credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
