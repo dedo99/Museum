@@ -65,3 +65,19 @@ FOOTER
 .content_footer a:hover{
     color: cornflowerblue;
 }
+
+@media (max-width: 768px){
+	
+	.content_footer h5{
+	    font-size: 14px;
+	}
+	
+	.content_footer h6{
+	    font-size: 12px;
+	}
+	
+	.content_footer a {
+		font-size: 12px;
+	}
+	
+}

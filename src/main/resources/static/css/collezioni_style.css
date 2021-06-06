@@ -43,8 +43,14 @@ SECTION -- CONTAINER BOX
 @media (max-width: 768px){
 
     .box{
+		flex-direction: column;
         flex-wrap: wrap;
         height: auto;
     }
+    
+    .box h3, .box h4{
+		text-align: center;
+		margin: 5px;
+	}
 
 }
