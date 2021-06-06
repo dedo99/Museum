@@ -137,12 +137,9 @@ SECTION -- FIRST_CONTAINER
         height: 100%;
     }
 
-    .box_img1{
+    .box_img{
         height: 300px;
     }
 
-    .box_img2{
-        height: 300px;
-    }
 
 }
