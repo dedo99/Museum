@@ -1,2 +1,0 @@
-scrollreveal --> serve per fare animazioni allo scrolling
-per animazione menu si usa css con transition
