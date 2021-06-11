@@ -34,6 +34,14 @@ SECTION -- CONTAINER BOX
     margin-bottom: 0px;
 }
 
+.box h4 {
+	color: white;
+}
+
+.box h3 {
+	color:black;
+}
+
 .box:hover{
     -webkit-box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86); 
     box-shadow: 9px 4px 24px 1px rgba(0,0,0,0.86);
