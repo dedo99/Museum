@@ -40,6 +40,12 @@ SECTION -- CONTAINER BOX
     transition: 0.5s;
 }
 
+.box img{
+	margin-top: 10px;
+    height: 140px;
+    border-radius: 10px;
+}
+
 @media (max-width: 768px){
 
     .box{
@@ -51,6 +57,10 @@ SECTION -- CONTAINER BOX
     .box h3, .box h4{
 		text-align: center;
 		margin: 5px;
+	}
+	
+	.box img{
+		height: 200px;
 	}
 
 }

@@ -35,9 +35,9 @@ public class CollezioneValidator implements Validator {
 			if(this.collezioneService.alreadyExists(collezione)) {
 				errors.reject("collezioneDuplicato");
 			}
-			if(this.curatoreService.alreadyExists(collezione.getCuratore())) {
-				errors.rejectValue("curatore","curatoreNonEsiste");
-			}
+//			if(this.curatoreService.alreadyExists(collezione.getCuratore())) {
+//				errors.rejectValue("curatore","curatoreNonEsiste");
+//			}
 		}
 		
 	}

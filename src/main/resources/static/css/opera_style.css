@@ -62,6 +62,12 @@ SECTION --- HALF_SCREEN
         height: calc(100% - 80px);
         flex-wrap: wrap
     }
+    
+    .half_screen_img img{
+	    height: 100%;
+	    width: 100vw;
+	    background-size: cover;
+	}
 
     .half_screen_img{
         height: 500px;

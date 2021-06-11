@@ -26,8 +26,10 @@
 	        	<div th:each="collezione : ${collezioni}" class="box_item">
 	            	<a href="#" class="link_item">
 	                	<img alt="" class="img_item" src="" th:src="*{'data:image/jpeg;base64,'+{collezione.image}}">
-		            	<p>Nome: <h6 th:text="${collezione.nome}">nome collezione</h6></p>
-			        	<p>Curatore: <h6 th:text="${collezione.curatore.nome}">nome curatore</h6></p>
+		            	<div class="flex_mobile">
+			                <p>Nome: <span th:text="${collezione.nome}">nome collezione</span></p>
+				            <p>Curatore: <span th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|">nome curatore</span></p>
+				        </div>
 	            	</a>
 	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
 	        	</div>

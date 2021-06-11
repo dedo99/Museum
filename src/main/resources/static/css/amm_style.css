@@ -187,6 +187,21 @@ CONTENT PAGE
 	justify-content: space-around;
 }
 
+.flex_mobile {
+	display:flex;
+	justify-content: space-around;
+}
+
+
+.flex_mobile p{
+	padding: 0px 20px;
+	font-weight: bold;
+}
+
+.flex_mobile p span{
+	font-weight: 100;
+}
+
 .margin_luogo h6 {
 	margin-top: 15px;
 }
@@ -286,6 +301,7 @@ CONTENT PAGE
     .content_page{
         flex-wrap: wrap;
         height: auto;
+        top: 170px;
     }
 
     .form_operation{
@@ -299,7 +315,20 @@ CONTENT PAGE
     }
     
     .luogo {
-	width:100px;
-}
-
+		width:100px;
+	}
+	
+	.flex{
+		display: block;
+	}
+	
+	.flex_mobile{
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.flex_mobile p{
+		margin: 2px;
+	}
+	
 }

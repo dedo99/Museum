@@ -73,6 +73,12 @@ i.fas.fa-bars.fa-2x.wt {
 @media (max-width: 768px){
 
     .logo_text{
+		height: 80px;
+        margin: 0 10px;
+    }
+    
+    .logo_text h3{
+		height: 80px;
         margin: 0 10px;
     }
 
@@ -135,3 +141,16 @@ CHOICE ACTION
     transition: 0.4s;
 }
 
+@media (max-width: 768px){
+	
+	.choice_action{
+		padding-top: 5px;
+		flex-wrap: wrap;
+		height: 90px;
+	}
+	
+	.choice_action span{
+		margin: 5px 10px;
+	}
+	
+}

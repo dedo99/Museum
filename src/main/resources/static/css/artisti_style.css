@@ -57,5 +57,9 @@ SECTION -- CONTAINER BOX
 		text-align: center;
 		margin: 5px;
 	}
+	
+	.box img{
+		height: 200px;
+	}
 
 }

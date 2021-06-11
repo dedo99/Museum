@@ -69,9 +69,11 @@
 	        	<div th:each="artista : ${artisti}" class="box_item">
 		            <a href="#" class="link_item" th:href="@{'/artista' + '/' + ${artista.id}}">
 		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{artista.image}}">
-		            	<p>Id: <h6 th:text="${artista.id}">id artista</h6></p>
-		                <p>Nome: <h6 th:text="${artista.nome}">nome artista</h6></p>
-		                <p>Cognome: <h6 th:text="${artista.cognome}">cognome artista</h6></p>
+		            	<div class="flex_mobile">
+		            		<p>Id: <span th:text="${artista.id}">id artista</span></p>
+		                	<p>Nome: <span th:text="${artista.nome}">nome artista</span></p>
+		                	<p>Cognome: <span th:text="${artista.cognome}">cognome artista</span></p>
+		            	</div>
 		            </a>
 	        	</div>
 	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->

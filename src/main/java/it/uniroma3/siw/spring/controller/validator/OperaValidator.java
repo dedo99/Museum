@@ -41,12 +41,12 @@ public class OperaValidator implements Validator{
 			if(this.operaService.alreadyExists(opera)) {
 				errors.reject("operaDuplicato");
 			}
-			if(this.collezioneService.alreadyExists(opera.getCollezione())) {
-				errors.rejectValue("collezione","collezioneNonEsiste");
-			}
-			if(this.artistaService.alreadyExists(opera.getArtista())) {
-				errors.rejectValue("artista","artistaNonEsiste");
-			}
+//			if(this.collezioneService.alreadyExists(opera.getCollezione())) {
+//				errors.rejectValue("collezione","collezioneNonEsiste");
+//			}
+//			if(this.artistaService.alreadyExists(opera.getArtista())) {
+//				errors.rejectValue("artista","artistaNonEsiste");
+//			}
 			
 		}
 		

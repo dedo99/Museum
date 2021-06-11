@@ -27,10 +27,10 @@
 	                <h6>Descrizione:</h6>
 	                <textarea type="text" th:field="*{descrizione}" placeholder="Descrizione"></textarea>
 	                <h6 th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}" th:style="'color:red'"> </h6>
-	                <h6>Collezione:</h6>
+	                <h6>Nome Collezione:</h6>
 	                <input type="text" th:field="*{collezione.nome}" placeholder="collezione">
 	                <h6 th:if="${#fields.hasErrors('collezione')}" th:errors="*{collezione}" th:style="'color:red'"> </h6>
-	                <h6>Artista:</h6>
+	                <h6>ID Artista:</h6>
 	                <input type="text" th:field="*{artista.id}" placeholder="artista">
 	                <h6 th:if="${#fields.hasErrors('artista')}" th:errors="*{artista}" th:style="'color:red'"> </h6>
 	                <div>
@@ -44,8 +44,10 @@
 	        	<div th:each="opera : ${opere}" class="box_item">
 		            <a href="#" class="link_item" th:href="@{'/opera' + '/' + ${opera.titolo}}">
 		            	<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{opera.image}}">
-		                <p>Titolo: <h6 th:text="${opera.titolo}">nome titolo</h6></p>
-		                <p>Artista: <h6 th:text="|${opera.artista.nome} ${opera.artista.cognome}|">nome artista</h6></p>
+		                <div class="flex_mobile">
+			                <p>Titolo: <span th:text="${opera.titolo}">nome titolo</span></p>
+			                <p>Artista: <span th:text="|${opera.artista.nome} ${opera.artista.cognome}|">nome artista</span></p>
+			            </div>
 		            </a>
 	        	</div>
 	            <!-- QUI SI DEVONO CREARE MOLTI box_item -->
