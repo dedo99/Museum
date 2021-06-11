@@ -27,7 +27,7 @@ SECTION --- HALF_SCREEN
 .artist_text {
 	background-color: white;
     border: 2px solid orange; 
-    height: 95%;
+    height: 96%;
     width: 50vw;
     padding: 5px;
     min-width: 300px;
@@ -35,6 +35,10 @@ SECTION --- HALF_SCREEN
     border-radius: 20px;
     -webkit-box-shadow: 23px 16px 50px -4px #000000; 
     box-shadow: 23px 16px 50px -4px #000000;
+}
+
+.list_details {
+	margin-top: 0px;
 }
 
 
