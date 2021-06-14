@@ -306,12 +306,12 @@ CONTENT PAGE
 
     .form_operation{
         width: 100%;
-        height: calc(100vh - 120px);
+        height: calc(100vh - 55px);
     }
 
     .show_element{
         width: 100%;
-        height: calc(100vh - 120px);
+        height: calc(100vh - 80px);
     }
     
     .luogo {
