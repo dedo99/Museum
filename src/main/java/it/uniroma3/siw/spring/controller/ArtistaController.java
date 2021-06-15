@@ -1,6 +1,8 @@
 package it.uniroma3.siw.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.spring.controller.validator.ArtistaValidator;
 import it.uniroma3.siw.spring.model.Artista;
+import it.uniroma3.siw.spring.model.Credenziali;
 import it.uniroma3.siw.spring.service.ArtistaService;
+import it.uniroma3.siw.spring.service.CredenzialiService;
 import it.uniroma3.siw.spring.service.OperaService;
 
 @Controller
@@ -24,6 +28,9 @@ public class ArtistaController {
 	
 	@Autowired
 	private OperaService operaService;
+	
+	@Autowired
+	private CredenzialiService credenzialiService;
 	
 	@Autowired
 	private ArtistaValidator artistaValidator;
@@ -44,6 +51,9 @@ public class ArtistaController {
 	
 	@RequestMapping(value = "/admin/insertArtista", method = RequestMethod.GET)
 	public String visualizzaInserisciArtista(Model model) {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
 		model.addAttribute("artista",new Artista());
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "admin/inserisci_artista_amm.html";
@@ -60,18 +70,27 @@ public class ArtistaController {
 			this.artistaService.saveArtistaToDB(file, artista);
 			model.addAttribute("artista",new Artista());
 		}
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
     	return "admin/inserisci_artista_amm.html";
     }
 	
 	@RequestMapping(value = "/admin/deleteArtista", method = RequestMethod.GET)
 	public String visualizzaCancellaArtista(Model model) {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "admin/cancella_artista_amm.html";
 	}
 	
 	@RequestMapping(value = "/admin/deleteArtista", method = RequestMethod.POST)
 	public String visualizzaCancellaArtista(Model model, @RequestParam("id") Long id) {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
 		Artista a = this.artistaService.artistaPerId(id);
 		this.artistaService.cancellaArtista(a);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());

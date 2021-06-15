@@ -46,10 +46,6 @@ SECTION --- HALF_SCREEN
     margin-bottom: 15px;
 }
 
-.description_artwork{
-    text-align: center;
-}
-
 .description_artwork h6, .text_author h6{
    color:black;
 }

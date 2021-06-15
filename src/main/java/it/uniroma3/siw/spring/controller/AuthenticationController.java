@@ -19,7 +19,10 @@ public class AuthenticationController {
 	private CredenzialiService credenzialiService;
 	
 	@RequestMapping(value = "/admin/homeAmm", method = RequestMethod.GET)
-	public String visualizzaHomeAmm() {
+	public String visualizzaHomeAmm(Model model) {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
 		return "admin/home_amm";
 	}
 	
@@ -39,6 +42,7 @@ public class AuthenticationController {
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
     	if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
+    		model.addAttribute("admin",credentials.getAdmin());
             return "admin/home_amm";
         }
     	return "index";

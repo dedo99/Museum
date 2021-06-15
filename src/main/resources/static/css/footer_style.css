@@ -57,12 +57,12 @@ FOOTER
 	font-size: 20px;
 }
 
-.content_footer a:link, a:visited, a:active{
+.content_footer a:link, a:visited{
     color: #fff;
     text-decoration: none;
 }
 
-.content_footer a:hover{
+#blue:hover {
     color: cornflowerblue;
 }
 
