@@ -49,7 +49,9 @@ FORM LOGIN
 }
 
 .content_form h2{
-    color: (50,62,255);
+    background: -webkit-linear-gradient(#eee, #e89700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-top: 30px;
     margin-bottom: 20px;
 }
