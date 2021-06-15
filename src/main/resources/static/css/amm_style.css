@@ -121,7 +121,7 @@ MESSAGE WELCOME
 }
 
 .message_welcome h3{
-    background: -webkit-linear-gradient(yellow, #ffbe32);
+    background: -webkit-linear-gradient(#ff6347, #ffbe32);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
