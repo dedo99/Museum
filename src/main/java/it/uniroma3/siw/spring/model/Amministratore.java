@@ -24,5 +24,4 @@ public class Amministratore {
 	
 	@Column(nullable = false)
 	private String cognome;
-
 }

@@ -9,5 +9,4 @@ import it.uniroma3.siw.spring.model.Artista;
 public interface ArtistaRepository extends CrudRepository<Artista, Long> {
 	
 	List<Artista> findByNomeAndCognome(String nome,String cognome);
-	
 }

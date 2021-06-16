@@ -9,5 +9,4 @@ import it.uniroma3.siw.spring.model.Credenziali;
 public interface CredenzialiRepository extends CrudRepository<Credenziali, Long> {
 	
 	public Optional<Credenziali> findByUsername(String username);
-
 }

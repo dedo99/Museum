@@ -30,14 +30,10 @@ public class ArtistaValidator implements Validator{
 		ValidationUtils.rejectIfEmpty(errors, "nazionalita","required");
 		ValidationUtils.rejectIfEmpty(errors, "biografia","required");
 		
-		
 		if(!errors.hasErrors()) {
 			if(this.artistaService.alreadyExistsByNomeAndCognome(artista)) {
 				errors.reject("artistaDuplicato");
 			}	
-		}
-		
+		}	
 	}
-
-	
 }

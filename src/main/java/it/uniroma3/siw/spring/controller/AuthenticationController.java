@@ -38,7 +38,6 @@ public class AuthenticationController {
 	
     @RequestMapping(value = "/default", method = RequestMethod.GET)
     public String defaultAfterLogin(Model model) {
-        
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
     	if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
@@ -50,30 +49,10 @@ public class AuthenticationController {
     
     @RequestMapping(value = { "/register" }, method = RequestMethod.GET)
     public String registerUser() {
-
         Credenziali c = Credenziali.builder().username("pippo").password("pluto").role(Credenziali.ADMIN_ROLE).build();
         Amministratore a = Amministratore.builder().nome("Mario").cognome("Rossi").build();
         c.setAdmin(a);
         credenzialiService.saveCredentials(c);
         return "login_amm";
     }
-    
-//    @RequestMapping(value = "/default", method = RequestMethod.GET)
-//    public String defaultAfterLogin(Model model,
-//    		@ModelAttribute("credenziali") Credenziali credenziali,
-//    		BindingResult bindingResult) {
-//        
-//    	this.credenzialiValidator.validate(credenziali, bindingResult);
-//    	if(!bindingResult.hasErrors()) {
-//    		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-//        	if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
-//                return "admin/home_amm";
-//            }
-//        	return "index";
-//    	}
-//    	return "login_amm";
-//    }
-	
-
 }

@@ -32,7 +32,7 @@ public class Collezione {
 	@NonNull
 	private Curatore curatore;
 	
-	@OneToMany(mappedBy="collezione",cascade= {CascadeType.ALL})
+	@OneToMany(mappedBy="collezione",cascade= {CascadeType.REMOVE})
 	private List<Opera> listaOpere;
 	
 	@Lob

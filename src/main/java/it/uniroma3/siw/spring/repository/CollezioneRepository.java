@@ -9,5 +9,4 @@ import it.uniroma3.siw.spring.model.Collezione;
 public interface CollezioneRepository extends CrudRepository<Collezione,String> {
 	
 	public List<Collezione> findByNome(String nome);
-	
 }

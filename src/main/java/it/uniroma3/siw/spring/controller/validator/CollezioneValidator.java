@@ -8,16 +8,12 @@ import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.service.CollezioneService;
-import it.uniroma3.siw.spring.service.CuratoreService;
 
 @Component
 public class CollezioneValidator implements Validator {
 
 	@Autowired
 	private CollezioneService collezioneService;
-	
-	@Autowired
-	private CuratoreService curatoreService;
 	
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -35,12 +31,6 @@ public class CollezioneValidator implements Validator {
 			if(this.collezioneService.alreadyExists(collezione)) {
 				errors.reject("collezioneDuplicato");
 			}
-//			if(this.curatoreService.alreadyExists(collezione.getCuratore())) {
-//				errors.rejectValue("curatore","curatoreNonEsiste");
-//			}
 		}
-		
 	}
-	
-
 }

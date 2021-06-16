@@ -15,5 +15,4 @@ public interface OperaRepository extends CrudRepository<Opera,String> {
 	public List<Opera> findByAnnoDiRealizzazione(Integer annoDiRealizzazione);
 	
 	public List<Opera> findByCollezione(Collezione collezione);
-	
 }

@@ -36,5 +36,4 @@ public class Credenziali {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Amministratore admin;
-
 }

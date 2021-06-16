@@ -7,8 +7,6 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.spring.model.Opera;
-import it.uniroma3.siw.spring.service.ArtistaService;
-import it.uniroma3.siw.spring.service.CollezioneService;
 import it.uniroma3.siw.spring.service.OperaService;
 
 @Component
@@ -16,12 +14,6 @@ public class OperaValidator implements Validator{
 
 	@Autowired
 	private OperaService operaService;
-	
-	@Autowired
-	private CollezioneService collezioneService;
-	
-	@Autowired
-	private ArtistaService artistaService;
 	
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -41,14 +33,6 @@ public class OperaValidator implements Validator{
 			if(this.operaService.alreadyExists(opera)) {
 				errors.reject("operaDuplicato");
 			}
-//			if(this.collezioneService.alreadyExists(opera.getCollezione())) {
-//				errors.rejectValue("collezione","collezioneNonEsiste");
-//			}
-//			if(this.artistaService.alreadyExists(opera.getArtista())) {
-//				errors.rejectValue("artista","artistaNonEsiste");
-//			}
-			
 		}
-		
 	}
 }
