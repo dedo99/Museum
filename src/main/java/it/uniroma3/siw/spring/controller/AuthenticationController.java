@@ -55,10 +55,14 @@ public class AuthenticationController {
     
     @RequestMapping(value = { "/register" }, method = RequestMethod.GET)
     public String registerUser() {
-        Credenziali c = Credenziali.builder().username("pippo").password("pluto").role(Credenziali.ADMIN_ROLE).build();
-        Amministratore a = Amministratore.builder().nome("Mario").cognome("Rossi").build();
-        c.setAdmin(a);
-        credenzialiService.saveCredentials(c);
+    	Credenziali c1 = Credenziali.builder().username("paperino").password("rione").role(Credenziali.ADMIN_ROLE).build();
+        Amministratore a1 = Amministratore.builder().nome("Giovanni").cognome("Verdi").build();
+        c1.setAdmin(a1);
+        credenzialiService.saveCredentials(c1);
+        Credenziali c2 = Credenziali.builder().username("pippo").password("pluto").role(Credenziali.ADMIN_ROLE).build();
+        Amministratore a2 = Amministratore.builder().nome("Mario").cognome("Rossi").build();
+        c2.setAdmin(a2);
+        credenzialiService.saveCredentials(c2);
         return "login_amm";
     }
 }
