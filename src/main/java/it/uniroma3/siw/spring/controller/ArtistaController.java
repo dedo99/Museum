@@ -35,6 +35,12 @@ public class ArtistaController {
 	@Autowired
 	private ArtistaValidator artistaValidator;
 	
+	public void sessionUser(Model model) {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
+	}
+	
 	@RequestMapping(value = "/artisti", method = RequestMethod.GET)
 	public String getArtisti(Model model) {
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
@@ -51,9 +57,7 @@ public class ArtistaController {
 	
 	@RequestMapping(value = "/admin/insertArtista", method = RequestMethod.GET)
 	public String visualizzaInserisciArtista(Model model) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("artista",new Artista());
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "admin/inserisci_artista_amm.html";
@@ -70,27 +74,21 @@ public class ArtistaController {
 			this.artistaService.saveArtistaToDB(file, artista);
 			model.addAttribute("artista",new Artista());
 		}
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
     	return "admin/inserisci_artista_amm.html";
     }
 	
 	@RequestMapping(value = "/admin/deleteArtista", method = RequestMethod.GET)
 	public String visualizzaCancellaArtista(Model model) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		return "admin/cancella_artista_amm.html";
 	}
 	
 	@RequestMapping(value = "/admin/deleteArtista", method = RequestMethod.POST)
 	public String visualizzaCancellaArtista(Model model, @RequestParam("id") Long id) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		Artista a = this.artistaService.artistaPerId(id);
 		this.artistaService.cancellaArtista(a);
 		model.addAttribute("artisti", this.artistaService.tuttiArtisti());

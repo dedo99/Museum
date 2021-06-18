@@ -25,44 +25,52 @@
         		    da tutto il mondo tra cui Leonardo Da vinci, Raffaello, Michelangelo, Vincent Van Gogh ed altri.
         		    Con i suoi 10.000 metri quadrati vanta di sale molto estese ciascuna dedicata ad una collezione di opere.</p>
         		<div class="flex_two_box">
-          			<div class="box reveal">
-             			<div class="box_img img1"></div>
+          			<div class="box reveal" th:object="${opera1}">
+             			<div class="box_img">
+             				<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{image}}">
+             			</div>
              			<div class="box_test">
-                			<h4> Creazione Di Adamo</h4>
-                			<h6>La Creazione di Adamo è un affresco (280x570 cm) di Michelangelo Buonarroti,
+                			<h4 th:text="*{titolo}"> Creazione Di Adamo</h4>
+                			<h6 th:text="*{descrizione}">La Creazione di Adamo è un affresco (280x570 cm) di Michelangelo Buonarroti,
                 			 databile al 1511 circa e facente parte della decorazione della volta della Cappella Sistina,
                 			  nei Musei Vaticani a Roma</h6>
              			</div>
           			</div>
-          			<div class="box reveal">
-            			<div class="box_img img2"></div>
-            			<div class="box_test">
-              				<h4> Ultima Cena </h4>
-              				<h6>Il Cenacolo, noto anche come l'Ultima Cena, è un dipinto
-              				 parietale ottenuto con una tecnica mista a secco su intonaco di Leonardo da Vinci,
-              				  databile al 1494-1498 </h6>
-           				</div>
+          			<div class="box reveal" th:object="${opera2}">
+             			<div class="box_img">
+             				<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{image}}">
+             			</div>
+             			<div class="box_test">
+                			<h4 th:text="*{titolo}"> Creazione Di Adamo</h4>
+                			<h6 th:text="*{descrizione}">La Creazione di Adamo è un affresco (280x570 cm) di Michelangelo Buonarroti,
+                			 databile al 1511 circa e facente parte della decorazione della volta della Cappella Sistina,
+                			  nei Musei Vaticani a Roma</h6>
+             			</div>
           			</div>
         		</div>
           
         		<div class="flex_two_box">
-          			<div class="box reveal">
-            			<div class="box_img img3"></div>
-            			<div class="box_test">
-              				<h4> Campo Di Grano Con Volo Di Corvi </h4>
-              				<h6>Campo di grano con volo di corvi è un dipinto 
-              				del pittore olandese Vincent van Gogh, realizzato nel 1890 
-              				e conservato al Van Gogh Museum di Amsterdam.</h6>
-            			</div>
+          			<div class="box reveal" th:object="${opera3}">
+             			<div class="box_img">
+             				<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{image}}">
+             			</div>
+             			<div class="box_test">
+                			<h4 th:text="*{titolo}"> Creazione Di Adamo</h4>
+                			<h6 th:text="*{descrizione}">La Creazione di Adamo è un affresco (280x570 cm) di Michelangelo Buonarroti,
+                			 databile al 1511 circa e facente parte della decorazione della volta della Cappella Sistina,
+                			  nei Musei Vaticani a Roma</h6>
+             			</div>
           			</div>
-          			<div class="box reveal">
-            			<div class="box_img img4"></div>
-            			<div class="box_test">
-              				<h4> Notte Stellata</h4>
-             		 		<h6>La Notte stellata è un dipinto del pittore olandese Vincent
-             		 		 van Gogh, realizzato nel 1889 e conservato al Museum of Modern Art di New York.
-             		 		</h6>
-            			</div>
+          			<div class="box reveal" th:object="${opera4}">
+             			<div class="box_img">
+             				<img alt="" class="img_item" src="img/284-davinci.jpg" th:src="*{'data:image/jpeg;base64,'+{image}}">
+             			</div>
+             			<div class="box_test">
+                			<h4 th:text="*{titolo}"> Creazione Di Adamo</h4>
+                			<h6 th:text="*{descrizione}">La Creazione di Adamo è un affresco (280x570 cm) di Michelangelo Buonarroti,
+                			 databile al 1511 circa e facente parte della decorazione della volta della Cappella Sistina,
+                			  nei Musei Vaticani a Roma</h6>
+             			</div>
           			</div>
         		</div>
       		</div>

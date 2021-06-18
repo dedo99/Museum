@@ -28,10 +28,20 @@
 	                <textarea type="text" th:field="*{descrizione}" placeholder="Descrizione"></textarea>
 	                <h6 th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}" th:style="'color:red'"> </h6>
 	                <h6>Nome Collezione:</h6>
-	                <input type="text" th:field="*{collezione.nome}" placeholder="collezione">
+	                <select th:field="*{collezione.nome}">
+	                	<option value="">Scegli una collezione</option>
+	                	<option th:each="collezione : ${collezioni}" th:value="${collezione.nome}" th:text="${collezione.nome}"></option>
+	                </select>
+	                
+	                <!-- <input type="text" th:field="*{collezione.nome}" placeholder="collezione"> -->
 	                <h6 th:if="${#fields.hasErrors('collezione')}" th:errors="*{collezione}" th:style="'color:red'"> </h6>
 	                <h6>ID Artista:</h6>
-	                <input type="text" th:field="*{artista.id}" placeholder="artista">
+	                <select th:field="*{artista.id}">
+	                	<option value="">Scegli un artista</option>
+	                	<option th:each="artista : ${artisti}" th:value="${artista.id}" th:text="|${artista.nome} ${artista.cognome}|"></option>
+	                </select>
+	                
+	                <!--<input type="text" th:field="*{artista.id}" placeholder="artista">-->
 	                <h6 th:if="${#fields.hasErrors('artista')}" th:errors="*{artista}" th:style="'color:red'"> </h6>
 	                <div>
 	                    <h6>Image:</h6>

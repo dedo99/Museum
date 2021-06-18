@@ -18,11 +18,17 @@ public class AuthenticationController {
 	@Autowired
 	private CredenzialiService credenzialiService;
 	
-	@RequestMapping(value = "/admin/homeAmm", method = RequestMethod.GET)
-	public String visualizzaHomeAmm(Model model) {
+	
+	public void sessionUser(Model model) {
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
     	model.addAttribute("admin",credentials.getAdmin());
+	}
+	
+	
+	@RequestMapping(value = "/admin/homeAmm", method = RequestMethod.GET)
+	public String visualizzaHomeAmm(Model model) {
+		this.sessionUser(model);
 		return "admin/home_amm";
 	}
 	

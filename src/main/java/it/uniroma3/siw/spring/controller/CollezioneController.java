@@ -35,6 +35,14 @@ public class CollezioneController {
 	@Autowired
 	private CredenzialiService credenzialiService;
 	
+	
+	public void sessionUser(Model model) {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
+	}
+	
+	
 	@RequestMapping(value = "/collezioni", method = RequestMethod.GET)
 	public String getCollezioni(Model model) {
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
@@ -51,9 +59,7 @@ public class CollezioneController {
 	
 	@RequestMapping(value = "/admin/insertCollezione", method = RequestMethod.GET)
 	public String visualizzaInserisciCollezione(Model model) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("collezione",new Collezione());
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
 		return "admin/inserisci_collezione_amm.html";
@@ -70,27 +76,21 @@ public class CollezioneController {
 			this.collezioneService.saveCollezioneToDB(file,collezione);
 			model.addAttribute("collezione",new Collezione());
 		}
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
     	return "admin/inserisci_collezione_amm.html";
     }
 	
 	@RequestMapping(value = "/admin/deleteCollezione", method = RequestMethod.GET)
 	public String visualizzaCancellaCollezione(Model model) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
 		return "admin/cancella_collezione_amm.html";
 	}
 	
 	@RequestMapping(value = "/admin/deleteCollezione", method = RequestMethod.POST)
 	public String visualizzaCancellaCollezione(Model model, @RequestParam("nome") String nome) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		Collezione c = this.collezioneService.collezionePerId(nome);
 		this.collezioneService.deleteCollezione(c);
 		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());

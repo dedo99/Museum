@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import it.uniroma3.siw.spring.controller.validator.OperaValidator;
 import it.uniroma3.siw.spring.model.Credenziali;
 import it.uniroma3.siw.spring.model.Opera;
+import it.uniroma3.siw.spring.service.ArtistaService;
+import it.uniroma3.siw.spring.service.CollezioneService;
 import it.uniroma3.siw.spring.service.CredenzialiService;
 import it.uniroma3.siw.spring.service.OperaService;
 
@@ -31,6 +33,19 @@ public class OperaController {
 	@Autowired
 	private OperaValidator operaValidator;
 	
+	@Autowired
+	private CollezioneService collezioneService;
+	
+	@Autowired
+	private ArtistaService artistaService;
+	
+	
+	public void sessionUser(Model model) {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
+    	model.addAttribute("admin",credentials.getAdmin());
+	}
+	
 	@RequestMapping(value = "/opera/{titolo}", method = RequestMethod.GET)
     public String getCollezione(@PathVariable("titolo") String titolo, Model model) {
     	model.addAttribute("opera", this.operaService.operaPerId(titolo));
@@ -39,10 +54,10 @@ public class OperaController {
 	
 	@RequestMapping(value = "/admin/insertOpera", method = RequestMethod.GET)
 	public String visualizzaInserisciOpera(Model model) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("opera",new Opera());
+		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
+		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "admin/inserisci_opera_amm.html";
 	}
@@ -58,27 +73,23 @@ public class OperaController {
 			this.operaService.saveOperaToDB(file,opera);
 			model.addAttribute("opera",new Opera());
 		}
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("opere", this.operaService.findAllOpera());
+		model.addAttribute("collezioni", this.collezioneService.tutteCollezioni());
+		model.addAttribute("artisti", this.artistaService.tuttiArtisti());
     	return "admin/inserisci_opera_amm.html";
     }
 	
 	@RequestMapping(value = "/admin/deleteOpera", method = RequestMethod.GET)
 	public String visualizzaCancellaOpera(Model model) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		model.addAttribute("opere", this.operaService.findAllOpera());
 		return "admin/cancella_opera_amm.html";
 	}
 	
 	@RequestMapping(value = "/admin/deleteOpera", method = RequestMethod.POST)
 	public String visualizzaCancellaOpera(Model model, @RequestParam("titolo") String titolo) {
-		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credenzialiService.getCredentials(userDetails.getUsername());
-    	model.addAttribute("admin",credentials.getAdmin());
+		this.sessionUser(model);
 		Opera o = this.operaService.operaPerId(titolo);
 		this.operaService.cancellaOpera(o);
 		model.addAttribute("opere", this.operaService.findAllOpera());
