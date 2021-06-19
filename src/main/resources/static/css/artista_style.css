@@ -86,7 +86,7 @@ SECTION --- HALF_SCREEN
     border: 4px solid orange;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: fit-content;
     margin: 10px;
 }
 
